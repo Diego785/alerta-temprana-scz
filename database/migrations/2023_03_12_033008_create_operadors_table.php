@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlataformasTable extends Migration
+class CreateOperadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePlataformasTable extends Migration
      */
     public function up()
     {
-        Schema::create('plataformas', function (Blueprint $table) {
+        Schema::create('operadors', function (Blueprint $table) {
             $table->id();
-            $table->string('telefono');
-            $table->string('descripcionTelf');
-            $table->string('tipoTelf');
+            $table->string('nombresApellidos');
+            $table->string('celular');
         });
     }
 
@@ -28,6 +27,6 @@ class CreatePlataformasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plataformas');
+        Schema::dropIfExists('operadors');
     }
 }

@@ -15,11 +15,8 @@ class CreateMunicipiosTable extends Migration
     {
         Schema::create('municipios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('subgobernador');
-            $table->string('telfSubgobernador');
-            $table->string('subalcalde');
-            $table->string('telfSubalcalde');
+            $table->string('municipio');
+            $table->string('provincia');
         });
     }
 
