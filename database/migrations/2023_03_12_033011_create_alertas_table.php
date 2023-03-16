@@ -21,15 +21,19 @@ class CreateAlertasTable extends Migration
             $table->time('hora');
             $table->double('geoX');
             $table->double('geoY');
-            $table->unsignedBigInteger('municipio_id');
-            $table->unsignedBigInteger('unidad_id');
+            $table->unsignedBigInteger('municipio_id')->nullable();
+            $table->unsignedBigInteger('unidad_id')->nullable();
+            $table->unsignedBigInteger('evento_id');
+            $table->unsignedBigInteger('estado_id');
 
+            $table->foreign('evento_id')->references('id')->on('eventos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('estado_id')->references('id')->on('estados')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('municipio_id')->references('id')->on('municipios')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('unidad_id')->references('id')->on('unidads')->onUpdate('cascade')->onDelete('cascade');
 
 
-            $table->string('logoPush');
-            $table->text('infoPush');
+            $table->string('logoPush')->nullable();
+            $table->text('infoPush')->nullable();
 
             $table->timestamps();
         });

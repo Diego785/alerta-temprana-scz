@@ -15,9 +15,13 @@ class CreateUnidadsTable extends Migration
     {
         Schema::create('unidads', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('responsable');
+            $table->string('unidadInstitucion');
             $table->string('telefono');
+            $table->string('responsable');
+            $table->string('telefonoResponsable');
+            $table->string('direccion');
+            $table->string('gpsPuntoX');
+            $table->string('gpsPuntoY');
         });
     }
 
