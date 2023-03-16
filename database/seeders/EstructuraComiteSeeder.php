@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\EstructuraComite;
 use Illuminate\Database\Seeder;
 
 class EstructuraComiteSeeder extends Seeder
@@ -13,6 +14,9 @@ class EstructuraComiteSeeder extends Seeder
      */
     public function run()
     {
-        //
+        EstructuraComite::create([
+            'cargoComite' =>'',
+            'descripcion'=>'',
+                    ]);
     }
 }

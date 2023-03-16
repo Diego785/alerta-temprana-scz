@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Operador;
+use App\Models\Municipio;
 use Illuminate\Database\Seeder;
 
-class OperadorSeeder extends Seeder
+class MunicipioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,11 @@ class OperadorSeeder extends Seeder
      */
     public function run()
     {
-        Operador::create([
-            'nombresApellidos' =>'',
-            'celular'=>'',
-                   ]);
+        Municipio::create([
+            'municipio' =>'',
+            'provincia'=>'',
+          
+
+        ]);
     }
 }
