@@ -9,11 +9,15 @@ class Evento extends Model
 {
     use HasFactory;
     protected $table = 'eventos';
-    protected $fillable = ['nombre', 'foto'];
+    protected $fillable = ['tipoEvento', 'descripcionTipoEvento', 'foto'];
     public $timestamps = false;
 
-    public function alerta()
+    // public function alerta()
+    // {
+    //     return $this->hasOne(Alerta::class, 'evento_id', 'id');
+    // }
+    public function notificacion_evento()
     {
-        return $this->hasOne(Alerta::class, 'evento_id', 'id');
+        return $this->hasMany(NotificacionEvento::class, 'id_TipoEvento', 'id');
     }
 }
