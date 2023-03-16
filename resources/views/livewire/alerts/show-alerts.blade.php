@@ -32,7 +32,7 @@
 
                                             <div class="m-1 p-2 ">
                                                 <h2 class="text-slate-700" />
-                                                {{ $image->nombre }}</h2>
+                                                {{ $image->tipoEvento }}</h2>
 
                                             </div>
                                         </a>
