@@ -15,11 +15,11 @@ class CreateComitePersonasTable extends Migration
     {
         Schema::create('comite_personas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_estructuraComite');
+            $table->unsignedBigInteger('estructura_comite_id');
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('direccion');
-            $table->foreign('id_estructuraComite')->references('id')->on('estructura_comites');
+            $table->foreign('estructura_comite_id')->references('id')->on('estructura_comites');
 
             $table->timestamps();
         });

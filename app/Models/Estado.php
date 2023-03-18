@@ -12,8 +12,8 @@ class Estado extends Model
     protected $fillable = ['nombre', 'color', 'grado'];
     public $timestamps = false;
 
-    public function alerta()
+    public function alerta_envio()
     {
-        return $this->hasOne(Alerta::class, 'estado_id', 'id');
+        return $this->hasOne(AlertaEnvio::class, 'estado_id');
     }
 }

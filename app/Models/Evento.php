@@ -16,6 +16,14 @@ class Evento extends Model
     // {
     //     return $this->hasOne(Alerta::class, 'evento_id', 'id');
     // }
+
+    //Módulo Alerta
+    public function alerta()
+    {
+        return $this->hasMany(Alerta::class, 'evento_id', 'id');
+    }
+
+    //Módulo Notificación Evento
     public function notificacion_evento()
     {
         return $this->hasMany(NotificacionEvento::class, 'id_TipoEvento', 'id');

@@ -26,7 +26,7 @@
         }
 
         .increase-btn:hover {
-            transform: scale(1.3);
+            transform: opacity(1.1);
         }
 
         .card {

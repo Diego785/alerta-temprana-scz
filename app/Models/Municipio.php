@@ -12,6 +12,14 @@ class Municipio extends Model
     protected $fillable = ['municipio', 'provincia'];
     public $timestamps = false;
 
+    //Módulo Alertas
+    public function municipio_alertas()
+    {
+        return $this->belongsToMany(AlertaEnvio::class, 'municipio_alertas', 'municipio_id', 'alerta_envio_id')
+            ->as('municipio_alerta')
+            ->withPivot('id', 'municipio_id', 'alerta_envio_id');
+    }
+    //Módulo Notificación Envíos
     public function notificacion_evento()
     {
         return $this->hasMany(NotificacionEvento::class, 'id_Municipio', 'id');
