@@ -13,6 +13,6 @@ class AlertaEnvioSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }
