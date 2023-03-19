@@ -16,23 +16,19 @@ class EstadoSeeder extends Seeder
     {
         Estado::create([
             'nombre' => 'Crítico',
-            'color' => 'rojo',
-            'grado' => 1,
+            'color' => '#FF0000',
         ]);
         Estado::create([
             'nombre' => 'Muy alto',
-            'color' => 'naranja',
-            'grado' => 1,
+            'color' => '#FF8000',
         ]);
         Estado::create([
             'nombre' => 'Moderado',
-            'color' => 'amarillo',
-            'grado' => 1,
+            'color' => '#FFFF00',
         ]);
         Estado::create([
             'nombre' => 'Bajo',
-            'color' => 'verde',
-            'grado' => 1,
+            'color' => '#008000',
         ]);
     }
 }

@@ -16,10 +16,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             EventoSeeder::class,
+            EstadoSeeder::class,
             UnidadTecnicoCientificaSeeder::class,
-            AlertaSeeder::class
-            // EstadoSeeder::class,
-            // AlertaSeeder::class,
+            AlertaSeeder::class,
+            AlertaEnvioSeeder::class,
+            ConferenciaPrensaSeeder::class,
         ]);
     }
 }

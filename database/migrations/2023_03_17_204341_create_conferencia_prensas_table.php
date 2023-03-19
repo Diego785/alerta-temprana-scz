@@ -25,7 +25,7 @@ class CreateConferenciaPrensasTable extends Migration
             $table->string('img5');
             $table->string('video');
             $table->text('descripcion');
-            $table->string('institucion');
+            $table->string('institucion')->nullable();
             $table->unsignedBigInteger('alerta_envio_id');
             $table->foreign('alerta_envio_id')->references('id')->on('alerta_envios');
             $table->timestamps();

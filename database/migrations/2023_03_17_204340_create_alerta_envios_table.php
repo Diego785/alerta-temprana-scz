@@ -22,7 +22,7 @@ class CreateAlertaEnviosTable extends Migration
             $table->double('puntoX');
             $table->double('puntoY');
             $table->string('url_mapa');
-            $table->string('description');
+            $table->text('description');
             $table->string('img_cabecera');
             $table->string('img_alerta');
             $table->string('url_boletin');
