@@ -21,8 +21,8 @@ class CreateUnidadTecnicoCientificasTable extends Migration
             $table->text('description');
             $table->string('url_web');
             $table->string('responsable');
-            $table->string('clasificacion');
-            $table->string('tipo');
+            $table->string('clasificacion')->nullable();;
+            $table->string('tipo')->nullable();;
             $table->string('direccion');
             $table->double('puntoX');
             $table->double('puntoY');
