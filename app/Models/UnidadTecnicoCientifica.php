@@ -15,6 +15,6 @@ class UnidadTecnicoCientifica extends Model
     //Módulo Alerta
     public function alerta()
     {
-        return $this->hasMany(Alerta::class, 'evento_id', 'id');
+        return $this->hasMany(Alerta::class, 'unidad_id', 'id');
     }
 }

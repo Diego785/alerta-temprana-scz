@@ -20,12 +20,14 @@ class Alerta extends Model
 
     public function unidad()
     {
-        return $this->belongsTo(Unidad::class, 'unidad_id', 'id');
+        return $this->belongsTo(UnidadTecnicoCientifica::class, 'unidad_id', 'id');
     }
 
     public function alerta_envio(){
         return $this->hasMany(AlertaEnvio::class, 'alerta_id');
     }
+
+  
 
     // public function estado()
     // {

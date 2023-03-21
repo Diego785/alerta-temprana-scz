@@ -26,6 +26,7 @@ class AlertaEnvio extends Model
     public function alerta(){
         return $this->belongsTo(Alerta::class, 'alerta_id');
     }
+  
     public function estado(){
         return $this->belongsTo(Estado::class, 'estado_id');
     }
