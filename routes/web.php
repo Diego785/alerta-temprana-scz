@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts.index');
 Route::get('/alerts/{id}', [AlertController::class, 'showByCategory'])->name('main_alerts.index');
+Route::get('/sending-alerts/{alerta_id}/{evento_id}', [AlertController::class, 'sendingAlert'])->name('sending_alerts.index');
 
 
 // Route::middleware([

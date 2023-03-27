@@ -15,9 +15,17 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-           
+            colors: {
+                'alertRed': '#FF0000',
+                'alertOrange': '#FF8000',
+                'alertYellow': '#FFFF00',
+                'alertGreen': '#008000',
+            },
         },
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    safelist: [{
+        pattern: /(bg|text|border)-alert(Red|Orange|Yellow|Green)/
+    }],
 };

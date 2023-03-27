@@ -56,25 +56,25 @@
                     class="hidden">
                     Atrás
                 </button>
-                    <button id="alert-button" onclick="change()" style=""
-                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
+                    <button id="alert-button" onclick="change()"
+                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Mostrar Alertas
                     </button>
 
                     <button id="guia-button"
-                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
+                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Guías de Seguridad
                     </button><button id="contingencia-button"
-                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
+                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Planes de Contingencia
                     </button><button id="blog-button"
-                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
+                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Blog de Artículos
                     </button><button id="emergency-button"
-                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
+                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Números de Emergencia
                     </button><button id="boletin-button"
-                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
+                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Boletines
                     </button>
                   
