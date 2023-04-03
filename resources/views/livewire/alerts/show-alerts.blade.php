@@ -74,7 +74,7 @@
                         class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Números de Emergencia
                     </button><button id="boletin-button"
-                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
+                        class="increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-red border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200">
                         Boletines
                     </button>
                   

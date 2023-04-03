@@ -9,7 +9,7 @@ class UnidadTecnicoCientifica extends Model
 {
     use HasFactory;
     protected $table = 'unidad_tecnico_cientificas';
-    protected $fillable = ['nombre', 'sigla', 'telefono', 'description', 'url_web', 'responsable', 'clasificacion', 'tipo', 'direccion', 'puntoX', 'puntoY'];
+    protected $fillable = ['id','nombre', 'sigla', 'telefono', 'description', 'url_web', 'responsable', 'clasificacion', 'tipo', 'direccion', 'puntoX', 'puntoY'];
     public $timestamps = false;
 
     //Módulo Alerta
