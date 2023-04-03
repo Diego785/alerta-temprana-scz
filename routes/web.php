@@ -23,6 +23,9 @@ Route::get('/alerts/{id}', [AlertController::class, 'showByCategory'])->name('ma
 Route::get('/sending-alerts/{alerta_id}/{evento_id}', [AlertController::class, 'sendingAlert'])->name('sending_alerts.index');
 
 
+// Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');
+// Route::post('/save-image', [AlertController::class, 'save'])->name('saving_imgs');
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

@@ -22,12 +22,12 @@
                         {{ $alert->hora }}
                     </p>
 
-                     <button
+                    <button
                         class="rounded-md bg-gradient-to-r from-green-400 to-green-900 text-xl text-white pt-3 pb-4 px-8 inline">
                         <p class="text-xs text-center font-extrabold text-white mb-2">
                             Revisa el historial de la alerta abajo
                         </p>
-                    </button> 
+                    </button>
                 </div>
             </div>
 
@@ -38,11 +38,6 @@
 
                     <!-- component -->
                     <div class="container mx-auto max-w-4xl text-center">
-                      
-
-                        
-
-                       
                         <div class="flex space-x-10 pt-5">
 
                             @foreach ($alert->alerta_envio as $sending_alert)
@@ -64,7 +59,7 @@
                                     <div class="px-8 flex justify-between items-center">
                                         <h4 class="text-xl font-bold ">
                                             {{ $sending_alert->estado->nombre }}</h1>
-                                            
+
                                     </div>
                                     <h1 class="text-4xl text-center font-bold">{{ $sending_alert->fecha }}
                                     </h1>

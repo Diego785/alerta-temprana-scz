@@ -25,4 +25,14 @@ class AlertController extends Controller
     {
         return view('my_views.alerts.sending_alerts', compact('alerta_id', 'evento_id'));
     }
+
+    // public function upload()
+    // {
+    //     return view('my_views.testing_images.upload_image');
+    // }
+
+
+    // public function save()
+    // {
+    // }
 }
