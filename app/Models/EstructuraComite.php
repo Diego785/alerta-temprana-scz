@@ -9,7 +9,7 @@ class EstructuraComite extends Model
 {
     use HasFactory;
     protected $table = 'estructura_comites';
-    protected $fillable = ['cargo_comite', 'description'];
+    protected $fillable = ['cargo_comite', 'descripcion'];
     public $timestamps = false;
 
     public function comite_persona(){

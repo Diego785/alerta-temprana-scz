@@ -8,6 +8,9 @@
     <title>@yield('title')</title>
     {{-- <link rel="icon" type="image/png" href="{{ asset('Logo.png') }}"> --}}
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     @livewireStyles
@@ -100,19 +103,19 @@
 
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    {{-- <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
 
 </head>
 
 <body>
     <!-- component -->
 
-    <div id="main-background" class="py-32 h-full"
+    <div id="main-background" class="py-32 h-screen"
         style="background-image: linear-gradient(to top, #013220  , #90ee90 );">
         <div class="grid place-items-center mx-2 my-20 sm:my-auto" x-data="{ showPass: true }">
 
@@ -234,7 +237,9 @@
 
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     @livewireScripts
+    @stack('js')
 
 </body>
 

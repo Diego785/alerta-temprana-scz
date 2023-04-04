@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Alerts\AlertController;
+use App\Http\Controllers\Gestion\Comite\EstructuraComiteController;
+use App\Http\Livewire\Gestion\Comite\EstructuraComite;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +25,12 @@ Route::get('/alerts/{id}', [AlertController::class, 'showByCategory'])->name('ma
 Route::get('/sending-alerts/{alerta_id}/{evento_id}', [AlertController::class, 'sendingAlert'])->name('sending_alerts.index');
 
 
-// Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');
-// Route::post('/save-image', [AlertController::class, 'save'])->name('saving_imgs');
+Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');
+Route::get('/save-image', [AlertController::class, 'save'])->name('saving_imgs');
 
+
+//GESTION
+Route::get('/show-estructura-comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite');
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

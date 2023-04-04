@@ -16,7 +16,7 @@ class CreateEstructuraComitesTable extends Migration
         Schema::create('estructura_comites', function (Blueprint $table) {
             $table->id();
             $table->string('cargo_comite');
-            $table->text('descripcion');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
