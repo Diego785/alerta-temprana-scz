@@ -9,13 +9,30 @@ use Illuminate\Http\Request;
 
 class AlertController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('my_views.alerts.show_alerts');
     }
 
-    public function showByCategory($id){
+    public function showByCategory($id)
+    {
         // $evento = Evento::find($id);
         // $alerts = Alerta::where('evento_id', $evento->id)->get();
         return view('my_views.alerts.main_alerts', compact('id'));
     }
+
+    public function sendingAlert($alerta_id, $evento_id)
+    {
+        return view('my_views.alerts.sending_alerts', compact('alerta_id', 'evento_id'));
+    }
+
+    // public function upload()
+    // {
+    //     return view('my_views.testing_images.upload_image');
+    // }
+
+
+    // public function save()
+    // {
+    // }
 }

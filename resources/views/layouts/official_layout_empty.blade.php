@@ -33,9 +33,6 @@
             transition: 0.3s ease-in-out;
             padding-top: 5px;
             padding-bottom: 5px;
-
-
-
         }
 
         .increase-card {
@@ -112,7 +109,7 @@
 <body>
     <!-- component -->
 
-            @yield('content')
+    @yield('content')
 
 
 
@@ -121,114 +118,8 @@
 
 
 
-    <script>
-        function change() {
 
-            var changeSize = document.getElementById("main-background")
-            if (changeSize.className ==
-                "py-32 h-full") {
-                changeSize.className =
-                    "flex flex-col h-full";
-            } else {
-                changeSize.className =
-                    "py-32 h-full";
-            }
-
-            var changeSize = document.getElementById("main-card")
-            if (changeSize.className ==
-                "card rounded-xl bg-gray-50 bg-opacity-50 px-16 shadow-lg backdrop-blur-md max-sm:px-8") {
-                changeSize.className =
-                    "increase-card rounded-xl bg-gray-50 bg-opacity-50 px-16 shadow-lg backdrop-blur-md max-sm:px-8";
-            } else {
-                changeSize.className =
-                    "card rounded-xl bg-gray-50 bg-opacity-50 px-16 shadow-lg backdrop-blur-md max-sm:px-8";
-
-            }
-            var changeSize = document.getElementById("main-logo")
-            if (changeSize.className ==
-                "logo") {
-                changeSize.className =
-                    "logo-up";
-            } else {
-                changeSize.className =
-                    "logo";
-            }
-            var categories = document.getElementById("main-text")
-            if (categories.className ==
-                "hidden") {
-                categories.className =
-                    "visible";
-            } else {
-                categories.className =
-                    "hidden";
-            }
-            var alertButton = document.getElementById("alert-button")
-            var guiaButton = document.getElementById("guia-button")
-            var contingenciaButton = document.getElementById("contingencia-button")
-            var blogButton = document.getElementById("blog-button")
-            var emergencyButton = document.getElementById("emergency-button")
-            var boletinButton = document.getElementById("boletin-button")
-            var institutionButton = document.getElementById("institution-button")
-            var backButton = document.getElementById("back-button")
-
-
-            if (backButton.className ==
-                "hidden"
-            ) {
-                backButton.className =
-                    "increase-btn button-down w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                alertButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                guiaButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                contingenciaButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                blogButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                emergencyButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                boletinButton.className =
-                    "hidden  w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                institutionButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-
-            } else {
-                backButton.className =
-                    "hidden";
-                alertButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                guiaButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                contingenciaButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                blogButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                emergencyButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                boletinButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-                institutionButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
-
-            }
-
-
-
-
-            var changeSize = document.getElementById("difussion-button")
-            if (changeSize.className ==
-                "increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
-            ) {
-                changeSize.className =
-                    "hidden increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
-            } else {
-                changeSize.className =
-                    "increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
-            }
-
-        }
-    </script>
-
+    @livewireScripts
 </body>
 
 </html>
