@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\AlertController;
+use App\Http\Controllers\Api\AlertController as ApiAlertController;
+use App\Http\Controllers\Alerts\AlertController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // ALERTS
-Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts_api.index');
+Route::get('/alerts', [ApiAlertController::class, 'index'])->name('show_alerts_api.index');
+
+
+//Testing uploading images locally
+// Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');
+Route::post('/api-save-image', [ApiAlertController::class, 'save'])->name('api.saving_imgs');

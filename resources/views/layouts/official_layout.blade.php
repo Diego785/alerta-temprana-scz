@@ -115,10 +115,9 @@
 <body>
     <!-- component -->
 
-    <div id="main-background" class="py-32 h-screen"
+    <div id="main-background" class="py-32 h-max"
         style="background-image: linear-gradient(to top, #013220  , #90ee90 );">
-        <div class="grid place-items-center mx-2 my-20 sm:my-auto" x-data="{ showPass: true }">
-
+        <div class=" place-items-center lg:mx-60 md:mx-30 sm:mx-20 xs:mx-10" x-data="{ showPass: true }">
             @yield('content')
 
 
@@ -133,15 +132,6 @@
     <script>
         function change() {
 
-            var changeSize = document.getElementById("main-background")
-            if (changeSize.className ==
-                "py-32 h-full") {
-                changeSize.className =
-                    "flex flex-col h-full";
-            } else {
-                changeSize.className =
-                    "py-32 h-full";
-            }
 
             var changeSize = document.getElementById("main-card")
             if (changeSize.className ==
@@ -179,31 +169,36 @@
             var boletinButton = document.getElementById("boletin-button")
             var institutionButton = document.getElementById("institution-button")
             var backButton = document.getElementById("back-button")
-
+            var containerButtons = document.getElementById("buttons-container")
 
             if (backButton.className ==
                 "hidden"
             ) {
+                containerButtons.className =
+                    "py-10 grid max-w-lg grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3";
                 backButton.className =
                     "increase-btn button-down w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 alertButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "hidden";
                 guiaButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "hidden";
                 contingenciaButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "hidden";
                 blogButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "hidden";
                 emergencyButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "hidden";
                 boletinButton.className =
-                    "hidden  w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "hidden";
                 institutionButton.className =
-                    "hidden w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "hidden";
 
             } else {
                 backButton.className =
                     "hidden";
+                containerButtons.className =
+                    "pt-10 grid max-w-lg grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3";
+
                 alertButton.className =
                     "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 guiaButton.className =
@@ -229,7 +224,7 @@
                 "increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
             ) {
                 changeSize.className =
-                    "hidden increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
+                    "hidden"
             } else {
                 changeSize.className =
                     "increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"

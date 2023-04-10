@@ -30,7 +30,7 @@ class EstructuraComite extends Component
     {
         $this->modal_add = true;
     }
-   
+
 
     public function open_edit($id)
     {
@@ -43,10 +43,13 @@ class EstructuraComite extends Component
     public function save()
     {
         $this->validate();
+
         ModelsEstructuraComite::create([
             'cargo_comite' => $this->cargo_comite,
             'descripcion' => $this->descripcion,
         ]);
+
+
 
         $this->reset(['modal_add', 'cargo_comite', 'descripcion']);
     }
@@ -54,14 +57,15 @@ class EstructuraComite extends Component
     public function update()
     {
         $this->validate();
-        $this->estructura_comite->cargo_comite = $this->cargo_comite;
-        $this->estructura_comite->descripcion = $this->descripcion;
-        $this->estructura_comite->update();
+            $this->estructura_comite->cargo_comite = $this->cargo_comite;
+            $this->estructura_comite->descripcion = $this->descripcion;
+            $this->estructura_comite->update();
 
-        $this->reset(['modal_edit', 'cargo_comite', 'descripcion']);
+            $this->reset(['modal_edit', 'cargo_comite', 'descripcion']);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $estructura = ModelsEstructuraComite::find($id);
         $estructura->delete();
     }
@@ -70,6 +74,6 @@ class EstructuraComite extends Component
     public function render()
     {
         $estructuras = ModelsEstructuraComite::all();
-        return view('livewire.gestion.comite.estructura-comite' , compact('estructuras'));
+        return view('livewire.gestion.comite.estructura-comite', compact('estructuras'));
     }
 }

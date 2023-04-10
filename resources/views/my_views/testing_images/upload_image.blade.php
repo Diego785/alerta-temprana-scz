@@ -61,17 +61,35 @@
                     amet, consectetur adipisicing.</p>
 
                 <div class="flex justify-center gap-x-3">
-                    <a href="{{ route('saving_imgs') }}"
-                        class=" px-5 py-2 border border-primary text-primary hover:bg-primary  transition-all outline-none bg-black border-black text-white hover:text-black hover:bg-white font-bold">
-                        Save</a>
-                    <input type="file" id="fileUpload">
+
+                    {{-- <form action='{{ route('saving_imgs', $filePath) }}' method="POST">
+                        @method('PUT')
+                        @csrf
+                        <button type="submit"
+                            class=" px-5 py-2 border border-primary text-primary hover:bg-primary  transition-all outline-none bg-black border-black text-white hover:text-black hover:bg-white font-bold">
+                            Save</button>
+                    </form> --}}
+
+                    <form method="POST" action="{{ url('/save-image') }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="file" name="image" class="form-control-file">
+                        <button
+                            class="px-5 py-2 border border-primary text-primary hover:bg-primary  transition-all outline-none bg-black border-black text-white hover:text-black hover:bg-white font-bold"
+                            type="submit">Cargar imagen</button>
+                    </form>
+
+
+
+
+                    {{-- <input type="file" id="fileUpload">
                     <script type="text/javascript">
                         function getFilePath() {
                             $('input[type=file]').change(function() {
-                                var filePath = $('#fileUpload').val();
+                                console.log(this.files[0].mozFullPath);
+                                {{ $filePath }} = $('#fileUpload').val();
                             });
                         }
-                    </script>
+                    </script> --}}
                     <a href="/track_order.html"
                         class="px-5 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition-all outline-none bg-white border-black text-black hover:text-white hover:bg-black font-bold">
                         View</a>
