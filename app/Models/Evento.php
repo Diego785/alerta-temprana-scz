@@ -9,7 +9,7 @@ class Evento extends Model
 {
     use HasFactory;
     protected $table = 'eventos';
-    protected $fillable = ['tipoEvento', 'descripcionTipoEvento', 'foto'];
+    protected $fillable = ['id','tipoEvento', 'descripcionTipoEvento', 'foto'];
     public $timestamps = false;
 
     // public function alerta()

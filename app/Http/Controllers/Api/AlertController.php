@@ -11,23 +11,37 @@ class AlertController extends Controller
     public function index()
     {
         return Alerta::all();
+
     }
-    public function save(Request $request)
-    {
-        $path = "Sin datos";
-        // $image = $request->file('file');
-        //  $url = Storage::put('public/imgs/testing_images', $request->file('file'));
-        // $image = Storage::put('\public\imgs\testing_images', $request->file('file'));
-        // return view('my_views.testing_images.save_image', compact('image'));
-        // $this->file = Input::file('fasdfas');
-        // $file->move(public_path().'/images/',$user->id.'.jpg');
-        // Storage::put('public/imgs/testing_images/' . $request->filePath, $this->filePath);
-        if ($request->hasFile('image')) {
-            $destination_path = 'public/imgs/testing_images';
-            $image = $request->file('image');
-            $image_name = $image->getClientOriginalName();
-            $path = $request->file('image')->storeAs($destination_path, $image_name);
-        }
-        return $path;
+    
+    
+    public function getalertaEvento(){
+        return Alerta::join('eventos','alertas.evento_id', 'eventos.id')
+        ->select('alertas.id','alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.description' ,'alertas.evento_id', 'eventos.tipoEvento')->get();
     }
+    public function getalertaUnidad($id){
+        return Alerta::join('unidad_tecnico_cientificas','alertas.unidad_id', 'unidad_tecnico_cientificas.id' )
+        ->select(
+            'alertas.id',
+            'alertas.nombre',
+            'alertas.fecha', 
+            'alertas.hora',
+            'alertas.description',
+            'alertas.geoX', 
+            'alertas.geoY', 
+            'alertas.url_mapa',
+            'alertas.evento_id',
+            'unidad_tecnico_cientificas.nombre as nombreUnidadTecnocientifica',
+            'unidad_tecnico_cientificas.telefono'
+             )
+             ->where('alertas.evento_id', '=', $id)
+             ->get();
+    }
+
+
+    
+    // return Recorrido::join('lineas', 'recorridos.linea_id', 'lineas.id')
+    // ->select('recorridos.id', 'recorridos.code', 'recorridos.velocidad', 'recorridos.descripcion as descripcion_micro', 'lineas.descripcion as descripcion_linea', 'lineas.foto', 'lineas.telefono')
+    // ->where('recorridos.id', $request->recorrido)
+    // ->get();
 }

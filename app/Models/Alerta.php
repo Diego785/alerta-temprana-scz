@@ -9,7 +9,7 @@ class Alerta extends Model
 {
     use HasFactory;
     protected $table = 'alertas';
-    protected $fillable = ['nombre', 'fecha', 'hora', 'description', 'puntoX', 'puntoY', 'url_mapa', 'evento_id'];
+    protected $fillable = ['id','nombre', 'fecha', 'hora', 'description', 'geoX', 'geoY', 'url_mapa', 'evento_id','unidad_id'];
     public $timestamps = false;
 
     //Módulo Alerta
