@@ -17,16 +17,15 @@
                 <div >
                     <div id="main-text" class="hidden">
                         <div
-                            class="mx-auto grid max-w-3xl grid-cols-1 gap-6  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                            class="mx-auto grid max-w-3xl grid-cols-1 gap-6  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             @foreach ($images as $image)
                                 <div class="text-center">
                                     <article
-                                        class="rounded-xl bg-white p-1 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
-                                        <a href="{{ route('main_alerts.index', $image->id) }}">
-                                            <div class="relative flex items-end overflow-hidden rounded-xl pl-16">
-                                                <img src="{{ $image->foto }}"
-                                                    style="object-fit: cover; width:75px; height:75px; border-radius: 0.75rem; "
-                                                    alt="Hotel Photo" />
+                                        class="rounded-xl text-center bg-white p-1 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
+                                        <a href="{{ route('main_alerts.index', $image->id) }}" class="text-center bg-center self-center items-center justify-center content-center">
+                                            <div class="m-1 p-2 rounded-xl">
+                                                <img src="{{ $image->foto }}" 
+                                                    style="object-fit: cover; width:200px; height:100px; border-radius: 0.75rem; "/>
 
                                             </div>
 
@@ -51,7 +50,7 @@
 
 
 
-                <div class="pt-10 mx-auto grid max-w-lg grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                <div id="buttons-container" class="pt-10 grid max-w-lg grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                     <button id="back-button" onclick="change()"
                     class="hidden">
                     Atrás

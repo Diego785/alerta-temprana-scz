@@ -1,6 +1,7 @@
 <div>
     <!-- component -->
     <!-- component -->
+
     <td class=" my-3 inline-flex justify-center px-6 py-4 whitespace-nowrap flex">
 
         <div class="whitespace-nowrap flex">
@@ -44,9 +45,10 @@
                         </thead>
                         <tbody>
                             @foreach ($estructuras as $estructura)
-                                <tr class="bg-gray-100 border-b">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          
+                            <tr class="bg-gray-100 border-b ">
+                                    <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{{$estructura->id}}</td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
                                         {{ $estructura->cargo_comite }}
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -67,11 +69,13 @@
                                             <a class="font-bold text-white rounded cursor-pointer bg-red-600 hover:bg-red-500 py-2 px-4"
                                                 wire:click="$emit('deleteEstructura', {{ $estructura->id }})">
 
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    viewBox="0 0 24 24"
+                                                    style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                                                    <path
+                                                        d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z">
+                                                    </path>
+                                                    <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
                                                 </svg>
                                             </a>
                                         </div>

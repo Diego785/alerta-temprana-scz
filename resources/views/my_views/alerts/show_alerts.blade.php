@@ -1,4 +1,4 @@
-@extends('layouts.official_layout')
+@extends('layouts.my_menu_layouts.menu_1')
 
 @section('title')
     Alerta Temprana SCZ

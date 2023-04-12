@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 
 class AlertController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return Alerta::all();
 
     }
+    
     
     public function getalertaEvento(){
         return Alerta::join('eventos','alertas.evento_id', 'eventos.id')

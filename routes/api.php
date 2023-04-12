@@ -1,14 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\AlertaEnvioCientificaController;
-use App\Http\Controllers\Api\AlertaEnvioController;
 use App\Http\Controllers\Api\AlertController;
-use App\Http\Controllers\Api\EstadoController;
-use App\Http\Controllers\Api\EventController;
-use App\Http\Controllers\Api\MunicipioController;
-use App\Http\Controllers\Api\UnidadTecnoCientificaController;
-use App\Models\AlertaEnvio;
-use App\Models\UnidadTecnicoCientifica;
+use App\Http\Controllers\Api\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// ALERTS
+Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts_api.index');
+
+
+//Testing uploading images locally
+// Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');
+Route::post('/api-save-image', [NotificationController::class, 'save'])->name('saving_imgs');
 
 // ALERTS
 Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts_api.index');

@@ -7,9 +7,15 @@ use App\Models\Alerta;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Console\Input\Input;
 
 class AlertController extends Controller
 {
+
+    public $file;
+    public $filePath = "";
+
     public function index()
     {
         return view('my_views.alerts.show_alerts');
@@ -29,13 +35,27 @@ class AlertController extends Controller
 
     public function upload()
     {
-        return view('my_views.testing_images.upload_image');
+        $filePath = "";
+        return view('my_views.testing_images.upload_image', compact('filePath'));
     }
 
 
-    public function save()
+    public function save(Request $request)
     {
-        return view('my_views.testing_images.save_image');
-        
+        $path = "";
+        // $image = $request->file('file');
+        //  $url = Storage::put('public/imgs/testing_images', $request->file('file'));
+        // $image = Storage::put('\public\imgs\testing_images', $request->file('file'));
+        // return view('my_views.testing_images.save_image', compact('image'));
+        // $this->file = Input::file('fasdfas');
+        // $file->move(public_path().'/images/',$user->id.'.jpg');
+        // Storage::put('public/imgs/testing_images/' . $request->filePath, $this->filePath);
+        if ($request->hasFile('image')) {
+            $destination_path = 'public/imgs/testing_images';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path, $image_name);
+        }
+        return view('my_views.testing_images.save_image', compact('path'));
     }
 }
