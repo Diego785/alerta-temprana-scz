@@ -86,11 +86,7 @@ class AlertaSeeder extends Seeder
             'url_mapa' => '',
             'evento_id' => 3,
             'unidad_id' => 1,
-<<<<<<< HEAD
-        ]);
-=======
         ]);       
->>>>>>> ec0a76eb92730556c0fd33f985e377ac9b4773ed
         Alerta::create([
             'nombre' => 'Desbordamiento del rio pirai',
             'fecha' => '2021-08-10',
@@ -99,12 +95,6 @@ class AlertaSeeder extends Seeder
             // 'foto' => json_encode(['imgs/incendio_forestal/1.jpg', 'imgs/incendio_forestal/2.jpg']),
             'geoX' => -40,
             'geoY' => -52,
-<<<<<<< HEAD
-            'url_mapa'=>'' ,          
-            'evento_id' => 6,
-            'unidad_id' => 1,
-        ]);
-=======
             'url_mapa' => '',
             'evento_id' => 3,
             'unidad_id' => 3,
@@ -301,6 +291,5 @@ class AlertaSeeder extends Seeder
             'evento_id' => 3,
             'unidad_id' => 3,
         ]);     
->>>>>>> ec0a76eb92730556c0fd33f985e377ac9b4773ed
     }
 }
