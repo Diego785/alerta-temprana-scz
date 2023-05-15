@@ -28,6 +28,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+// Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts_api.index');
+
 
 //Testing uploading images locally
 // Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');
@@ -43,6 +45,9 @@ Route::get('/estado',[EstadoController::class, 'index'])->name('show_estado_api.
 Route::get('/unidadtecno',[UnidadTecnoCientificaController::class, 'index'])->name('show_unidadtecno_api.index');
 Route::get('/alertaenvio',[AlertaEnvioController::class, 'index'])->name('show_alertaenvio_api.index');
 Route::get('/getalerta/{id}',[AlertaEnvioController::class,'getAlertEnvio']);
+
+// Testing 
+Route::get('/testing-critic-alerts',[AlertaEnvioController::class,'getCriticAlerts']);
 //municipioalerts
 //comite
 //comite alerts

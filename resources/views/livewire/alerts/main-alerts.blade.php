@@ -15,8 +15,9 @@
                         <div class="flex items-center mt-4 gap-x-3">
 
 
-                            <button
-                                class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-green-400 to-green-900 border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black">
+                            <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-green-400 to-green-900 border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
+                                href="{{route('alerts_list.pdf')}}">
+
 
                                 <span>Reporte</span>
                                 <svg class="ml-5" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -31,7 +32,7 @@
                                         </clipPath>
                                     </defs>
                                 </svg>
-                            </button>
+                            </a>
 
                         </div>
                     </div>
@@ -48,13 +49,19 @@
                                 class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
                                 Críticos
                             </x-jet-button>
-
+                            <x-jet-button wire:click="justLookAtHigh()"
+                                class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                Muy altos
+                            </x-jet-button>
+                            <x-jet-button wire:click="justLookAtModerado()"
+                                class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                Moderados
+                            </x-jet-button>
                             <x-jet-button wire:click="justLookAtMonitored()"
                                 class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                Monitoreados
+                                Bajos
                             </x-jet-button>
                         </div>
-
                         <div class="relative flex items-center mt-4 md:mt-0">
                             <span class="absolute">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -71,7 +78,24 @@
                     </div>
 
 
-                    @if (sizeOf($alerts) == 0)
+                    <!-- component -->
+                    <div class="mt-6 md:flex md:items-center md:justify-between">
+
+                        <div
+                            class="items-center inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+                            <select wire:model='perPage'
+                                class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                <span class="mr-2 font-bold ">Paginar</span>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    @if (sizeOf($alertsP) == 0)
 
                         <div
                             class="flex h-screen flex-col items-center justify-center space-y-6 px-4 sm:flex-row sm:space-x-6 sm:space-y-0">
@@ -133,8 +157,8 @@
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="h-6 w-6 inline" fill="none"
                                                                     viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        stroke-width="2"
+                                                                    <path stroke-linecap="round"
+                                                                        stroke-linejoin="round" stroke-width="2"
                                                                         d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
                                                                 </svg>
                                                             @endif
@@ -192,9 +216,9 @@
                                                     </th>
 
 
-                                                    <th scope="col"
-                                                        class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                        Porcentaje de Riesgo</th>
+                                                    {{-- <th scope="col"
+                                                    class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                    Porcentaje de Riesgo</th> --}}
                                                     <th scope="col"
                                                         class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                         Unidad Tecnocientífica</th>
@@ -209,158 +233,150 @@
                                             </thead>
                                             <tbody
                                                 class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                                                @foreach ($alerts as $alert)
-                                                    <tr>
-                                                        <td class="px-4 py-4 text-sm font-medium">
-                                                            <div style="white-space:inherit; width:200px;">
-                                                                <h2 class="font-bold text-gray-800 dark:text-white">
-                                                                    {{ $alert->id }}
-                                                                </h2>
-                                                                <p
-                                                                    class="text-sm font-normal text-gray-600 dark:text-gray-400">
-                                                                    {{ $alert->nombre }}</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                            <div>
-                                                                <h4 class="text-gray-700 dark:text-gray-200">
-                                                                    {{ $alert->fecha }}</h4>
-                                                                <p class="text-gray-500 dark:text-gray-400">
-                                                                    {{ $alert->hora }}</p>
-                                                            </div>
-                                                        </td>
-
-                                                        <td class="px-4 py-4 text-sm font-medium">
-                                                            <div style="white-space:inherit; width:200px;"">
-
-                                                                <p
-                                                                    class="italic text-xs text-gray-600 dark:text-gray-400">
-                                                                    {{ $alert->description }}</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                                                            @if ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Crítico')
-                                                                <div
-                                                                    class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-alertRed dark:bg-gray-800">
-                                                                    {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                @foreach ($alertsP as $alert)
+                                                    @if (
+                                                        $justLook == $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre ||
+                                                            $justLook == 'Ver todo')
+                                                        <tr>
+                                                            <td class="px-4 py-4 text-sm font-medium">
+                                                                <div style="white-space:inherit; width:200px;">
+                                                                    <h2
+                                                                        class="font-bold text-gray-800 dark:text-white">
+                                                                        {{ $alert->id }}
+                                                                    </h2>
+                                                                    <p
+                                                                        class="text-sm font-normal text-gray-600 dark:text-gray-400">
+                                                                        {{ $alert->nombre }}</p>
                                                                 </div>
-                                                            @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Muy alto')
-                                                                <div
-                                                                    class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-alertOrange dark:bg-gray-800">
-                                                                    {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                            </td>
+                                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                                                <div>
+                                                                    <h4 class="text-gray-700 dark:text-gray-200">
+                                                                        {{ $alert->fecha }}</h4>
+                                                                    <p class="text-gray-500 dark:text-gray-400">
+                                                                        {{ $alert->hora }}</p>
                                                                 </div>
-                                                            @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Moderado')
-                                                                <div
-                                                                    class="inline px-3 py-1 text-sm font-normal rounded-full text-gray-900 gap-x-2 bg-alertYellow dark:bg-gray-800">
-                                                                    {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                            </td>
+
+                                                            <td class="px-4 py-4 text-sm font-medium">
+                                                                <div style="white-space:inherit; width:200px;"">
+
+                                                                    <p
+                                                                        class="italic text-xs text-gray-600 dark:text-gray-400">
+                                                                        {{ $alert->description }}</p>
                                                                 </div>
-                                                            @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Bajo')
-                                                                <div
-                                                                    class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-alertGreen dark:bg-gray-800">
-                                                                    {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                            </td>
+                                                            <td
+                                                                class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                                                                @if ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Crítico')
+                                                                    <div style="background-color:   {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->color }}"
+                                                                        class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 dark:bg-gray-800">
+                                                                        {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                                    </div>
+                                                                @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Muy alto')
+                                                                    <div style="background-color:   {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->color }}"
+                                                                        class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 dark:bg-gray-800">
+                                                                        {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                                    </div>
+                                                                @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Moderado')
+                                                                    <div style="background-color:   {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->color }}"
+                                                                        class="inline px-3 py-1 text-sm font-normal rounded-full text-gray-900 gap-x-2 bg-alertYellow dark:bg-gray-800">
+                                                                        {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                                    </div>
+                                                                @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Bajo')
+                                                                    <div style="background-color:  {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->color }}"
+                                                                        class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-alertGreen dark:bg-gray-800">
+                                                                        {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
+                                                                    </div>
+                                                                @endif
+
+                                                            </td>
+
+                                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                                                <div class="flex items-center">
+                                                                    <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                                                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+                                                                        alt="">
+                                                                    <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                                                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+                                                                        alt="">
+                                                                    <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                                                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80"
+                                                                        alt="">
+                                                                    <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                                                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+                                                                        alt="">
+                                                                    <p
+                                                                        class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
+                                                                        +4</p>
                                                                 </div>
-                                                            @endif
+                                                            </td>
 
-                                                        </td>
+                                                            {{-- <td class="px-12 py-4 text-sm whitespace-nowrap">
+                                                        <div
+                                                            class="w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full">
+                                                            <div class="bg-blue-500 w-2/3 h-1.5"></div>
+                                                        </div>
+                                                    </td> --}}
+                                                            <td class="px-4 py-4 text-sm font-medium">
+                                                                <div style="white-space:inherit; width:200px;"">
 
-                                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                            <div class="flex items-center">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
-                                                                    alt="">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
-                                                                    alt="">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80"
-                                                                    alt="">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
-                                                                    alt="">
-                                                                <p
-                                                                    class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                                                                    +4</p>
-                                                            </div>
-                                                        </td>
-
-                                                        <td class="px-12 py-4 text-sm whitespace-nowrap">
-                                                            <div
-                                                                class="w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full">
-                                                                <div class="bg-blue-500 w-2/3 h-1.5"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="px-4 py-4 text-sm font-medium">
-                                                            <div style="white-space:inherit; width:200px;"">
-
-                                                                <p
-                                                                    class="font-extralight text-gray-600 dark:text-gray-400">
-                                                                    {{ $alert->unidad->sigla }}</p>
-                                                            </div>
-                                                        </td>
+                                                                    <p
+                                                                        class="font-extralight text-gray-600 dark:text-gray-400">
+                                                                        {{ $alert->unidad->sigla }}</p>
+                                                                </div>
+                                                            </td>
 
 
-                                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                                            <a href="{{ route('sending_alerts.index', [$alert->id, $event->id]) }}"
-                                                                class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                    height="24" viewBox="0 0 24 24"
-                                                                    style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
-                                                                    <path
-                                                                        d="M12 9a3.02 3.02 0 0 0-3 3c0 1.642 1.358 3 3 3 1.641 0 3-1.358 3-3 0-1.641-1.359-3-3-3z">
-                                                                    </path>
-                                                                    <path
-                                                                        d="M12 5c-7.633 0-9.927 6.617-9.948 6.684L1.946 12l.105.316C2.073 12.383 4.367 19 12 19s9.927-6.617 9.948-6.684l.106-.316-.105-.316C21.927 11.617 19.633 5 12 5zm0 12c-5.351 0-7.424-3.846-7.926-5C4.578 10.842 6.652 7 12 7c5.351 0 7.424 3.846 7.926 5-.504 1.158-2.578 5-7.926 5z">
-                                                                    </path>
-                                                                </svg>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
+                                                            <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                                                <a href="{{ route('sending_alerts.index', [$alert->id, $event->id]) }}"
+                                                                    class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        width="24" height="24"
+                                                                        viewBox="0 0 24 24"
+                                                                        style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                                                        <path
+                                                                            d="M12 9a3.02 3.02 0 0 0-3 3c0 1.642 1.358 3 3 3 1.641 0 3-1.358 3-3 0-1.641-1.359-3-3-3z">
+                                                                        </path>
+                                                                        <path
+                                                                            d="M12 5c-7.633 0-9.927 6.617-9.948 6.684L1.946 12l.105.316C2.073 12.383 4.367 19 12 19s9.927-6.617 9.948-6.684l.106-.316-.105-.316C21.927 11.617 19.633 5 12 5zm0 12c-5.351 0-7.424-3.846-7.926-5C4.578 10.842 6.652 7 12 7c5.351 0 7.424 3.846 7.926 5-.504 1.158-2.578 5-7.926 5z">
+                                                                        </path>
+                                                                    </svg>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @endforeach
 
 
                                             </tbody>
                                         </table>
+                                        <div class="bg-green-100">
+                                            {{ $alertsP->links() }}
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
 
                         </div>
+                        {{-- @if ($alerts->hasPages())
+                        <div class="px-6 py-3">
+                            {{ $alerts->links() }}
+                        </div>
+                    @endif --}}
+
+
+
+
+
+
+
+
                     @endif
 
 
-                    <div class="mt-6 sm:flex sm:items-center sm:justify-between ">
-                        <div class="text-sm text-gray-500 dark:text-gray-400">
-                            Page <span class="font-medium text-gray-700 dark:text-gray-100">1 of 10</span>
-                        </div>
 
-                        <div class="flex items-center mt-4 gap-x-4 sm:mt-0">
-                            <a href="#"
-                                class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-                                </svg>
-
-                                <span>
-                                    previous
-                                </span>
-                            </a>
-
-                            <a href="#"
-                                class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-                                <span>
-                                    Next
-                                </span>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
                 </section>
             </div>
 
