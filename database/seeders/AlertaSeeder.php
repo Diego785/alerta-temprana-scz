@@ -87,5 +87,17 @@ class AlertaSeeder extends Seeder
             'evento_id' => 3,
             'unidad_id' => 1,
         ]);
+        Alerta::create([
+            'nombre' => 'Desbordamiento del rio pirai',
+            'fecha' => '2021-08-10',
+            'hora' => '20:00:00',
+            'description' => 'En las horas de la mañana se registro la crecida del rio pirai afectando a las zona cercanas, donde ya hay una docena de familias afectadas, 3 personas muertas y 20 personas heridas, con altas posibilidades de que siga incrementando.',
+            // 'foto' => json_encode(['imgs/incendio_forestal/1.jpg', 'imgs/incendio_forestal/2.jpg']),
+            'geoX' => -40,
+            'geoY' => -52,
+            'url_mapa'=>'' ,          
+            'evento_id' => 6,
+            'unidad_id' => 1,
+        ]);
     }
 }

@@ -17,11 +17,11 @@ class NotificationController extends Controller
         // $this->file = Input::file('fasdfas');
         // $file->move(public_path().'/images/',$user->id.'.jpg');
         // Storage::put('public/imgs/testing_images/' . $request->filePath, $this->filePath);
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('file')) {
             $destination_path = 'public/imgs/testing_images';
-            $image = $request->file('image');
+            $image = $request->file('file');
             $image_name = $image->getClientOriginalName();
-            $path = $request->file('image')->storeAs($destination_path, $image_name);
+            $path = $request->file('file')->storeAs($destination_path, $image_name);
         }
         return $path;
     }
