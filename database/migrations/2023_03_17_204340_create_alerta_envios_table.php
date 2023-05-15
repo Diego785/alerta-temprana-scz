@@ -26,7 +26,7 @@ class CreateAlertaEnviosTable extends Migration
             $table->string('img_cabecera');
             $table->string('img_alerta');
             $table->string('url_boletin');
-            $table->string('recomendacion');
+            $table->text('recomendacion');
             $table->foreign('alerta_id')->references('id')->on('alertas');
             $table->foreign('estado_id')->references('id')->on('estados');
 

@@ -16,8 +16,8 @@ class CreateAlertasTable extends Migration
         Schema::create('alertas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->date('fecha');
-            $table->time('hora');
+            $table->date('fecha')->nullable();
+            $table->time('hora')->nullable();
             $table->text('description');
             $table->double('geoX');
             $table->double('geoY');
