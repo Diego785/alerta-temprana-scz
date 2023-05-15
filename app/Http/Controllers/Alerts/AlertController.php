@@ -5,21 +5,27 @@ namespace App\Http\Controllers\Alerts;
 use App\Http\Controllers\Controller;
 use App\Models\Alerta;
 use App\Models\Evento;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
+
 class AlertController extends Controller
 {
+
 
     public $file;
     public $filePath = "";
 
     public function index()
     {
+
         return view('my_views.alerts.show_alerts');
     }
+
+
 
     public function showByCategory($id)
     {
@@ -57,5 +63,29 @@ class AlertController extends Controller
             $path = $request->file('image')->storeAs($destination_path, $image_name);
         }
         return view('my_views.testing_images.save_image', compact('path'));
+    }
+
+
+    public function generatePDF()
+    {
+        // Obtener datos necesarios
+        $alerts = Alerta::all();
+
+        // $pdf = app('dompdf.wrapper');
+        // $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
+        // return $pdf->download('Lista de alertas: ' . now() . '.pdf');
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
+        return $pdf->download('Lista de alertas: ' . now() . '.pdf');
+        // return view('my_views.testing.testing-pdfs', compact('alerts'));
+    }
+
+    public function alerts_list($alertsP)
+    {
+
+        $alerts = $alertsP;
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
+        return $pdf->download('Lista de alertas: ' . now() . '.pdf');
     }
 }

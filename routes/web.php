@@ -27,15 +27,26 @@ Route::get('/sending-alerts/{alerta_id}/{evento_id}', [AlertController::class, '
 //Testing uploading images locally
 Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');
 Route::post('/save-image', [AlertController::class, 'save'])->name('saving_imgs');
+//Testing PDFS
+Route::get('/testing-pdfs', [AlertController::class, 'generatePdf'])->name('generate.pdf');
 
 
 //Sistema de Gestión
 Route::get('/show-estructura-comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite');
 
+// PDFS
+Route::get('/alertas/pdf', [AlertController::class, 'generatePDF'])->name('alerts_list.pdf');
+
+
 
 Route::get('/layout-1', function () {
     return view('layouts.my_menu_layouts.menu_1');
 })->name('layout_1');
+Route::get('/layout-1', function () {
+    return view('layouts.my_menu_layouts.menu_1');
+})->name('layout_1');
+
+
 
 
 

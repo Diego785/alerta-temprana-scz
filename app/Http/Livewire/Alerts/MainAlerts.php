@@ -5,20 +5,34 @@ namespace App\Http\Livewire\Alerts;
 use App\Models\Alerta;
 use App\Models\AlertaEnvio;
 use App\Models\Evento;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Dompdf\Dompdf;
+use Livewire\WithPagination;
+
 
 class MainAlerts extends Component
 {
+    use WithPagination;
+
+    public $generatePDF = false;
+
     public $justLook = 'Ver todo';
     public $search = '';
     public $sort = 'id';
     public $direction = 'asc';
+    public $myId;
     public $event, $alerts, $estado_actual;
+    public $colorRed;
+
+    public $perPage = 10;
+    public $page = 1;
 
     public function mount($id)
     {
         $this->event = Evento::find($id);
+        $this->myId = $id;
     }
 
     public function justLookAtAll()
@@ -27,11 +41,32 @@ class MainAlerts extends Component
     }
     public function justLookAtCritics()
     {
-        $this->justLook = 'Criticos';
+        $this->justLook = 'Crítico';
+    }
+    public function justLookAtHigh()
+    {
+        $this->justLook = 'Muy alto';
+    }
+    public function justLookAtModerado()
+    {
+        $this->justLook = 'Moderado';
     }
     public function justLookAtMonitored()
     {
-        $this->justLook = 'Monitoreados';
+        $this->justLook = 'Bajo';
+    }
+
+    public function updateQuantityData10()
+    {
+        $this->perPage = 10;
+    }
+    public function updateQuantityData50()
+    {
+        $this->perPage = 50;
+    }
+    public function updateQuantityDataAll()
+    {
+        $this->perPage = Alerta::count();
     }
 
     public function order($sort)
@@ -48,58 +83,113 @@ class MainAlerts extends Component
         }
     }
 
+    public function generatePDFfunction()
+    {
+
+        $this->alerts = Alerta::all();
+
+        if ($this->generatePDF) {
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
+            $this->generatePDF = false;
+            return $pdf->download('Lista de alertas: ' . now() . '.pdf');
+        }
+    }
+
 
 
     public function render()
     {
-        $this->alerts = [];
-
-        if ($this->justLook == 'Ver todo') {
-            $this->alerts = Alerta::where('evento_id', $this->event->id)
-                // ->Where('id' , 'like' , '%' . $this->search . '%')
-                //  ->orWhere('nombre' , 'like' , '%' . $this->search . '%')
-                //  ->orWhere('fecha' , 'like' , '%' . $this->search . '%')
-                //  ->orWhere('hora' , 'like' , '%' . $this->search . '%')
-                ->where(function ($query) {
-                    $query->Where('id', 'like', '%' . $this->search . '%')
-                        ->orWhere('nombre', 'like', '%' . $this->search . '%')
-                        ->orWhere('fecha', 'like', '%' . $this->search . '%')
-                        ->orWhere('hora', 'like', '%' . $this->search . '%');
-                })
-                ->orderBy($this->sort, $this->direction)
-                ->get();
-        } else if ($this->justLook == 'Criticos') {
-
-            $myAlerts = Alerta::where('evento_id', $this->event->id)
-                ->where(function ($query) {
-                    $query->Where('id', 'like', '%' . $this->search . '%')
-                        ->orWhere('nombre', 'like', '%' . $this->search . '%')
-                        ->orWhere('fecha', 'like', '%' . $this->search . '%')
-                        ->orWhere('hora', 'like', '%' . $this->search . '%');
-                })
-                ->get();
-
-            foreach ($myAlerts as $alert) {
-                if ($alert->alerta_envio->last()->estado->nombre == 'Crítico') {
-                    $this->alerts[] = $alert;
-                }
+        $alertsPaginated = [];
+        if ($this->alerts != null) {
+            foreach ($this->alerts as $alert) {
+                $alertsPaginated[] = $alert;
             }
-        } else if ($this->justLook == 'Monitoreados') {
-            $myAlerts = Alerta::where('evento_id', $this->event->id)
-                ->where(function ($query) {
-                    $query->Where('id', 'like', '%' . $this->search . '%')
-                        ->orWhere('nombre', 'like', '%' . $this->search . '%')
-                        ->orWhere('fecha', 'like', '%' . $this->search . '%')
-                        ->orWhere('hora', 'like', '%' . $this->search . '%');
-                })
-                ->get();
+        } else {
+            if ($this->justLook == 'Ver todo') {
+                $alertsPaginated = Alerta::where('evento_id', $this->event->id)
+                    ->where(function ($query) {
+                        $query->Where('id', 'like', '%' . $this->search . '%')
+                            ->orWhere('nombre', 'like', '%' . $this->search . '%')
+                            ->orWhere('fecha', 'like', '%' . $this->search . '%')
+                            ->orWhere('hora', 'like', '%' . $this->search . '%');
+                    })
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate($this->perPage);
+            } else if ($this->justLook == 'Crítico') {
+                $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
+                    ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
-            foreach ($myAlerts as $alert) {
-                if ($alert->alerta_envio->last()->estado->nombre == 'Bajo') {
-                    $this->alerts[] = $alert;
-                }
+                    ->where('alertas.evento_id', $this->event->id)
+                    ->where('alerta_envios.estado_id', 1)
+                    ->where(function ($query) {
+                        $query->Where('alertas.id', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.fecha', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.hora', 'like', '%' . $this->search . '%');
+                    })
+                    ->orderBy($this->sort, $this->direction)
+                    ->latest()
+                    ->paginate($this->perPage);
+            } else if ($this->justLook == 'Muy alto') {
+                $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
+                    ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+
+                    ->where('alertas.evento_id', $this->event->id)
+                    ->where('alerta_envios.estado_id', 2)
+                    ->where(function ($query) {
+                        $query->Where('alertas.id', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.fecha', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.hora', 'like', '%' . $this->search . '%');
+                    })
+                    ->orderBy($this->sort, $this->direction)
+                    ->latest()
+                    ->paginate($this->perPage);
+            } else if ($this->justLook == 'Moderado') {
+                $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
+                    ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+
+                    ->where('alertas.evento_id', $this->event->id)
+                    ->where('alerta_envios.estado_id', 3)
+                    ->where(function ($query) {
+                        $query->Where('alertas.id', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.fecha', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.hora', 'like', '%' . $this->search . '%');
+                    })
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate($this->perPage);
+            } else if ($this->justLook == 'Bajo') {
+                $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
+                    ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+
+                    ->where('alertas.evento_id', $this->event->id)
+                    ->where('alerta_envios.estado_id', 4)
+                    ->where(function ($query) {
+                        $query->Where('alertas.id', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.fecha', 'like', '%' . $this->search . '%')
+                            ->orWhere('alertas.hora', 'like', '%' . $this->search . '%');
+                    })
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate($this->perPage);
             }
+
+            //     $this->alerts = null;
+
+            //     foreach ($alertsPaginated as $alert) {
+            //         if ($alert->alerta_envio->last()->estado->nombre == 'Bajo') {
+            //             $this->alerts[] = $alert;
+            //         }
+            //     }
+            //     foreach ($this->alerts as $alert) {
+            //         $alertsPaginated[] = $alert;
+            //     }
+            // }
         }
-        return view('livewire.alerts.main-alerts');
+       
+
+        return view('livewire.alerts.main-alerts', ['alertsP' => $alertsPaginated]);
     }
 }
