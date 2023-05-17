@@ -37,6 +37,7 @@ class AlertaEnvioController extends Controller
                 'estados.nombre as nombre_estado'
             )
             ->where('alerta_envios.alerta_id', '=', $id)
+            ->orderByDesc('alerta_envios.id')            
             ->get();
     }
 

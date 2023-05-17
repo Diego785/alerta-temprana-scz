@@ -164,287 +164,7 @@ class AlertaEnvioSeeder extends Seeder
             'url_boletin' => '',
             'recomendacion' => '',
         ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' =>6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' =>6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 6,
-        //     'estado_id' => 1,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '20:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 5,
-        //     'estado_id' => 2,
-        //     'fecha' => '2021-08-10',
-        //     'hora' => '23:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 5,
-        //     'estado_id' => 3,
-        //     'fecha' => '2021-08-11',
-        //     'hora' => '08:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-        // AlertaEnvio::create([
-        //     'alerta_id' => 5,
-        //     'estado_id' => 4,
-        //     'fecha' => '2021-08-11',
-        //     'hora' => '12:00:00',
-        //     'puntoX' => -40,
-        //     'puntoY' => -52,
-        //     'url_mapa' => '',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pretium vulputate dui vitae sollicitudin. Vivamus pretium lacus magna, quis porttitor tellus euismod vitae. Mauris dignissim congue tortor id feugiat. Proin lobortis ipsum eu odio congue imperdiet. Cras eu nisi eget mauris rutrum fermentum. Proin augue dui, fringilla eu velit eget, laoreet semper leo. Nulla vel sapien lectus. Duis vulputate, lectus ac imperdiet hendrerit, libero lorem auctor ipsum, in dictum enim neque nec turpis. Nulla neque lacus, dapibus in dignissim sit amet, hendrerit in mauris. Donec eu mollis elit. Donec condimentum semper cursus. Ut ac ornare nibh. Integer viverra et mauris nec accumsan.',
-        //     'img_cabecera' => '',
-        //     'img_alerta' => '',
-        //     'url_boletin' => '',
-        //     'recomendacion' => '',
-        // ]);
-
+        
 
         //alerta seeder ejemplo completo
         AlertaEnvio::create([
@@ -502,7 +222,7 @@ class AlertaEnvioSeeder extends Seeder
 
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 4,
+            'estado_id' => 1,
             'fecha' => '2023-03-22',
             'hora' => '13:03:00',
             'puntoX' => -0,
@@ -520,7 +240,7 @@ class AlertaEnvioSeeder extends Seeder
 
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 4,
+            'estado_id' => 1,
             'fecha' => '2023-03-22',
             'hora' => '13:03:00',
             'puntoX' => -0,
@@ -537,7 +257,7 @@ class AlertaEnvioSeeder extends Seeder
         ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 4,
+            'estado_id' => 1,
             'fecha' => '2023-03-22',
             'hora' => '14:01:00',
             'puntoX' => -0,
@@ -554,7 +274,7 @@ class AlertaEnvioSeeder extends Seeder
         ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 3,
+            'estado_id' => 2,
             'fecha' => '2023-03-23',
             'hora' => '07:05:00',
             'puntoX' => -0,
@@ -572,7 +292,7 @@ class AlertaEnvioSeeder extends Seeder
         ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 2,
+            'estado_id' => 3,
             'fecha' => '2023-03-24',
             'hora' => '06:05:00',
             'puntoX' => -0,
@@ -589,7 +309,7 @@ class AlertaEnvioSeeder extends Seeder
         ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 2,
+            'estado_id' => 3,
             'fecha' => '2023-03-22',
             'hora' => '13:03:00',
             'puntoX' => -0,
@@ -603,7 +323,7 @@ class AlertaEnvioSeeder extends Seeder
         ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 2,
+            'estado_id' => 3,
             'fecha' => '2023-03-28',
             'hora' => '08:23:00',
             'puntoX' => -0,
@@ -618,7 +338,7 @@ class AlertaEnvioSeeder extends Seeder
 
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 2,
+            'estado_id' => 3,
             'fecha' => '2023-03-29',
             'hora' => '08:53:00',
             'puntoX' => -0,
@@ -632,7 +352,7 @@ class AlertaEnvioSeeder extends Seeder
         ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
-            'estado_id' => 1,
+            'estado_id' => 4,
             'fecha' => '2023-03-30',
             'hora' => '18:26:00',
             'puntoX' => -0,
