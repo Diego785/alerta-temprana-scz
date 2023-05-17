@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alerta;
+use App\Models\AlertaEnvio;
 use Illuminate\Http\Request;
 
 class AlertController extends Controller
@@ -11,7 +12,15 @@ class AlertController extends Controller
     public function index()
     {
         return Alerta::all();
-
+    }
+    public function alertas($id)
+    {
+      return AlertaEnvio::select('alertas.*')
+      ->join('alertas','alerta_envios.alerta_id','=','alertas.id')
+      ->join('eventos','alertas.evento_id','=','eventos.id')
+      ->where('eventos.id','=',$id)
+      ->distinct('alertas.id')    
+        ->get();
     }
     
     

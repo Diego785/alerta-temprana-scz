@@ -22,13 +22,14 @@ class MainAlerts extends Component
     public $sort = 'id';
     public $direction = 'asc';
     public $event, $alerts, $estado_actual;
-
+    public $myId;
     public $perPage = 10;
     public $page = 1;
 
     public function mount($id)
     {
         $this->event = Evento::find($id);
+        $this->myId = $id;
     }
 
     public function justLookAtAll()

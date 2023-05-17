@@ -1,5 +1,5 @@
-<div>
-   
+<div wire:loading.remove>
+
     <aside
         style="background: url({{ $event->foto }}); background-size:cover; background-repeat:no-repeat; background-position: center;"
         class="overflow-hidden rounded-lg bg-center bg-no-repeat bg-cover bg-slate-900/50">
@@ -44,7 +44,7 @@
             </div>
 
 
-            <div x-data="{ imgModal: false, imgModalSrc: '', imgModalDesc: '' }">
+            <div id="show-img" x-data="{ imgModal: false, imgModalSrc: '', imgModalDesc: '' }">
                 <template
                     @img-modal.window="imgModal = true; imgModalSrc = $event.detail.imgModalSrc; imgModalDesc = $event.detail.imgModalDesc;"
                     x-if="imgModal">
@@ -81,7 +81,7 @@
 
 
             <!-- component -->
-            <section class="container  overflow-x-auto overflow-y-hidden p-20">
+            <section class="container  overflow-x-auto overflow-y-hidden px-10 pb-10 pt-20">
                 <div class="sm:flex sm:items-center sm:justify-between">
 
 
@@ -127,48 +127,58 @@
 
                                     <!-- component -->
 
-                                    <video controls>
-                                        <source src="/storage/imgs/testing_images/video1.mp4" type="video/mp4">
-                                    </video>
-
-
+                                  
+                                
+                                    <div>
+                                        <video controls>
+                                            <source src="/storage/eventos/inundaciones/videos/video3.mp4" type="video/mp4">
+                                        </video>
+                                
+                                    </div>
                                     <div x-data="{}" class="">
                                         <div class="grid grid-cols-2 gap-4">
 
                                             <div class="w-full h-full object-cover">
                                                 <div class="bg-gray-400">
-                                                    <a @click="$dispatch('img-modal', {  imgModalSrc: 'https://picsum.photos/640/480', imgModalDesc: 'Random Image One Description' })"
+                                                    <a href="#show-img"
+                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/1.jpg', imgModalDesc: 'Random Image One Description' })"
                                                         class="cursor-pointer">
                                                         <img alt="Placeholder" class="object-fit w-full"
-                                                            src="https://picsum.photos/640/480">
+                                                            src="/storage/eventos/inundaciones/imgs/1/1.jpg">
                                                     </a>
                                                 </div>
                                             </div>
 
                                             <div class="w-full h-full object-cover">
                                                 <div class="bg-gray-400">
-                                                    <a @click="$dispatch('img-modal', {  imgModalSrc: 'https://picsum.photos/640/480', imgModalDesc: 'Random Image One Description' })"
+                                                    <a href="#show-img"
+                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/2.jpg', imgModalDesc: 'Random Image One Description' })"
                                                         class="cursor-pointer">
                                                         <img alt="Placeholder" class="object-fit w-full"
-                                                            src="https://picsum.photos/640/480">
+                                                            src="/storage/eventos/inundaciones/imgs/1/2.jpg">
+
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="w-full h-full object-cover">
                                                 <div class="bg-gray-400">
-                                                    <a @click="$dispatch('img-modal', {  imgModalSrc: 'https://picsum.photos/640/480', imgModalDesc: 'Random Image One Description' })"
+                                                    <a href="#show-img"
+                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/3.jpg', imgModalDesc: 'Random Image One Description' })"
                                                         class="cursor-pointer">
                                                         <img alt="Placeholder" class="object-fit w-full"
-                                                            src="https://picsum.photos/640/480">
+                                                            src="/storage/eventos/inundaciones/imgs/1/3.jpg">
+
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="w-full h-full object-cover">
                                                 <div class="bg-gray-400">
-                                                    <a @click="$dispatch('img-modal', {  imgModalSrc: 'https://picsum.photos/640/480', imgModalDesc: 'Random Image One Description' })"
+                                                    <a href="#show-img"
+                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/4.jpg', imgModalDesc: 'Random Image One Description' })"
                                                         class="cursor-pointer">
                                                         <img alt="Placeholder" class="object-fit w-full"
-                                                            src="https://picsum.photos/640/480">
+                                                            src="/storage/eventos/inundaciones/imgs/1/4.jpg">
+
                                                     </a>
                                                 </div>
                                             </div>
@@ -177,9 +187,9 @@
                                         </div>
                                     </div>
 
-                                      
 
-                                    <ul class="text-center">
+
+                                    <ul class="text-center pb-10">
                                         <section class="text-gray-600 body-font relative">
                                             <div class="absolute inset-0 bg-gray-300">
                                                 <iframe width="100%" height="100%" frameborder="0" marginheight="0"
@@ -238,4 +248,10 @@
         </script>
     @endpush
 
+    <div wire:loading>
+        Cargando...
+    </div>
+
 </div>
+
+

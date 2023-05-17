@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// // ALERTS
+
 // Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts_api.index');
 
 
@@ -38,7 +38,7 @@ Route::post('/api-save-image', [NotificationController::class, 'save'])->name('a
 // ALERTS
 Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts_api.index');
 //Route::get('/alertsEvento', [AlertController::class, 'getalertaEvento'])->name('show_alertsevento_api.index');
-Route::get('/alertsUnidadTecnica/{id}', [AlertController::class, 'getalertaUnidad'])->name('show_alertsUnidad_api.index');
+Route::get('/alertas/{id}', [AlertController::class, 'alertas'])->name('show.alerta');
 Route::get('/events', [EventController::class, 'index'])->name('show_events_api.index');
 Route::get('/municipio',[MunicipioController::class, 'index'])->name('show_municipio_api.index');
 Route::get('/estado',[EstadoController::class, 'index'])->name('show_estado_api.index');

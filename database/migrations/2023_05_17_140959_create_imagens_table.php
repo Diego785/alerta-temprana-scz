@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePruebaCursosTable extends Migration
+class CreateImagensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreatePruebaCursosTable extends Migration
      */
     public function up()
     {
-        Schema::create('prueba_cursos', function (Blueprint $table) {
+        Schema::create('imagens', function (Blueprint $table) {
             $table->id();
+            $table->string('path');
+            $table->string('path');
+            $table->unsignedBigInteger('alerta_envio_id');
+            $table->foreign('alerta_envio_id')->references('id')->on('alerta_envios')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePruebaCursosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prueba_cursos');
+        Schema::dropIfExists('imagens');
     }
 }

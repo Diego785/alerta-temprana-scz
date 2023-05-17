@@ -33,4 +33,8 @@ class AlertaEnvio extends Model
     public function conferencia_prensa(){
         return $this->hasMany(ConferenciaPrensa::class, 'alerta_envio_id');
     }
+
+    public function image(){
+        return $this->hasMany(Imagen::class, 'alerta_envio_id');
+    }
 }
