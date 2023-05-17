@@ -30,7 +30,7 @@ class UnidadTecnicoCientificaSeeder extends Seeder
         ]  );
         UnidadTecnicoCientifica::Create([
             'nombre'=>'Servicio nacional de meteorologia e hidrologia ',
-            'sigla'=>'senanhi',
+            'sigla'=>'SENAMI',
             'telefono'=>'87654321',
             'description'=>' la climatologia y meteororlogia con enfoque al desarrollo productivo del estado plurinacional de bolivia',
             'url_web'=>'https://www.facebook.com/senamhi/',

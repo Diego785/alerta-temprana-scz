@@ -35,7 +35,7 @@ Route::get('/testing-pdfs', [AlertController::class, 'generatePdf'])->name('gene
 Route::get('/show-estructura-comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite');
 
 // PDFS
-Route::get('/alertas/pdf', [AlertController::class, 'generatePDF'])->name('alerts_list.pdf');
+Route::get('/alertas/pdf/{myId}', [AlertController::class, 'generatePDF'])->name('alerts_list.pdf');
 
 
 

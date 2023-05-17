@@ -178,7 +178,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 7,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -192,7 +192,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 8,
+            'alerta_id' =>6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -206,7 +206,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 9,
+            'alerta_id' =>6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -220,7 +220,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 10,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -234,7 +234,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 11,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -248,7 +248,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 12,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -262,7 +262,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 13,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -276,7 +276,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 14,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -290,7 +290,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 15,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -304,7 +304,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 16,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -318,7 +318,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 17,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -332,7 +332,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 18,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -346,7 +346,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 19,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -360,7 +360,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 20,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -374,7 +374,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 21,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',
@@ -388,7 +388,7 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => '',
         ]);
         AlertaEnvio::create([
-            'alerta_id' => 22,
+            'alerta_id' => 6,
             'estado_id' => 1,
             'fecha' => '2021-08-10',
             'hora' => '20:00:00',

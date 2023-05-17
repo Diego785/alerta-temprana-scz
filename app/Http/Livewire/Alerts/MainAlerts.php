@@ -16,15 +16,12 @@ class MainAlerts extends Component
 {
     use WithPagination;
 
-    public $generatePDF = false;
 
     public $justLook = 'Ver todo';
     public $search = '';
     public $sort = 'id';
     public $direction = 'asc';
-    public $myId;
     public $event, $alerts, $estado_actual;
-    public $colorRed;
 
     public $perPage = 10;
     public $page = 1;
@@ -32,7 +29,6 @@ class MainAlerts extends Component
     public function mount($id)
     {
         $this->event = Evento::find($id);
-        $this->myId = $id;
     }
 
     public function justLookAtAll()
@@ -80,19 +76,6 @@ class MainAlerts extends Component
         } else {
             $this->sort = $sort;
             $this->direction = 'asc';
-        }
-    }
-
-    public function generatePDFfunction()
-    {
-
-        $this->alerts = Alerta::all();
-
-        if ($this->generatePDF) {
-            $pdf = app('dompdf.wrapper');
-            $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
-            $this->generatePDF = false;
-            return $pdf->download('Lista de alertas: ' . now() . '.pdf');
         }
     }
 
@@ -188,7 +171,7 @@ class MainAlerts extends Component
             //     }
             // }
         }
-       
+
 
         return view('livewire.alerts.main-alerts', ['alertsP' => $alertsPaginated]);
     }

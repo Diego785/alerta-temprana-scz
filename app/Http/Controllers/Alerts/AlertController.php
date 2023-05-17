@@ -66,10 +66,10 @@ class AlertController extends Controller
     }
 
 
-    public function generatePDF()
+    public function generatePDF($myId)
     {
         // Obtener datos necesarios
-        $alerts = Alerta::all();
+        $alerts = Alerta::where('evento_id', $myId)->get();
 
         // $pdf = app('dompdf.wrapper');
         // $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));

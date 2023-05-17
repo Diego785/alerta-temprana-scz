@@ -9,6 +9,8 @@ use Livewire\Component;
 class DetailAlerts extends Component
 {
     public $event, $alert, $estado_actual;
+    public $scrollToSection = false;
+
 
     public function mount($alerta_id, $evento_id)
     {
