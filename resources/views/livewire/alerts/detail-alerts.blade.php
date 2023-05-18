@@ -90,20 +90,20 @@
                         class="container max-w-4xl text-center min-w-screen min-h-screen flex items-center justify-start ">
                         <div class="flex space-x-10 ">
 
-                            @foreach ($alert->alerta_envio as $sending_alert)
+                            @foreach ($sending_alerts as $sending_alert)
                                 <div class="px-10">
                                     @if ($sending_alert->estado->nombre == 'Crítico')
                                         <div
-                                            class=" p-5 w-72 bg-alertRed text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
+                                            class=" p-5 px-20 bg-alertRed text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                                         @elseif($sending_alert->estado->nombre == 'Muy alto')
                                             <div
-                                                class="px-20 bg-alertOrange text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
+                                                class="p-5 px-20 bg-alertOrange text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                                             @elseif($sending_alert->estado->nombre == 'Moderado')
                                                 <div
-                                                    class="px-20 bg-alertYellow text-gray-800 pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
+                                                    class="p-5 px-20 bg-alertYellow text-gray-800 pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                                                 @elseif($sending_alert->estado->nombre == 'Bajo')
                                                     <div
-                                                        class="px-20 bg-alertGreen text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
+                                                        class="p-5 px-20 bg-alertGreen text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                                     @endif
 
                                     <div id="etiquetaDestino" class="px-8 flex justify-evenly items-center">
@@ -127,61 +127,34 @@
 
                                     <!-- component -->
 
-                                  
-                                
+
+
                                     <div>
-                                        <video controls>
-                                            <source src="/storage/eventos/inundaciones/videos/video3.mp4" type="video/mp4">
-                                        </video>
-                                
+                                        
+                                        <div>
+                                            <iframe width="300" height="300" src="/storage/eventos/inundaciones/videos/video1.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                        </div>
+
                                     </div>
                                     <div x-data="{}" class="">
                                         <div class="grid grid-cols-2 gap-4">
 
-                                            <div class="w-full h-full object-cover">
-                                                <div class="bg-gray-400">
-                                                    <a href="#show-img"
-                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/1.jpg', imgModalDesc: 'Random Image One Description' })"
-                                                        class="cursor-pointer">
-                                                        <img alt="Placeholder" class="object-fit w-full"
-                                                            src="/storage/eventos/inundaciones/imgs/1/1.jpg">
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            @if ($sending_alert->image != null)
+                                                @foreach ($sending_alert->image as $image)
+                                                    <div class="w-full h-full object-cover">
+                                                        <div class="bg-gray-400">
+                                                            <a href="#show-img"
+                                                                @click="$dispatch('img-modal', {  imgModalSrc: '{{ $image->path }}', imgModalDesc: '{{ $image->description }}' })"
+                                                                class="cursor-pointer">
+                                                                <img alt="Placeholder" class="object-fit w-full"
+                                                                    src="{{ $image->path }}">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
 
-                                            <div class="w-full h-full object-cover">
-                                                <div class="bg-gray-400">
-                                                    <a href="#show-img"
-                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/2.jpg', imgModalDesc: 'Random Image One Description' })"
-                                                        class="cursor-pointer">
-                                                        <img alt="Placeholder" class="object-fit w-full"
-                                                            src="/storage/eventos/inundaciones/imgs/1/2.jpg">
 
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="w-full h-full object-cover">
-                                                <div class="bg-gray-400">
-                                                    <a href="#show-img"
-                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/3.jpg', imgModalDesc: 'Random Image One Description' })"
-                                                        class="cursor-pointer">
-                                                        <img alt="Placeholder" class="object-fit w-full"
-                                                            src="/storage/eventos/inundaciones/imgs/1/3.jpg">
-
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="w-full h-full object-cover">
-                                                <div class="bg-gray-400">
-                                                    <a href="#show-img"
-                                                        @click="$dispatch('img-modal', {  imgModalSrc: '/storage/eventos/inundaciones/imgs/1/4.jpg', imgModalDesc: 'Random Image One Description' })"
-                                                        class="cursor-pointer">
-                                                        <img alt="Placeholder" class="object-fit w-full"
-                                                            src="/storage/eventos/inundaciones/imgs/1/4.jpg">
-
-                                                    </a>
-                                                </div>
-                                            </div>
 
 
                                         </div>
@@ -208,6 +181,25 @@
                                             </div>
                                         </section>
                                     </ul>
+
+
+
+                                    <!-- component -->
+                                    <!-- post card -->
+                                    <div
+                                        class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-56 max-w-md md:max-w-2xl ">
+                                        <!--horizantil margin is just for display-->
+                                        <div class="flex items-start px-4 py-6">
+                                            
+                                            <div class="">
+                                              
+                                                <p class="mt-3 text-gray-700 text-sm">
+                                                    {{$sending_alert->description}}
+                                                </p>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -253,5 +245,3 @@
     </div>
 
 </div>
-
-

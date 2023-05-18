@@ -3,12 +3,14 @@
 namespace App\Http\Livewire\Alerts;
 
 use App\Models\Alerta;
+use App\Models\AlertaEnvio;
 use App\Models\Evento;
 use Livewire\Component;
 
 class DetailAlerts extends Component
 {
     public $event, $alert, $estado_actual;
+    public $sending_alerts;
     public $scrollToSection = false;
 
 
@@ -20,6 +22,10 @@ class DetailAlerts extends Component
 
     public function render()
     {
+        $this->sending_alerts = AlertaEnvio::where('alerta_id', $this->alert->id)
+            ->orderBy('fecha', 'desc')
+            ->orderBy('hora', 'desc')
+            ->get();
         return view('livewire.alerts.detail-alerts');
     }
 }
