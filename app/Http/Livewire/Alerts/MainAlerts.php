@@ -25,6 +25,7 @@ class MainAlerts extends Component
     public $myId;
     public $perPage = 10;
     public $page = 1;
+    public $show_alerts = false;
 
     public function mount($id)
     {
@@ -84,6 +85,7 @@ class MainAlerts extends Component
 
     public function render()
     {
+        $this->show_alerts = false;
         $alertsPaginated = [];
         if ($this->alerts != null) {
             foreach ($this->alerts as $alert) {
@@ -173,6 +175,12 @@ class MainAlerts extends Component
             // }
         }
 
+    //    $this->show_alerts = true;
+       foreach ($alertsPaginated as $alert) {
+        if($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == $this->justLook || $this->justLook == 'Ver todo'){
+            $this->show_alerts = true;
+        }
+    }
 
         return view('livewire.alerts.main-alerts', ['alertsP' => $alertsPaginated]);
     }

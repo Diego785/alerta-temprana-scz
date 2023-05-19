@@ -95,7 +95,7 @@
                 </div>
 
 
-                @if (sizeOf($alertsP) == 0)
+                @if (sizeOf($alertsP) == 0 || $show_alerts == false)
 
                     <div
                         class="flex h-screen flex-col items-center justify-center space-y-6 px-4 sm:flex-row sm:space-x-6 sm:space-y-0">
@@ -256,15 +256,14 @@
 
                                                         <td class="px-4 py-4 text-sm font-medium">
 
-                                                            <p 
-                                                                class="italic text-xs text-gray-600 dark:text-gray-400"
+                                                            <p class="italic text-xs text-gray-600 dark:text-gray-400"
                                                                 style="display: block;
                                                                 overflow: hidden;
                                                                 text-overflow: ellipsis;
                                                                 white-space: normal;
                                                                 width: 200px;">
 
-                                                                    {{ \Illuminate\Support\Str::limit($alert->description, 100, '...') }}
+                                                                {{ \Illuminate\Support\Str::limit($alert->description, 100, '...') }}
                                                             </p>
                                                         </td>
                                                         <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">

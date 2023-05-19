@@ -1,16 +1,38 @@
 <div wire:loading.remove>
 
-    <aside
-        style="background: url({{ $event->foto }}); background-size:cover; background-repeat:no-repeat; background-position: center;"
-        class="overflow-hidden rounded-lg bg-center bg-no-repeat bg-cover bg-slate-900/50">
+    <style>
+        .scrollable-container {
+            position: relative;
+            overflow-y: scroll;
+            height: 100vh;
+        }
 
-        <div class="p-8 md:py-12 lg:px-4 bg-slate-900/50">
+        .background-image {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url('{{ $event->foto }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .content {
+            padding: 8px;
+        }
+    </style>
+    <aside class="scrollable-container">
+        <div class="background-image">
 
 
 
+        </div>
+        
 
-
-
+        <div class="content p-8 pt-10 md:py-12 lg:px-4 bg-slate-900/50">
 
             <div class="mx-5  grid place-content-center">
                 <div
@@ -18,7 +40,7 @@
                     <h2 class="text-xl font-extrabold text-white sm:text-md md:text-lg mb-2">
                         {{ $alert->nombre }}
                     </h2>
-                    <p class="text-sm font-extrabold text-gray-100 italic mb-2">
+                    <p class="text-sm font-bold text-gray-100 italic mb-2">
                         {{ $alert->description }}
                     </p>
                 </div>
@@ -30,7 +52,7 @@
                     <p class="text-lg font-extrabold text-gray-800 mb-2">
                         {{ $alert->hora }}
                     </p>
-
+    
                     <a href="#etiquetaDestino">
                         <div
                             class="rounded-md bg-gradient-to-r from-green-400 to-green-900 whitespace-normal  text-xl text-white pt-3 pb-4 px-8">
@@ -39,9 +61,11 @@
                             </p>
                         </div>
                     </a>
-
+    
                 </div>
             </div>
+
+
 
 
             <div id="show-img" x-data="{ imgModal: false, imgModalSrc: '', imgModalDesc: '' }">
@@ -79,169 +103,182 @@
 
 
 
+            <div class="">
+                <!-- component -->
+                <section class="w-full text-center overflow-y-auto overflow-x-hidden px-52 py-10">
+                    <div class="sm:flex sm:items-center sm:justify-between">
 
-            <!-- component -->
-            <section class="container  overflow-x-auto overflow-y-hidden px-10 pb-10 pt-20">
-                <div class="sm:flex sm:items-center sm:justify-between">
+                        <!-- component -->
+                        <div class="text-center min-h-screen ">
+                            <div class="">
 
-
-                    <!-- component -->
-                    <div
-                        class="container max-w-4xl text-center min-w-screen min-h-screen flex items-center justify-start ">
-                        <div class="flex space-x-10 ">
-
-                            @foreach ($sending_alerts as $sending_alert)
-                                <div class="px-10">
-                                    @if ($sending_alert->estado->nombre == 'Crítico')
-                                        <div
-                                            class=" p-5 px-20 bg-alertRed text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
-                                        @elseif($sending_alert->estado->nombre == 'Muy alto')
-                                            <div
-                                                class="p-5 px-20 bg-alertOrange text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
-                                            @elseif($sending_alert->estado->nombre == 'Moderado')
+                                @foreach ($sending_alerts as $sending_alert)
+                                    <div class=" my-10">
+                                        <div class="flex justify-center text-center">
+                                            @if ($sending_alert->estado->nombre == 'Crítico')
                                                 <div
-                                                    class="p-5 px-20 bg-alertYellow text-gray-800 pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
-                                                @elseif($sending_alert->estado->nombre == 'Bajo')
+                                                    class="p-5 px-20 bg-alertRed text-white pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-10 shadow-xl hover:shadow-2xl cursor-pointer">
+                                                @elseif($sending_alert->estado->nombre == 'Muy alto')
                                                     <div
-                                                        class="p-5 px-20 bg-alertGreen text-white pt-4 rounded-xl space-y-6 overflow-hidden  transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
-                                    @endif
-
-                                    <div id="etiquetaDestino" class="px-8 flex justify-evenly items-center">
-                                        <h4 class="text-xl font-bold inline-block ">
-                                            {{ $sending_alert->estado->nombre }}</h1>
-                                            <span class="inline-block mx-10"></span>
-                                            <div>
-                                                <h1 class="text-xs text-center font-bold whitespace-nowrap">
-                                                    {{ $sending_alert->fecha }}
-                                                </h1>
-                                                <h1 class="text-xs text-center font-bold whitespace-nowrap">
-                                                    {{ $sending_alert->hora }}</h1>
-                                            </div>
-
-
-                                    </div>
-
-
-                                    <p class="text-center text-xs">{{ $sending_alert->description }}</p>
-
-
-                                    <!-- component -->
-
-
-
-                                    <div>
-                                        
-                                        <div>
-                                            <iframe width="300" height="300" src="/storage/eventos/inundaciones/videos/video1.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                        </div>
-
-                                    </div>
-                                    <div x-data="{}" class="">
-                                        <div class="grid grid-cols-2 gap-4">
-
-                                            @if ($sending_alert->image != null)
-                                                @foreach ($sending_alert->image as $image)
-                                                    <div class="w-full h-full object-cover">
-                                                        <div class="bg-gray-400">
-                                                            <a href="#show-img"
-                                                                @click="$dispatch('img-modal', {  imgModalSrc: '{{ $image->path }}', imgModalDesc: '{{ $image->description }}' })"
-                                                                class="cursor-pointer">
-                                                                <img alt="Placeholder" class="object-fit w-full"
-                                                                    src="{{ $image->path }}">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
+                                                        class="p-5 px-20 bg-alertOrange text-white pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-10 shadow-xl hover:shadow-2xl cursor-pointer">
+                                                    @elseif($sending_alert->estado->nombre == 'Moderado')
+                                                        <div
+                                                            class="p-5 px-20 w-full bg-alertYellow text-gray-800 pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-10 shadow-xl hover:shadow-2xl cursor-pointer">
+                                                        @elseif($sending_alert->estado->nombre == 'Bajo')
+                                                            <div
+                                                                class="p-5 px-20 bg-alertGreen text-white pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-10 shadow-xl hover:shadow-2xl cursor-pointer">
                                             @endif
-
-
-
-
-                                        </div>
-                                    </div>
-
-
-
-                                    <ul class="text-center pb-10">
-                                        <section class="text-gray-600 body-font relative">
-                                            <div class="absolute inset-0 bg-gray-300">
-                                                <iframe width="100%" height="100%" frameborder="0" marginheight="0"
-                                                    marginwidth="0" title="map" scrolling="no"
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.7918791795554!2d-63.17055368586038!3d-17.782799787133053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92ee0171f618bb37%3A0x6b2a6ab90685e0e9!2sSanta%20Cruz%20de%20la%20Sierra%2C%20Bolivia!5e0!3m2!1sen!2sus!4v1654953641922!5m2!1sen!2sus"
-                                                    style=""></iframe>
-                                                {{-- <iframe src="https://www.google.com/maps/place/Santa+Cruz+de+la+Sierra,+Bolivia/@-17.7856864,-63.200329,14z/data=!4m6!3m5!1s0x93f1e81ca7c01a63:0x5c8b0a53a467611b!8m2!3d-17.8145819!4d-63.1560853!16zL20vMDMxdjM1?hl=en" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> --}}
-
-
-                                            </div>
-                                            <div class="container px-5 py-24 mx-auto flex">
-                                                <div
-                                                    class="lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative">
-
+                                            <div id="etiquetaDestino" class="px-8 flex justify-evenly items-center">
+                                                <h4 class="text-xl font-bold inline-block">
+                                                    {{ $sending_alert->estado->nombre }}
+                                                </h4>
+                                                <span class="inline-block mx-10"></span>
+                                                <div>
+                                                    <h1 class="text-xs text-center font-bold whitespace-nowrap">
+                                                        {{ $sending_alert->fecha }}
+                                                    </h1>
+                                                    <h1 class="text-xs text-center font-bold whitespace-nowrap">
+                                                        {{ $sending_alert->hora }}
+                                                    </h1>
                                                 </div>
                                             </div>
-                                        </section>
-                                    </ul>
 
+                                            <p class="text-center text-xs">{{ $sending_alert->description }}
+                                            </p>
 
+                                            <!-- component -->
+                                            @if (sizeOf($sending_alert->image) > 0)
+                                                <div style="display: flex; justify-content: space-evenly;">
+                                                    <section class="body-font relative">
+                                                        <div class="inset-0 flex justify-center items-center">
+                                                            <div class="w-full">
+                                                                <iframe class="w-full h-full" frameborder="0"
+                                                                    title="map" scrolling="no"
+                                                                    src="/storage/eventos/inundaciones/videos/video1.mp4"></iframe>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container px-5 py-5 mx-auto flex">
+                                                            <div
+                                                                class="lg:w-1/3 md:w-1/2 rounded-lg flex flex-col md:ml-auto w-full mt-5 md:mt-0 relative">
+                                                                <!-- Resto del código -->
+                                                            </div>
+                                                        </div>
+                                                    </section>
 
-                                    <!-- component -->
-                                    <!-- post card -->
-                                    <div
-                                        class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-56 max-w-md md:max-w-2xl ">
-                                        <!--horizantil margin is just for display-->
-                                        <div class="flex items-start px-4 py-6">
-                                            
-                                            <div class="">
-                                              
-                                                <p class="mt-3 text-gray-700 text-sm">
-                                                    {{$sending_alert->description}}
-                                                </p>
-                                                
+                                                    <div x-data="{}" class="flex justify-center">
+                                                        <div class="grid grid-cols-2 gap-4">
+                                                            @if ($sending_alert->image != null)
+                                                                @foreach ($sending_alert->image as $image)
+                                                                    <div
+                                                                        style="width: 150px; height: 150px; overflow: hidden;">
+                                                                        <a href="#show-img"
+                                                                            @click="$dispatch('img-modal', {  imgModalSrc: '{{ $image->path }}', imgModalDesc: '{{ $image->description }}' })"
+                                                                            class="cursor-pointer">
+                                                                            <img alt="Placeholder"
+                                                                                class="object-fit w-full"
+                                                                                style="width: 100%; height: 100%; object-fit: cover; border: 2px solid #000; border-radius: 10px;"
+                                                                                src="{{ $image->path }}">
+                                                                        </a>
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <ul class="text-center">
+                                                    <section class="body-font relative">
+                                                        <div class="absolute inset-0 flex justify-center items-center">
+                                                            <div class="w-auto">
+                                                                <div class=" aspect-h-9">
+                                                                    <iframe class="w-full h-full" frameborder="0"
+                                                                        title="map" scrolling="no"
+                                                                        src="/storage/eventos/inundaciones/videos/video1.mp4"></iframe>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container px-5 py-10 mx-auto flex">
+                                                            <div
+                                                                class="lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative">
+                                                                <!-- Resto del código -->
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </ul>
+                                            @endif
+                                            <ul class="text-center pb-5">
+                                                <section class="text-gray-600 body-font relative">
+                                                    <div class="absolute inset-0 bg-gray-300">
+                                                        <iframe width="100%" height="100%" frameborder="0"
+                                                            marginheight="0" marginwidth="0" title="map"
+                                                            scrolling="no"
+                                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.7918791795554!2d-63.17055368586038!3d-17.782799787133053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92ee0171f618bb37%3A0x6b2a6ab90685e0e9!2sSanta%20Cruz%20de%20la%20Sierra%2C%20Bolivia!5e0!3m2!1sen!2sus!4v1654953641922!5m2!1sen!2sus"
+                                                            style=""></iframe>
+                                                    </div>
+                                                    <div class="container px-5 py-24 mx-auto flex">
+                                                        <div
+                                                            class="lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative">
+                                                            <!-- Resto del código -->
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </ul>
+
+                                            <!-- component -->
+                                            <!-- post card -->
+                                            <div
+                                                class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-56 max-w-md md:max-w-2xl">
+                                                <!--horizantil margin is just for display-->
+                                                <div class="flex items-start px-4 py-6">
+                                                    <div>
+                                                        <p class="mt-3 text-gray-700 text-sm italic font-bold">
+                                                            {{ $sending_alert->recomendacion }}
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
+                            </div>
+                            @endforeach
 
 
                         </div>
-                        @endforeach
 
 
                     </div>
-                </div>
+            </div>
 
 
             </section>
 
-
-
-
-
         </div>
+</div>
+
+</aside>
 
 
-    </aside>
+</div>
 
 
-    @push('js')
-        <script>
-            document.addEventListener('livewire:load', function() {
-                Livewire.on('scrollToSection', function() {
-                    if (window.livewire.findComponent('alerts.detail-alerts').scrollToSection) {
-                        const etiquetaDestino = document.getElementById('etiquetaDestino');
-                        etiquetaDestino.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        window.livewire.findComponent('alerts.detail-alerts').scrollToSection = false;
-                    }
-                });
+@push('js')
+    <script>
+        document.addEventListener('livewire:load', function() {
+            Livewire.on('scrollToSection', function() {
+                if (window.livewire.findComponent('alerts.detail-alerts').scrollToSection) {
+                    const etiquetaDestino = document.getElementById('etiquetaDestino');
+                    etiquetaDestino.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    window.livewire.findComponent('alerts.detail-alerts').scrollToSection = false;
+                }
             });
-        </script>
-    @endpush
+        });
+    </script>
+@endpush
 
-    <div wire:loading>
-        Cargando...
-    </div>
+<div wire:loading>
+    Cargando...
+</div>
 
 </div>

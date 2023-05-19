@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [AlertController::class, 'index'])->name('show_alerts');
 
 Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts.index');
 Route::get('/alerts/{id}', [AlertController::class, 'showByCategory'])->name('main_alerts.index');

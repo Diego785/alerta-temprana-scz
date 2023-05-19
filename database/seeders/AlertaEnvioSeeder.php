@@ -434,11 +434,11 @@ class AlertaEnvioSeeder extends Seeder
             'description' => 'Aquí vendrá su descripción de prueba.',
             'alerta_envio_id' => 16
         ]);
-        Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/13.jpg',
-            'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 17
-        ]);
+         Imagen::create([
+             'path' => '/storage/eventos/inundaciones/imgs/1/13.jpg',
+             'description' => 'Aquí vendrá su descripción de prueba.',
+             'alerta_envio_id' => 17
+         ]);
 
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/14.jpg',
@@ -454,7 +454,7 @@ class AlertaEnvioSeeder extends Seeder
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/16.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 19
+            'alerta_envio_id' => 17
         ]);
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/17.jpg',
@@ -464,7 +464,7 @@ class AlertaEnvioSeeder extends Seeder
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/18.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 19
+            'alerta_envio_id' => 17
         ]);
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/19.jpg',
