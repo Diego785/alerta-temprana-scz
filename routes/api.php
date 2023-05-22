@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AlertaEnvioController;
 use App\Http\Controllers\Api\AlertController;
 use App\Http\Controllers\Api\EstadoController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\ImagenEventController;
 use App\Http\Controllers\Api\MunicipioController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\UnidadTecnoCientificaController;
@@ -45,6 +46,7 @@ Route::get('/estado',[EstadoController::class, 'index'])->name('show_estado_api.
 Route::get('/unidadtecno',[UnidadTecnoCientificaController::class, 'index'])->name('show_unidadtecno_api.index');
 Route::get('/alertaenvio',[AlertaEnvioController::class, 'index'])->name('show_alertaenvio_api.index');
 Route::get('/getalerta/{id}',[AlertaEnvioController::class,'getAlertEnvio']);
+Route::get('/imagenalerta/{id}',[ImagenEventController::class,'index']);
 
 // Testing 
 Route::get('/testing-critic-alerts',[AlertaEnvioController::class,'getCriticAlerts']);

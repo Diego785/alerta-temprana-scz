@@ -184,23 +184,7 @@ class AlertaEnvioSeeder extends Seeder
             'url_boletin' => '',
             'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
         ]);
-        AlertaEnvio::create([
-            'alerta_id' => 6,
-            'estado_id' => 3,
-            'fecha' => '2023-03-22',
-            'hora' => '8:19:00',
-            'puntoX' => -0,
-            'puntoY' => -0,
-            'url_mapa' => '',
-            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.40 m . Se recomiendan tomar precaución ya que el río tiende a crecer si continúan las precipitaciones, atentos Municipios: Samaipata, Torno y La Guardia.
-            Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. 
-            Estos fenómenos meteorológicos con capacidad de daño y riesgo de interrupción momentánea de actividades cotidianas.
-            ',
-            'img_cabecera' => '',
-            'img_alerta' => '',
-            'url_boletin' => '',
-            'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
-        ]);
+   
 
         AlertaEnvio::create([
             'alerta_id' => 6,
@@ -218,25 +202,7 @@ class AlertaEnvioSeeder extends Seeder
             'img_alerta' => '',
             'url_boletin' => '',
             'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
-        ]);
-
-        AlertaEnvio::create([
-            'alerta_id' => 6,
-            'estado_id' => 1,
-            'fecha' => '2023-03-22',
-            'hora' => '13:03:00',
-            'puntoX' => -0,
-            'puntoY' => -0,
-            'url_mapa' => '',
-            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 4.20.m Se recomiendan al Municipio actuar con su plan de contingencia 
-            “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
-            El río Piraí y sus afluentes secundarios ascensos con posibles desbordes en las poblaciones de y comunidades cercanas de los Municipios: Samaipata, Torno y la Guardia 
-            ',
-            'img_cabecera' => '',
-            'img_alerta' => '',
-            'url_boletin' => '',
-            'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
-        ]);
+        ]);     
 
         AlertaEnvio::create([
             'alerta_id' => 6,
