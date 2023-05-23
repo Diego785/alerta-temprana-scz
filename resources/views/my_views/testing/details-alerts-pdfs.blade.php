@@ -147,6 +147,8 @@
         .datagrid table tbody tr:last-child td {
             border-bottom:
                 none;
+
+
         }
 
         .datagrid table tfoot td div {
@@ -205,42 +207,47 @@
         </p>
 
         <h4>
-            <div> ALERTAS: </div> <br>Alertas de {{ $alerts->last()->evento->tipoEvento }}<br> </h4>
+            <div> Historial de Alerta: </div> <br>{{ $alerts->last()->nombre }}<br>
+        </h4>
 
-            <div class="datagrid">
-                <table>
-                    <thead>
+        <div class="datagrid">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Riesgo</th>
+                        <th>Descripción</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($alerts as $alert)
                         <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Fecha</th>
-                            <th>Hora</th>
-                            <th>Descripción</th>
-                            <th>Estado Actual</th>
-
-                            <th>Unidad Tecnocientífica</th>
+                            <td style="white-space:nowrap;">{{ $alert->fecha }}</td>
+                            <td>{{ $alert->hora }}
+                            </td>
+                            @if ($alert->estado_id == 1)
+                                <td>Crítico</td>
+                            @else
+                                @if ($alert->estado_id == 2)
+                                    <td>Muy Alto</td>
+                                @else
+                                    @if ($alert->estado_id == 3)
+                                        <td>Moderado</td>
+                                    @else
+                                        <td>Normal</td>
+                                    @endif
+                                @endif
+                            @endif
+                            <td>{{ $alert->description }}</td>
+                            </td>
 
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($alerts as $alert)
-                            <tr>
-                                <td>{{ $alert->id }}</td>
-                                <td>
-                                    {{ $alert->nombre }}</td>
-                                <td  style="white-space:nowrap;">{{ $alert->fecha }}</td>
-                                <td>{{ $alert->hora }}
-                                </td>
-                                <td>{{ $alert->description }}</td>
-                                <td>{{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
-                                </td>
-
-                                <td>{{ $alert->unidad->sigla }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </main>
 </body>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Alerts;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alerta;
+use App\Models\AlertaEnvio;
 use App\Models\Evento;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -80,12 +81,25 @@ class AlertController extends Controller
         // return view('my_views.testing.testing-pdfs', compact('alerts'));
     }
 
-    public function alerts_list($alertsP)
-    {
 
-        $alerts = $alertsP;
+    public function generateDetailAlertPDF($eventId, $alertId)
+    {
+        // Obtener datos necesarios
+        $alerts = AlertaEnvio::join('alertas', 'alerta_envios.alerta_id', 'alertas.id')
+            ->join('eventos', 'alertas.evento_id', 'eventos.id')
+            ->select('alertas.nombre as nombre', 'alerta_envios.fecha', 'alerta_envios.hora', 'alerta_envios.estado_id', 'alerta_envios.description')
+            ->where('eventos.id', $eventId)
+            ->where('alertas.id', $alertId)
+            ->orderBy('fecha', 'desc')
+            ->orderBy('hora', 'desc')
+            ->get();
+
+        // $pdf = app('dompdf.wrapper');
+        // $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
+        // return $pdf->download('Lista de alertas: ' . now() . '.pdf');
         $pdf = app('dompdf.wrapper');
-        $pdf->loadView('my_views.testing.testing-pdfs', compact('alerts'));
-        return $pdf->download('Lista de alertas: ' . now() . '.pdf');
+        $pdf->loadView('my_views.testing.details-alerts-pdfs', compact('alerts'));
+        return $pdf->download('Historial de alerta: ' . now() . '.pdf');
+        // return view('my_views.testing.testing-pdfs', compact('alerts'));
     }
 }

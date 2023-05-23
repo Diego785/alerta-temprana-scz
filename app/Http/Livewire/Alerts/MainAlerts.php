@@ -51,7 +51,7 @@ class MainAlerts extends Component
     }
     public function justLookAtMonitored()
     {
-        $this->justLook = 'Bajo';
+        $this->justLook = 'Normal';
     }
 
     public function updateQuantityData10()
@@ -146,7 +146,7 @@ class MainAlerts extends Component
                     })
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->perPage);
-            } else if ($this->justLook == 'Bajo') {
+            } else if ($this->justLook == 'Normal') {
                 $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
                     ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
@@ -165,7 +165,7 @@ class MainAlerts extends Component
             //     $this->alerts = null;
 
             //     foreach ($alertsPaginated as $alert) {
-            //         if ($alert->alerta_envio->last()->estado->nombre == 'Bajo') {
+            //         if ($alert->alerta_envio->last()->estado->nombre == 'Normal') {
             //             $this->alerts[] = $alert;
             //         }
             //     }

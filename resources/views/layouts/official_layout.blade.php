@@ -135,12 +135,12 @@
 
             var changeSize = document.getElementById("main-card")
             if (changeSize.className ==
-                "card rounded-xl bg-gray-50 bg-opacity-50 px-16 shadow-lg backdrop-blur-md max-sm:px-8") {
+                "card rounded-xl bg-white px-16 shadow-lg backdrop-blur-md max-sm:px-8") {
                 changeSize.className =
-                    "increase-card rounded-xl bg-gray-50 bg-opacity-50 px-16 shadow-lg backdrop-blur-md max-sm:px-8";
+                    "increase-card rounded-xl bg-white px-16 shadow-lg backdrop-blur-md max-sm:px-8";
             } else {
                 changeSize.className =
-                    "card rounded-xl bg-gray-50 bg-opacity-50 px-16 shadow-lg backdrop-blur-md max-sm:px-8";
+                    "card rounded-xl bg-white px-16 shadow-lg backdrop-blur-md max-sm:px-8";
 
             }
             var changeSize = document.getElementById("main-logo")

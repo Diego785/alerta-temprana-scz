@@ -22,7 +22,7 @@ class CreateAlertasTable extends Migration
             $table->double('geoX');
             $table->double('geoY');
             $table->string('url_mapa');
-
+            $table->string('estado')->default('Abierta');
             $table->unsignedBigInteger('evento_id');
             $table->unsignedBigInteger('unidad_id');
             $table->foreign('evento_id')->references('id')->on('eventos');

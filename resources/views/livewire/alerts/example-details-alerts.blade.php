@@ -34,7 +34,7 @@
                             <div
                                 class="rounded-md bg-gradient-to-r from-green-400 to-green-900 whitespace-normal  text-xl text-white pt-3 pb-4 px-8">
                                 <p class="text-xs text-center font-extrabold text-white mb-2">
-                                    Revisa el historial de la alerta abajo
+                                    Revisa el historial de la alerta aNormal
                                 </p>
                             </div>
                         </a>
@@ -100,7 +100,7 @@
                                                     @elseif($sending_alert->estado->nombre == 'Moderado')
                                                         <div
                                                             class="p-5 px-20 bg-alertYellow text-gray-800 pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
-                                                        @elseif($sending_alert->estado->nombre == 'Bajo')
+                                                        @elseif($sending_alert->estado->nombre == 'Normal')
                                                             <div
                                                                 class="p-5 px-20 bg-alertGreen text-white pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer">
                                             @endif

@@ -425,7 +425,7 @@
     <div class="content ml-12 transform ease-in-out duration-500 pt-20 px-2 md:px-5 pb-4 ">
 
         <div id="main-background" class="py-32 h-full"
-            style="background-image: linear-gradient(to top, #013220  , #90ee90 );">
+            style="background-color: white">
             <div class="lg:mx-60 md:mx-30 sm:mx-20 xs:mx-10" x-data="{ showPass: true }">
                 @yield('content')
 

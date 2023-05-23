@@ -27,7 +27,7 @@ class EstadoSeeder extends Seeder
             'color' => '#FFFF00',
         ]);
         Estado::create([
-            'nombre' => 'Bajo',
+            'nombre' => 'Normal',
             'color' => '#008000',
         ]);
     }

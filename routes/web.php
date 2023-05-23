@@ -34,6 +34,7 @@ Route::get('/show-estructura-comite', [EstructuraComiteController::class, 'show'
 
 // PDFS
 Route::get('/alertas/pdf/{myId}', [AlertController::class, 'generatePDF'])->name('alerts_list.pdf');
+Route::get('/details-alerts/pdf/{eventId}/{alertId}', [AlertController::class, 'generateDetailAlertPDF'])->name('detail_alerts_list.pdf');
 
 
 

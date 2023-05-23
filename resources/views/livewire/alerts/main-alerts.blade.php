@@ -59,7 +59,7 @@
                         </x-jet-button>
                         <x-jet-button wire:click="justLookAtMonitored()"
                             class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                            Bajos
+                            Normals
                         </x-jet-button>
                     </div>
                     <div class="relative flex items-center mt-4 md:mt-0">
@@ -250,8 +250,8 @@
                                                             <div>
                                                                 <h4 class="text-gray-700 dark:text-gray-200">
                                                                     {{ $alert->fecha }}</h4>
-                                                                    <h4 class="text-gray-700 dark:text-gray-200">
-                                                                        {{ $alert->hora }}</h4>
+                                                                <h4 class="text-gray-700 dark:text-gray-200">
+                                                                    {{ $alert->hora }}</h4>
 
                                                             </div>
                                                         </td>
@@ -284,7 +284,7 @@
                                                                     class="inline px-3 py-1 text-sm font-normal rounded-full text-gray-900 gap-x-2 bg-alertYellow dark:bg-gray-800">
                                                                     {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
                                                                 </div>
-                                                            @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Bajo')
+                                                            @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Normal')
                                                                 <div style="background-color:  {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->color }}"
                                                                     class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-alertGreen dark:bg-gray-800">
                                                                     {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
@@ -300,9 +300,6 @@
                                                                         <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
                                                                             src="{{ $img->path }}" alt="">
                                                                     @endforeach
-                                                                    <p
-                                                                        class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                                                                        +10</p>
                                                                 @else
                                                                     No hay fotos
                                                                 @endif
