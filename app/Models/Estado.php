@@ -9,7 +9,7 @@ class Estado extends Model
 {
     use HasFactory;
     protected $table = 'estados';
-    protected $fillable = ['nombre', 'color', 'grado'];
+    protected $fillable = ['nombre', 'color'];
     public $timestamps = false;
 
     public function alerta_envio()

@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\Alerts\AlertController;
+use App\Http\Controllers\Api\EstadoController;
 use App\Http\Controllers\Gestion\Comite\EstructuraComiteController;
+use App\Http\Controllers\Gestion\Estado\EstadoController as EstadoEstadoController;
+use App\Http\Controllers\Gestion\Municipio\MunicipioController;
+use App\Http\Controllers\Gestion\Unidad\UnidadTecnocientificaController;
 use App\Http\Livewire\Gestion\Comite\EstructuraComite;
 use Illuminate\Support\Facades\Route;
 
@@ -31,8 +35,11 @@ Route::post('/save-image', [AlertController::class, 'save'])->name('saving_imgs'
 Route::get('/testing-pdfs', [AlertController::class, 'generatePdf'])->name('generate.pdf');
 
 
-//Sistema de Gestión
-Route::get('/show-estructura-comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite');
+// //Sistema de Gestión
+// Route::get('/show-estructura-comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite');
+// Route::get('/show-estado', [EstadoEstadoController::class, 'show'])->name('show_estado');
+// Route::get('/show-municipio', [MunicipioController::class, 'show'])->name('show_municipio');
+
 
 // PDFS
 Route::get('/alertas/pdf/{myId}', [AlertController::class, 'generatePDF'])->name('alerts_list.pdf');
@@ -51,12 +58,18 @@ Route::get('/layout-1', function () {
 
 
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    //Sistema de Gestión
+Route::get('/show-estructura-comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite');
+Route::get('/show-estado', [EstadoEstadoController::class, 'show'])->name('show_estado');
+Route::get('/show-municipio', [MunicipioController::class, 'show'])->name('show_municipio');
+Route::get('/show-unidad-tecnocientifica', [UnidadTecnocientificaController::class, 'show'])->name('show_unidad_tecnocientifica');
+
+});
