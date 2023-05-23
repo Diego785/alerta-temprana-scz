@@ -9,7 +9,7 @@ class AlertaEnvio extends Model
 {
     use HasFactory;
     protected $table = 'alerta_envios';
-    protected $fillable = ['alerta_id', 'estado_id', 'fecha', 'hora', 'puntoX', 'puntoY', 'url_mapa','description', 'img_cabecera', 'img_alerta', 'url_boletin', 'recomendacion'];
+    protected $fillable = ['alerta_id', 'estado_id', 'fecha', 'hora', 'puntoX', 'puntoY', 'video', 'url_mapa','description', 'img_cabecera', 'img_alerta', 'url_boletin', 'recomendacion'];
     public $timestamps = false;
 
     //Módulo Alertas

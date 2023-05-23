@@ -22,6 +22,7 @@ class CreateAlertaEnviosTable extends Migration
             $table->double('puntoX');
             $table->double('puntoY');
             $table->string('url_mapa');
+            $table->string('video')->nullable();
             $table->text('description');
             $table->string('img_cabecera');
             $table->string('img_alerta');

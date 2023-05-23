@@ -164,7 +164,7 @@ class AlertaEnvioSeeder extends Seeder
             'url_boletin' => '',
             'recomendacion' => '',
         ]);
-        
+
 
         //alerta seeder ejemplo completo
         AlertaEnvio::create([
@@ -184,23 +184,23 @@ class AlertaEnvioSeeder extends Seeder
             'url_boletin' => '',
             'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
         ]);
-        AlertaEnvio::create([
-            'alerta_id' => 6,
-            'estado_id' => 3,
-            'fecha' => '2023-03-22',
-            'hora' => '8:19:00',
-            'puntoX' => -0,
-            'puntoY' => -0,
-            'url_mapa' => '',
-            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.40 m . Se recomiendan tomar precaución ya que el río tiende a crecer si continúan las precipitaciones, atentos Municipios: Samaipata, Torno y La Guardia.
-            Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. 
-            Estos fenómenos meteorológicos con capacidad de daño y riesgo de interrupción momentánea de actividades cotidianas.
-            ',
-            'img_cabecera' => '',
-            'img_alerta' => '',
-            'url_boletin' => '',
-            'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
-        ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 3,
+        //     'fecha' => '2023-03-22',
+        //     'hora' => '8:19:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.40 m . Se recomiendan tomar precaución ya que el río tiende a crecer si continúan las precipitaciones, atentos Municipios: Samaipata, Torno y La Guardia.
+        //     Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. 
+        //     Estos fenómenos meteorológicos con capacidad de daño y riesgo de interrupción momentánea de actividades cotidianas.
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
+        // ]);
 
         AlertaEnvio::create([
             'alerta_id' => 6,
@@ -227,6 +227,7 @@ class AlertaEnvioSeeder extends Seeder
             'hora' => '13:03:00',
             'puntoX' => -0,
             'puntoY' => -0,
+            'video' => '/storage/eventos/inundaciones/videos/video3.mp4',
             'url_mapa' => '',
             'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 4.20.m Se recomiendan al Municipio actuar con su plan de contingencia 
             “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
@@ -238,23 +239,23 @@ class AlertaEnvioSeeder extends Seeder
             'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
         ]);
 
-        AlertaEnvio::create([
-            'alerta_id' => 6,
-            'estado_id' => 1,
-            'fecha' => '2023-03-22',
-            'hora' => '13:03:00',
-            'puntoX' => -0,
-            'puntoY' => -0,
-            'url_mapa' => '',
-            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 5.10 m. 
-            “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
-            El río Piraí y sus afluentes secundarios ascensos con posibles desbordes en las poblaciones de y comunidades cercanas de los Municipios: Samaipata, Torno y la Guardia 
-            ',
-            'img_cabecera' => '',
-            'img_alerta' => '',
-            'url_boletin' => '',
-            'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
-        ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 1,
+        //     'fecha' => '2023-03-22',
+        //     'hora' => '13:03:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 5.10 m. 
+        //     “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
+        //     El río Piraí y sus afluentes secundarios ascensos con posibles desbordes en las poblaciones de y comunidades cercanas de los Municipios: Samaipata, Torno y la Guardia 
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
+        // ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 1,
@@ -262,6 +263,7 @@ class AlertaEnvioSeeder extends Seeder
             'hora' => '14:01:00',
             'puntoX' => -0,
             'puntoY' => -0,
+            'video' => '/storage/eventos/inundaciones/videos/video2.mp4',
             'url_mapa' => '',
             'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 5.10 m. 
             “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
@@ -280,6 +282,7 @@ class AlertaEnvioSeeder extends Seeder
             'puntoX' => -0,
             'puntoY' => -0,
             'url_mapa' => '',
+            'video' => '/storage/eventos/inundaciones/videos/video1.mp4',
             'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.66 m. 
             Existe un riesgo meteorológico importante (Fenómenos meteorológicos no habituales  y con cierto grado de peligro para las actividades usuales)
             Se preveé  que el evento adverso ocurra y su desarrollo pueda afectar  a la población, medos de vidas, sistemas productivos, accesibilidad  a servicios básicos  y otros.
@@ -293,8 +296,22 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
+            'fecha' => '2023-03-27',
+            'hora' => '15:49:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 1.33 m . Se recomiendan tomar precaución ya que continuamos con las precipitaciones  y los ríos se mantienen hasta esta hora , atentos Municipios: Samaipata, Torno y La Guardia.',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a estas horas de la mañana  a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. ',
+        ]);
+        AlertaEnvio::create([
+            'alerta_id' => 6,
+            'estado_id' => 3,
             'fecha' => '2023-03-24',
-            'hora' => '06:05:00',
+            'hora' => '06:06:00',
             'puntoX' => -0,
             'puntoY' => -0,
             'url_mapa' => '',
@@ -307,20 +324,20 @@ class AlertaEnvioSeeder extends Seeder
             'url_boletin' => '',
             'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias',
         ]);
-        AlertaEnvio::create([
-            'alerta_id' => 6,
-            'estado_id' => 3,
-            'fecha' => '2023-03-22',
-            'hora' => '13:03:00',
-            'puntoX' => -0,
-            'puntoY' => -0,
-            'url_mapa' => '',
-            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 1.33 m . Se recomiendan tomar precaución ya que continuamos con las precipitaciones  y los ríos se mantienen hasta esta hora , atentos Municipios: Samaipata, Torno y La Guardia.',
-            'img_cabecera' => '',
-            'img_alerta' => '',
-            'url_boletin' => '',
-            'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a estas horas de la mañana  a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. ',
-        ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 3,
+        //     'fecha' => '2023-03-22',
+        //     'hora' => '13:03:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 1.33 m . Se recomiendan tomar precaución ya que continuamos con las precipitaciones  y los ríos se mantienen hasta esta hora , atentos Municipios: Samaipata, Torno y La Guardia.',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a estas horas de la mañana  a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. ',
+        // ]);
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
@@ -371,105 +388,140 @@ class AlertaEnvioSeeder extends Seeder
 
 
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/1.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/1.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 13
+            'alerta_envio_id' => 11
         ]);
 
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/2.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/2.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 13
+            'alerta_envio_id' => 11
         ]);
 
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/3.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/3.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 13
+            'alerta_envio_id' => 11
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/4.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/4.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 13
+            'alerta_envio_id' => 11
         ]);
+        // Imagen::create([
+        //     'path' => '/storage/eventos/inundaciones/imgs/1/critico/5.jpg',
+        //     'description' => 'Aquí vendrá su descripción de prueba.',
+        //     'alerta_envio_id' => 12
+        // ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/5.jpg',
-            'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 14
-        ]);
-        Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/6.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/6.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
             'alerta_envio_id' => 15
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/7.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/muy alto/7.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 15
+            'alerta_envio_id' => 12
         ]);
 
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/8.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/8.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 16
+            'alerta_envio_id' => 10
         ]);
 
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/9.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/9.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 16
+            'alerta_envio_id' => 10
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/10.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/10.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 16
+            'alerta_envio_id' => 10
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/11.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/11.jpg',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 16
+            'alerta_envio_id' => 10
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/12.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/12.jpg',
+            'description' => 'Aquí vendrá su descripción de prueba.',
+            'alerta_envio_id' => 10
+        ]);
+        Imagen::create([
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/13.jpg',
+            'description' => 'Aquí vendrá su descripción de prueba.',
+            'alerta_envio_id' => 10
+        ]);
+
+        // Imagen::create([
+        //     'path' => '/storage/eventos/inundaciones/imgs/1/critico/14.jpg',
+        //     'description' => 'Aquí vendrá su descripción de prueba.',
+        //     'alerta_envio_id' => 12
+        // ]);
+
+        // Imagen::create([
+        //     'path' => '/storage/eventos/inundaciones/imgs/1/critico/15.jpg',
+        //     'description' => 'Aquí vendrá su descripción de prueba.',
+        //     'alerta_envio_id' => 12
+        // ]);
+        // Imagen::create([
+        //     'path' => '/storage/eventos/inundaciones/imgs/1/critico/16.jpg',
+        //     'description' => 'Aquí vendrá su descripción de prueba.',
+        //     'alerta_envio_id' => 12
+        // ]);
+        // Imagen::create([
+        //     'path' => '/storage/eventos/inundaciones/imgs/1/critico/17.jpg',
+        //     'description' => 'Aquí vendrá su descripción de prueba.',
+        //     'alerta_envio_id' => 12
+        // ]);
+        Imagen::create([
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/18.jpg',
+            'description' => 'Aquí vendrá su descripción de prueba.',
+            'alerta_envio_id' => 11
+        ]);
+        Imagen::create([
+            'path' => '/storage/eventos/inundaciones/imgs/1/critico/19.jpg',
+            'description' => 'Aquí vendrá su descripción de prueba.',
+            'alerta_envio_id' => 11
+        ]);
+         Imagen::create([
+             'path' => '/storage/eventos/inundaciones/imgs/1/bajo/20.png',
+             'description' => 'Aquí vendrá su descripción de prueba.',
+             'alerta_envio_id' => 17
+         ]);
+        Imagen::create([
+            'path' => '/storage/eventos/inundaciones/imgs/1/moderado/21.jfif',
             'description' => 'Aquí vendrá su descripción de prueba.',
             'alerta_envio_id' => 16
         ]);
          Imagen::create([
-             'path' => '/storage/eventos/inundaciones/imgs/1/13.jpg',
+             'path' => '/storage/eventos/inundaciones/imgs/1/bajo/22.png',
              'description' => 'Aquí vendrá su descripción de prueba.',
              'alerta_envio_id' => 17
          ]);
-
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/14.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/moderado/23.png',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 18
-        ]);
-
-        Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/15.jpg',
-            'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 18
+            'alerta_envio_id' => 16
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/16.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/bajo/24.png',
             'description' => 'Aquí vendrá su descripción de prueba.',
             'alerta_envio_id' => 17
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/17.jpg',
-            'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 18
-        ]);
-        Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/18.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/bajo/25.png',
             'description' => 'Aquí vendrá su descripción de prueba.',
             'alerta_envio_id' => 17
         ]);
         Imagen::create([
-            'path' => '/storage/eventos/inundaciones/imgs/1/19.jpg',
+            'path' => '/storage/eventos/inundaciones/imgs/1/bajo/26.png',
             'description' => 'Aquí vendrá su descripción de prueba.',
-            'alerta_envio_id' => 18
+            'alerta_envio_id' => 17
         ]);
     }
 }

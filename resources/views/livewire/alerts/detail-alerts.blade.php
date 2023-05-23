@@ -30,7 +30,7 @@
 
 
         </div>
-        
+
 
         <div class="content p-8 pt-10 md:py-12 lg:px-4 bg-slate-900/50">
 
@@ -52,7 +52,7 @@
                     <p class="text-lg font-extrabold text-gray-800 mb-2">
                         {{ $alert->hora }}
                     </p>
-    
+
                     <a href="#etiquetaDestino">
                         <div
                             class="rounded-md bg-gradient-to-r from-green-400 to-green-900 whitespace-normal  text-xl text-white pt-3 pb-4 px-8">
@@ -61,7 +61,7 @@
                             </p>
                         </div>
                     </a>
-    
+
                 </div>
             </div>
 
@@ -147,14 +147,15 @@
                                             </p>
 
                                             <!-- component -->
-                                            @if (sizeOf($sending_alert->image) > 0)
+                                            @if (sizeOf($sending_alert->image) > 0 && $sending_alert->video != null)
                                                 <div style="display: flex; justify-content: space-evenly;">
                                                     <section class="body-font relative">
                                                         <div class="inset-0 flex justify-center items-center">
                                                             <div class="w-full">
-                                                                <iframe class="w-full h-full" frameborder="0"
-                                                                    title="map" scrolling="no"
-                                                                    src="/storage/eventos/inundaciones/videos/video1.mp4"></iframe>
+                                                                <iframe autoplay="0" autostart="0" class="w-full h-full"
+                                                                    frameborder="0" title="map" scrolling="no"
+                                                                    autoplay="false"
+                                                                    src="{{ $sending_alert->video }}"></iframe>
                                                             </div>
                                                         </div>
                                                         <div class="container px-5 py-5 mx-auto flex">
@@ -177,7 +178,7 @@
                                                                             <img alt="Placeholder"
                                                                                 class="object-fit w-full"
                                                                                 style="width: 100%; height: 100%; object-fit: cover; border: 2px solid #000; border-radius: 10px;"
-                                                                                src="{{ $image->path }}">
+                                                                                src="{{ asset($image->path) }}">
                                                                         </a>
                                                                     </div>
                                                                 @endforeach
@@ -186,26 +187,54 @@
                                                     </div>
                                                 </div>
                                             @else
-                                                <ul class="text-center">
-                                                    <section class="body-font relative">
-                                                        <div class="absolute inset-0 flex justify-center items-center">
-                                                            <div class="w-auto">
-                                                                <div class=" aspect-h-9">
-                                                                    <iframe class="w-full h-full" frameborder="0"
-                                                                        title="map" scrolling="no"
-                                                                        src="/storage/eventos/inundaciones/videos/video1.mp4"></iframe>
+                                                @if (sizeOf($sending_alert->image) > 0)
+                                                    <div style="display: flex; justify-content: space-evenly;">
+
+                                                        <div x-data="{}" class="flex justify-center">
+                                                            <div class="grid grid-cols-3 gap-4">
+                                                                @if ($sending_alert->image != null)
+                                                                    @foreach ($sending_alert->image as $image)
+                                                                        <div
+                                                                            style="width: 150px; height: 150px; overflow: hidden;">
+                                                                            <a href="#show-img"
+                                                                                @click="$dispatch('img-modal', {  imgModalSrc: '{{ $image->path }}', imgModalDesc: '{{ $image->description }}' })"
+                                                                                class="cursor-pointer">
+                                                                                <img alt="Placeholder"
+                                                                                    class="object-fit w-full"
+                                                                                    style="width: 100%; height: 100%; object-fit: cover; border: 2px solid #000; border-radius: 10px;"
+                                                                                    src="{{ asset($image->path) }}">
+                                                                            </a>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    @if ($sending_alert->video != null)
+                                                        <div style="display: flex; justify-content: center;"
+                                                            class="inset-0">
+                                                            <section class="body-font relative">
+                                                                <div class="inset-0 flex justify-center items-center">
+                                                                    <div class="w-full">
+                                                                        <iframe autoplay="0" autostart="0" class="w-full h-full"
+                                                                            frameborder="0" title="map"
+                                                                            scrolling="no" autoplay="false"
+                                                                            src="{{ $sending_alert->video }}"></iframe>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                                <div class="container px-5 py-5 mx-auto flex">
+                                                                    <div
+                                                                        class="lg:w-1/3 md:w-1/2 rounded-lg flex flex-col md:ml-auto w-full mt-5 md:mt-0 relative">
+                                                                        <!-- Resto del código -->
+                                                                    </div>
+                                                                </div>
+                                                            </section>
                                                         </div>
-                                                        <div class="container px-5 py-10 mx-auto flex">
-                                                            <div
-                                                                class="lg:w-1/3 md:w-1/2 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative">
-                                                                <!-- Resto del código -->
-                                                            </div>
-                                                        </div>
-                                                    </section>
-                                                </ul>
+                                                    @endif
+                                                @endif
                                             @endif
+
                                             <ul class="text-center pb-5">
                                                 <section class="text-gray-600 body-font relative">
                                                     <div class="absolute inset-0 bg-gray-300">
@@ -227,11 +256,11 @@
                                             <!-- component -->
                                             <!-- post card -->
                                             <div
-                                                class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-56 max-w-md md:max-w-2xl">
+                                                class="bg-gradient-to-r from-green-400 to-green-900 rounded-2xl text-white p-5 text-center h-auto w-auto mx-auto">
                                                 <!--horizantil margin is just for display-->
-                                                <div class="flex items-start px-4 py-6">
+                                                <div class="flex items-start">
                                                     <div>
-                                                        <p class="mt-3 text-gray-700 text-sm italic font-bold">
+                                                        <p class="text-white text-sm italic">
                                                             {{ $sending_alert->recomendacion }}
                                                         </p>
                                                     </div>
