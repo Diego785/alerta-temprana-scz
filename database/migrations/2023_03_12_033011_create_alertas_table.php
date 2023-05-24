@@ -19,9 +19,9 @@ class CreateAlertasTable extends Migration
             $table->date('fecha')->nullable();
             $table->time('hora')->nullable();
             $table->text('description');
-            $table->double('geoX');
-            $table->double('geoY');
-            $table->string('url_mapa');
+            $table->double('geoX')->nullable();
+            $table->double('geoY')->nullable();
+            $table->string('url_mapa')->nullable();
             $table->string('estado')->default('Abierta');
             $table->unsignedBigInteger('evento_id');
             $table->unsignedBigInteger('unidad_id');

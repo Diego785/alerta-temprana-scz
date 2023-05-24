@@ -1,4 +1,4 @@
-<div>
+<div >
     <!-- component -->
     <!-- component -->
     <style>
@@ -8,7 +8,7 @@
             left: 60px;
         }
     </style>
-    <td class="inline-flex justify-center  whitespace-nowrap flex">
+    <td class="inline-flex justify-center">
 
         <div class="mover">
             <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
@@ -22,41 +22,42 @@
     <!-- component -->
     <div class="flex flex-col">
         <div class="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
-            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class=" inline-block min-w-full ">
                 <div class="overflow-hidden">
                     <table class="min-w-full">
-                        <thead class="bg-gray-700 border-b">
+                        <thead class="bg-green-800 border-b">
                             <tr>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                                <th scope="col" class="text-base font-medium text-white px-6 py-4 text-center">
                                     ID
                                 </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
-                                    Cargo
+                                <th scope="col" class="text-lg font-medium text-white px-6 py-4 text-center">
+                                    Nombre
                                 </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
-                                    Description
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                                <th scope="col" class="text-lg font-medium text-white px-6 py-4 text-center">
+                                    Provincia
+                                </th>                                
+                                <th scope="col" class="text-lg font-medium text-white px-6 py-4 text-center">
                                     Actions
                                 </th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($estructuras as $estructura)
-                                <tr class="bg-gray-300 border-b ">
+                            @foreach ($municipios as $municipio)
+                                <tr class="bg-green-50 border-b text-center">
                                     <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $estructura->id }}</td>
+                                        {{ $municipio->id }}</td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-                                        {{ $estructura->cargo_comite }}
+                                        {{ $municipio->nombre }}
                                     </td>
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        {{ $estructura->descripcion }}
+                                        {{ $municipio->provincia }}
                                     </td>
-                                    <td class=" my-3 inline-flex justify-center py-4 whitespace-nowrap">
-                                        <div class="whitespace-nowrap mx-5 flex">
-                                            <a class="font-bold px-4 text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2"
-                                                wire:click="open_edit({{ $estructura->id }})">
+                                  
+                                    <td class=" my-3 inline-flex justify-center py-4 whitespace-nowrap flex">
+                                        <div class="whitespace-nowrap flex">
+                                            <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
+                                                wire:click="open_edit({{ $municipio->id }})">
 
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -65,8 +66,8 @@
                                                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                 </svg>
                                             </a>
-                                            <a class="font-bold mx-5 text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
-                                                wire:click="$emit('deleteEstructura', {{ $estructura->id }})">
+                                            <a class="font-bold text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
+                                                wire:click="$emit('deletemunicipio', {{ $municipio->id }})">
 
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                     viewBox="0 0 24 24"
@@ -89,30 +90,28 @@
                 </div>
             </div>
         </div>
-    </div>
-
+    </div> 
 
 
     <x-jet-dialog-modal wire:model="modal_add">
 
         <x-slot name="title">
-            Añadir Estructura del Comité:
+            Añadir Municipio:
         </x-slot>
 
         <x-slot name="content">
 
             <div class="mb-4">
-                <x-jet-label value="Nombre de Cargo del Comité" />
-                <x-jet-input type="text" class="w-full" wire:model.defer="cargo_comite"
-                    placeholder='Escriba el cargo' />
-                <x-jet-input-error for="cargo_comite" />
+                <x-jet-label value="Nombre :" />
+                <x-jet-input type="text" class="w-full" wire:model.defer="nombre"
+                    placeholder='Escriba el nombre' />
+                <x-jet-input-error for="nombre" />
             </div>
             <div class="mb-4">
-                <x-jet-label value="Descripción de la Estructura del Comité" />
-                <textarea wire:model.defer="descripcion"
-                    class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                    rows="2" placeholder="   Escriba la descripción"></textarea>
-                <x-jet-input-error for="descripcion" />
+                <x-jet-label value="Provincia :" />
+                <x-jet-input type="text" class="w-full" wire:model.defer="provincia"
+                placeholder='Escriba la provincia' />
+                <x-jet-input-error for="provincia" />
 
             </div>
 
@@ -132,25 +131,22 @@
     <x-jet-dialog-modal wire:model="modal_edit">
 
         <x-slot name="title">
-            Editar Estructura del Comité:
+            Editar Municipio:
         </x-slot>
 
         <x-slot name="content">
 
             <div class="mb-4">
-                <x-jet-label value="Nombre de Cargo del Comité" />
-                <x-jet-input type="text" class="w-full" wire:model.defer="cargo_comite"
-                    placeholder='Escriba el cargo' />
-                <x-jet-input-error for="cargo_comite" />
+                <x-jet-label value="Nombre del municipio" />
+                <x-jet-input type="text" class="w-full" wire:model.defer="nombre"
+                    placeholder='Escriba el nombre' />
+                <x-jet-input-error for="nombre" />
             </div>
             <div class="mb-4">
-                <x-jet-label value="Descripción de la Estructura del Comité" />
-                <textarea wire:model.defer="descripcion"
-                    class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                    rows="2" placeholder="   Escriba la descripción"></textarea>
-                <x-jet-input-error for="descripcion" />
-
-            </div>
+                <x-jet-label value="Provincia del municipio" />
+                <x-jet-input type="text" class="w-full" wire:model.defer="provincia"
+                placeholder='Escriba la provincia' />
+                <x-jet-input-error for="provincia" />
 
         </x-slot>
 
@@ -170,7 +166,7 @@
 
     @push('js')
         <script>
-            Livewire.on('deleteEstructura',
+            Livewire.on('deletemunicipio',
                 estructuraCodigo => {
                     Swal.fire({
                         title: '¿Estás seguro?',
@@ -183,10 +179,11 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
 
-                            Livewire.emitTo('gestion.comite.estructura-comite', 'delete', estructuraCodigo)
+                            Livewire.emitTo('gestion.municipio.municipio-livewire', 'delete', estructuraCodigo)
                         }
                     })
                 });
         </script>
     @endpush
 </div>
+

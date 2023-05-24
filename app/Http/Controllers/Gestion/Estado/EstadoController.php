@@ -7,5 +7,9 @@ use Illuminate\Http\Request;
 
 class EstadoController extends Controller
 {
-    //
+    public function show()
+    {
+        return view('my_views.gestion.estado.estado_c');
+    }
+    
 }
