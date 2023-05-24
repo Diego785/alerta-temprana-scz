@@ -25,6 +25,7 @@ class MainAlerts extends Component
     public $myId;
     public $perPage = 10;
     public $page = 1;
+    public $show_alerts = false;
 
     public function mount($id)
     {
@@ -50,7 +51,7 @@ class MainAlerts extends Component
     }
     public function justLookAtMonitored()
     {
-        $this->justLook = 'Bajo';
+        $this->justLook = 'Normal';
     }
 
     public function updateQuantityData10()
@@ -84,6 +85,7 @@ class MainAlerts extends Component
 
     public function render()
     {
+        $this->show_alerts = false;
         $alertsPaginated = [];
         if ($this->alerts != null) {
             foreach ($this->alerts as $alert) {
@@ -144,7 +146,7 @@ class MainAlerts extends Component
                     })
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->perPage);
-            } else if ($this->justLook == 'Bajo') {
+            } else if ($this->justLook == 'Normal') {
                 $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
                     ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
@@ -163,7 +165,7 @@ class MainAlerts extends Component
             //     $this->alerts = null;
 
             //     foreach ($alertsPaginated as $alert) {
-            //         if ($alert->alerta_envio->last()->estado->nombre == 'Bajo') {
+            //         if ($alert->alerta_envio->last()->estado->nombre == 'Normal') {
             //             $this->alerts[] = $alert;
             //         }
             //     }
@@ -173,6 +175,12 @@ class MainAlerts extends Component
             // }
         }
 
+    //    $this->show_alerts = true;
+       foreach ($alertsPaginated as $alert) {
+        if($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == $this->justLook || $this->justLook == 'Ver todo'){
+            $this->show_alerts = true;
+        }
+    }
 
         return view('livewire.alerts.main-alerts', ['alertsP' => $alertsPaginated]);
     }

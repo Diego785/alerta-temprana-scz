@@ -53,9 +53,9 @@
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                         {{ $estructura->descripcion }}
                                     </td>
-                                    <td class=" my-3 inline-flex justify-center py-4 whitespace-nowrap flex">
-                                        <div class="whitespace-nowrap flex">
-                                            <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
+                                    <td class=" my-3 inline-flex justify-center py-4 whitespace-nowrap">
+                                        <div class="whitespace-nowrap mx-5 flex">
+                                            <a class="font-bold px-4 text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2"
                                                 wire:click="open_edit({{ $estructura->id }})">
 
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -65,7 +65,7 @@
                                                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                 </svg>
                                             </a>
-                                            <a class="font-bold text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
+                                            <a class="font-bold mx-5 text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
                                                 wire:click="$emit('deleteEstructura', {{ $estructura->id }})">
 
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"

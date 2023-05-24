@@ -12,12 +12,19 @@ class DetailAlerts extends Component
     public $event, $alert, $estado_actual;
     public $sending_alerts;
     public $scrollToSection = false;
+    public $autoplay = false;
 
 
     public function mount($alerta_id, $evento_id)
     {
         $this->alert = Alerta::find($alerta_id);
         $this->event = Evento::find($evento_id);
+        $this->autoplay = false;
+    }
+
+    public function iniciarReproduccion()
+    {
+        $this->autoplay = true;
     }
 
     public function render()

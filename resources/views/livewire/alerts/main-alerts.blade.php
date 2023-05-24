@@ -59,7 +59,7 @@
                         </x-jet-button>
                         <x-jet-button wire:click="justLookAtMonitored()"
                             class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                            Bajos
+                            Normals
                         </x-jet-button>
                     </div>
                     <div class="relative flex items-center mt-4 md:mt-0">
@@ -95,7 +95,7 @@
                 </div>
 
 
-                @if (sizeOf($alertsP) == 0)
+                @if (sizeOf($alertsP) == 0 || $show_alerts == false)
 
                     <div
                         class="flex h-screen flex-col items-center justify-center space-y-6 px-4 sm:flex-row sm:space-x-6 sm:space-y-0">
@@ -249,22 +249,23 @@
                                                         <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                             <div>
                                                                 <h4 class="text-gray-700 dark:text-gray-200">
-                                                                    {{ $alert->created_at }}</h4>
+                                                                    {{ $alert->fecha }}</h4>
+                                                                <h4 class="text-gray-700 dark:text-gray-200">
+                                                                    {{ $alert->hora }}</h4>
 
                                                             </div>
                                                         </td>
 
                                                         <td class="px-4 py-4 text-sm font-medium">
 
-                                                            <p 
-                                                                class="italic text-xs text-gray-600 dark:text-gray-400"
+                                                            <p class="italic text-xs text-gray-600 dark:text-gray-400"
                                                                 style="display: block;
                                                                 overflow: hidden;
                                                                 text-overflow: ellipsis;
                                                                 white-space: normal;
                                                                 width: 200px;">
 
-                                                                    {{ \Illuminate\Support\Str::limit($alert->description, 100, '...') }}
+                                                                {{ \Illuminate\Support\Str::limit($alert->description, 100, '...') }}
                                                             </p>
                                                         </td>
                                                         <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
@@ -283,7 +284,7 @@
                                                                     class="inline px-3 py-1 text-sm font-normal rounded-full text-gray-900 gap-x-2 bg-alertYellow dark:bg-gray-800">
                                                                     {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
                                                                 </div>
-                                                            @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Bajo')
+                                                            @elseif($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Normal')
                                                                 <div style="background-color:  {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->color }}"
                                                                     class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-alertGreen dark:bg-gray-800">
                                                                     {{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
@@ -294,21 +295,16 @@
 
                                                         <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                             <div class="flex items-center">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
-                                                                    alt="">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
-                                                                    alt="">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&q=80"
-                                                                    alt="">
-                                                                <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
-                                                                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
-                                                                    alt="">
-                                                                <p
-                                                                    class="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                                                                    +4</p>
+                                                                @if (sizeOf($alert->alerta_envio->where('alerta_id', $alert->id)->last()->image) > 0)
+                                                                    @foreach ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->image as $img)
+                                                                        <img class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0"
+                                                                            src="{{ $img->path }}" alt="">
+                                                                    @endforeach
+                                                                @else
+                                                                    No hay fotos
+                                                                @endif
+
+
                                                             </div>
                                                         </td>
 
