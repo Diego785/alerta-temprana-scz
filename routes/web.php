@@ -6,6 +6,7 @@ use App\Http\Controllers\Gestion\Alert\AlertController as AlertAlertController;
 use App\Http\Controllers\Gestion\Comite\EstructuraComiteController;
 use App\Http\Livewire\Gestion\Comite\EstructuraComite;
 use App\Http\Controllers\Gestion\Estado\EstadoController as EstadoEstadoController;
+use App\Http\Controllers\Gestion\Municipio\MunicipioController;
 use App\Http\Controllers\Gestion\Unidad\UnidadTecnocientificaController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,9 +60,9 @@ Route::middleware([
 
     //------------------------------------------------------------------------------------------//  
 
-    Route::get('/show-estado', [EstadoEstadoController::class, 'show'])->name('show_estado');
-    Route::get('/show-municipio', [MunicipioController::class, 'show'])->name('show_municipio');
-    Route::get('/show-unidad-tecnocientifica', [UnidadTecnocientificaController::class, 'show'])->name('show_unidad_tecnocientifica');
+    Route::get('/gestion/show-estado', [EstadoEstadoController::class, 'show'])->name('show_estado');
+    Route::get('/gestion/show-municipio', [MunicipioController::class, 'show'])->name('show_municipio');
+    Route::get('/gestion/show-unidad-tecnocientifica', [UnidadTecnocientificaController::class, 'show'])->name('show_unidad_tecnocientifica');
 });
 
 

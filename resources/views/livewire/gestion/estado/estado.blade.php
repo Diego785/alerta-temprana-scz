@@ -3,43 +3,37 @@
     <!-- component -->
     <style>
         .mover {
-            position: absolute;
+            position: fixed;
             top: 100px;
             left: 60px;
         }
     </style>
-    <td class="inline-flex justify-center  whitespace-nowrap flex">
-
-        <div class="mover">
-            <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
-                wire:click="$toggle('modal_add')"> Crear
-            </a>
-        </div>
-
-
-    </td>
+      <div class="mover">
+        <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
+            wire:click="$toggle('modal_add')"> Crear
+        </a>
+    </div>
 
     <!-- component -->
-    <div class="flex flex-col">
-        <div class="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
-            <div class=" inline-block min-w-full ">
-                <div class="overflow-hidden">
-                    <table class="min-w-full">
+    <div class="flex flex-col ">
+        <div class=" sm:mx-0.5 lg:mx-0.5">
+            <div class=" py-2 inline-block min-w-full sm:px-6 lg:px-32">              
+                    <table class="min-w-full divide-y divide-green-900">
                         <thead class="bg-green-800 border-b">
                             <tr>
-                                <th scope="col" class="text-base font-medium text-white px-6 py-4 text-center">
+                                <th scope="col" class="text-base font-medium text-white px-10 py-4 text-center">
                                     ID
                                 </th>
-                                <th scope="col" class="text-lg font-medium text-white px-6 py-4 text-center">
+                                <th scope="col" class="text-base font-medium text-white px-10 py-4 text-center">
                                     Nombre
                                 </th>
-                                <th scope="col" class="text-lg font-medium text-white px-6 py-4 text-center">
+                                <th scope="col" class="text-base font-medium text-white px-10 py-4 text-center">
                                     Color
                                 </th>
-                                <th scope="col" class="text-lg font-medium text-white px-6 py-4 text-center">
+                                <th scope="col" class="text-base font-medium text-white px-10 py-4 text-center">
                                     
                                 </th>
-                                <th scope="col" class="text-lg font-medium text-white px-6 py-4 text-center">
+                                <th scope="col" class="text-base font-medium text-white px-10 py-4 text-center">
                                     Actions
                                 </th>
 
@@ -50,42 +44,43 @@
                                 <tr class="bg-green-50 border-b text-center">
                                     <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
                                         {{ $estado->id }}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
+                                    <td class="text-sm text-gray-900 font-light px-10 py-3 whitespace-nowrap">
                                         {{ $estado->nombre }}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class="text-sm text-gray-900 font-light px-10 py-3 whitespace-nowrap">
                                         {{ $estado->color }}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class="text-sm text-gray-900 font-light px-10 py-3 whitespace-nowrap">
                                         <div style="background-color:   {{$estado->color}}"
                                             class="inline px-3 py-1 font-normal rounded-full gap-x-2">
                                             
                                         </div>
                                     </td>
-                                    <td class=" my-3 inline-flex justify-center py-4 whitespace-nowrap flex">
-                                        <div class="whitespace-nowrap flex">
-                                            <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
+                                    <td class=" my-3 inline-flex justify-center py-3 whitespace-nowrap">
+                                        <div class="whitespace-nowrap mx-5 flex">
+                                            <a class="font-bold ml-2 text-white rounded cursor-pointer bg-green-600 hover:bg-green py-2 px-2"
                                                 wire:click="open_edit({{ $estado->id }})">
 
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </a>
-                                            <a class="font-bold text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
-                                                wire:click="$emit('deleteEstado', {{ $estado->id }})">
-
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                    viewBox="0 0 24 24"
-                                                    style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
-                                                    <path
-                                                        d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z">
-                                                    </path>
-                                                    <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
-                                                </svg>
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
                                             </a>
+                                  
+                                         
+                                            <a class="font-bold ml-2 text-white rounded cursor-pointer bg-black hover:bg-opacity-50 py-2 px-2"
+                                            wire:click="$emit('deleteEstado', {{ $estado->id }})">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24"
+                                                style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                                                <path
+                                                    d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z">
+                                                </path>
+                                                <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                                            </svg>
+                                        </a>
                                         </div>
                                     </td>
 
@@ -95,7 +90,7 @@
 
                         </tbody>
                     </table>
-                </div>
+             
             </div>
         </div>
     </div> 
