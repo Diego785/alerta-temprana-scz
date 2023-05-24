@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Gestion\Alerta;
 
 use App\Models\Alerta;
+use App\Models\Evento;
 use App\Models\UnidadTecnicoCientifica;
 use Livewire\Component;
 
@@ -10,7 +11,7 @@ class ShowAlertaGestion extends Component
 {
 
     
-    public $alerta, $nombre, $fecha, $hora, $descripcion, $positionX, $positionY, $estado = "Abierta", $evento, $unidades;
+    public $alerta, $nombre, $fecha, $hora, $descripcion, $positionX, $positionY, $estado = "Abierta", $evento_id, $unidad_id;
     public $modal_add = false;
     public $modal_edit = false;
 
@@ -23,9 +24,9 @@ class ShowAlertaGestion extends Component
         'fecha' => 'required',
         'hora' => 'required',
         'descripcion' => 'required',
-        'evento' => 'required',
+        'evento_id' => 'required',
+        'unidad_id' => 'required',
         'estado' => 'required',
-        'unidad' => 'required',
     ];
 
     //Mensajes de las validaciones
@@ -34,9 +35,9 @@ class ShowAlertaGestion extends Component
         'fecha.required' => 'La fecha es obligatoria.',
         'hora.required' => 'La hora es obligatoria.',
         'descripcion.required' => 'La descripción es obligatoria.',
-        'evento.required' => 'El evento es obligatorio.',
+        'evento_id.required' => 'El evento es obligatorio.',
+        'unidad_id.required' => 'La unidad TecnoCientífica es obligatoria.',
         'estado.required' => 'El estado es obligatorio.',
-        'unidad.required' => 'La unidad TecnoCientífica es obligatoria.',
     ];
 
     public function open_add()
@@ -47,10 +48,15 @@ class ShowAlertaGestion extends Component
 
     public function open_edit($id)
     {
-        // $this->estructura_comite = ModelsEstructuraComite::find($id);
-        // $this->cargo_comite = $this->estructura_comite->cargo_comite;
-        // $this->descripcion = $this->estructura_comite->descripcion;
-        // $this->modal_edit = true;
+        $this->alerta = Alerta::find($id);
+        $this->nombre = $this->alerta->nombre;
+        $this->fecha = $this->alerta->fecha;
+        $this->hora = $this->alerta->hora;
+        $this->descripcion = $this->alerta->description;
+        $this->evento_id = $this->alerta->evento_id;
+        $this->unidad_id = $this->alerta->unidad_id;
+        $this->estado = $this->estado;
+        $this->modal_edit = true;
     }
 
     public function save()
@@ -62,38 +68,45 @@ class ShowAlertaGestion extends Component
              'fecha' => $this->fecha,
              'hora' => $this->hora,
              'description' => $this->descripcion,
-             'evento_id' => $this->evento,
-             'unidad_id' => $this->evento,
+             'evento_id' => $this->evento_id,
+             'unidad_id' => $this->unidad_id,
              'estado' => $this->estado,
          ]);
 
 
 
-        $this->reset(['modal_add', 'cargo_comite', 'descripcion']);
+        $this->reset(['modal_add', 'nombre', 'fecha', 'hora', 'descripcion', 'evento_id', 'unidad_id', 'estado']);
     }
 
     public function update()
     {
         $this->validate();
-            $this->estructura_comite->cargo_comite = $this->cargo_comite;
-            $this->estructura_comite->descripcion = $this->descripcion;
-            $this->estructura_comite->update();
+            $this->alerta->nombre = $this->nombre;
+            $this->alerta->fecha = $this->fecha;
+            $this->alerta->hora = $this->hora;
+            $this->alerta->description = $this->descripcion;
+            $this->alerta->evento_id = $this->evento_id;
+            $this->alerta->unidad_id = $this->unidad_id;
+            $this->alerta->estado = $this->estado;
+            $this->alerta->update();
 
-            $this->reset(['modal_edit', 'cargo_comite', 'descripcion']);
+            $this->reset(['modal_edit', 'nombre', 'fecha', 'hora', 'descripcion', 'evento_id', 'unidad_id', 'estado']);
+
     }
 
     public function delete($id)
     {
-        // $estructura = ModelsEstructuraComite::find($id);
-        // $estructura->delete();
+         $alerta = Alerta::find($id);
+         $alerta->delete();
     }
 
 
 
     public function render()
     {
-        $this->unidades = UnidadTecnicoCientifica::all();
+        $unidades = UnidadTecnicoCientifica::all();
+        $eventos = Evento::all();
         $alerts = Alerta::all();
-        return view('livewire.gestion.alerta.show-alerta-gestion', compact('alerts'));
+        return view('livewire.gestion.alerta.show-alerta-gestion', compact('alerts', 'eventos', 'unidades'));
     }
 }

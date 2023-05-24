@@ -370,9 +370,9 @@
 
     <main class="flex-1 max-h-full py-1 overflow-y-scroll">
 
-        <div class="content ml-10  duration-500 pt-20 pb-4  ">
+        <div class="content ml-10 duration-500 pt-20 pb-4  ">
 
-            <div id="main-background" class="py-20 h-full" style="background-color: white" x-data="{ showPass: true }">
+            <div id="main-background" class="py-20 h-full " style="background-color: white" x-data="{ showPass: true }">
                 @yield('content')
 
             </div>
