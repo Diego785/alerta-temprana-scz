@@ -15,6 +15,46 @@ class MunicipioSeeder extends Seeder
     public function run()
     {
         Municipio::create([
+            'municipio' =>'Cotoca',
+            'provincia'=>'Andres Ibañez',
+          
+
+        ]);
+        
+        Municipio::create([
+            'municipio' =>'El Torno',
+            'provincia'=>'Andres Ibañez',
+          
+
+        ]);
+        
+        Municipio::create([
+            'municipio' =>'La Guardia',
+            'provincia'=>'Andres Ibañez',
+          
+
+        ]);
+        
+        Municipio::create([
+            'municipio' =>'Porongo',
+            'provincia'=>'Andres Ibañez',
+          
+
+        ]);
+        
+        Municipio::create([
+            'municipio' =>'Santa Cruz de la Sierra',
+            'provincia'=>'Andres Ibañez',
+          
+
+        ]);
+        Municipio::create([
+            'municipio' =>'',
+            'provincia'=>'Angel Snadoval',
+          
+
+        ]);
+        Municipio::create([
             'municipio' =>'',
             'provincia'=>'',
           

@@ -1,8 +1,23 @@
 <div>
     <!-- Green Button -->
 
+    <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
+        @if (Route::has('login'))
+            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                    {{-- @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                    @endif --}}
+                @endauth
+            </div>
+        @endif
 
     <div id="main-card" class="card rounded-xl bg-white px-16 shadow-lg backdrop-blur-md max-sm:px-8">
+        
         <div class="text-white">
             <div class="mb-3 flex flex-col items-center">
                 <img id="main-logo" class="logo" src="imgs/logo_gobierno_scz.png" width="500" alt=""
