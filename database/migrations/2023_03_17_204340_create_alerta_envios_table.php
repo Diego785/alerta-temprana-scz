@@ -19,15 +19,15 @@ class CreateAlertaEnviosTable extends Migration
             $table->unsignedBigInteger('estado_id');
             $table->date('fecha');
             $table->time('hora');
-            $table->double('puntoX');
-            $table->double('puntoY');
-            $table->string('url_mapa');
-            $table->string('video')->nullable();
             $table->text('description');
-            $table->string('img_cabecera');
-            $table->string('img_alerta');
-            $table->string('url_boletin');
             $table->text('recomendacion');
+            $table->double('puntoX')->nullable();
+            $table->double('puntoY')->nullable();
+            $table->string('url_mapa')->nullable();
+            $table->string('video')->nullable();
+            $table->string('img_cabecera')->nullable();
+            $table->string('img_alerta')->nullable();
+            $table->string('url_boletin')->nullable();
             $table->foreign('alerta_id')->references('id')->on('alertas');
             $table->foreign('estado_id')->references('id')->on('estados');
 

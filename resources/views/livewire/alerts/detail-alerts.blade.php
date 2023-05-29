@@ -52,6 +52,23 @@
 
 
         <div class="content p-8 pt-10 md:py-12 lg:px-4 bg-slate-900/50">
+            <div class="mb-2 text-base font-bold flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+                &nbsp<a>
+
+                    <a href="{{ route('show_alerts') }}" class="hover:underline text-white">Menú</a>&nbsp/&nbsp
+                    <a href="{{ route('main_alerts.index', $event->id) }}" class="hover:underline text-white">Alertas de
+                        {{ $event->tipoEvento }}</a>&nbsp/&nbsp
+                    <a href="{{ route('sending_alerts.index', [$alert->id, $event->id]) }}"
+                        class="hover:underline text-white">Detalles de {{ $alert->nombre }}</a>
+
+                </a>
+            </div>
+
 
             <div class="mx-5  grid place-content-center">
                 <div
@@ -62,8 +79,12 @@
                     <p class="text-sm text-gray-100 italic mb-2">
                         {{ $alert->description }}
                     </p>
-                    <div class="ribbon bg-red-500 text-white text-sm font-bold whitespace-no-wrap px-4">Alerta Cerrada
-                    </div>
+                    @if ($alert->estado == 'Cerrada')
+                        <div class="ribbon bg-red-500 text-white text-sm font-bold whitespace-no-wrap px-4">Alerta
+                            Cerrada
+                        </div>
+                    @endif
+
 
                 </div>
 

@@ -21,7 +21,7 @@
         <div class="sm:mx-0.5 lg:mx-0.5 ">
             <div class="py-2 sm:px-6 lg:px-8 ">
                 <table class="table-auto divide-y divide-gray-900 w-full ">
-                    <thead class="bg-gray-700 border-b ">
+                    <thead class="bg-green-800 border-b">
                         <tr>
                             <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
                                 ID
@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                         @foreach ($estructuras as $estructura)
-                            <tr class="bg-gray-200 border-b">
+                            <tr class="bg-green-50 border-b text-center">
 
                                 <td class="col-span-2 px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
                                     {{ $estructura->id }}</td>

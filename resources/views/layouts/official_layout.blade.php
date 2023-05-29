@@ -118,6 +118,8 @@
     <div id="main-background" class="py-36 h-full"
         style="background-image: linear-gradient(to top, #013220  , #90ee90 );">
         <div class=" place-items-center lg:mx-60 md:mx-30 sm:mx-20 xs:mx-10" x-data="{ showPass: true }">
+          
+
             @yield('content')
 
 

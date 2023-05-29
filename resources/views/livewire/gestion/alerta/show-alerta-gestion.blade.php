@@ -24,22 +24,23 @@
     <!-- component -->
     <div class="flex flex-col">
         <div class="sm:mx-0.5 lg:mx-0.5">
-            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <table class="table-auto divide-y divide-gray-900">
-                    <thead class="bg-gray-700 border-b">
+            <div class="py-2 sm:px-6 lg:px-8">
+                <table class="table-auto divide-y divide-gray-900 w-full">
+                    <thead class="bg-green-800 border-b">
                         <tr>
-                            <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
+                            {{-- <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
                                 ID
-                            </th>
-                            <th scope="col"
-                                class="tracking-wider text-sm font-medium text-white px-6 py-4 text-left">
-                                Nombre
-                            </th>
+                            </th> --}}
+
                             <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
                                 Fecha
                             </th>
                             <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-left">
                                 Hora
+                            </th>
+                            <th scope="col"
+                                class="tracking-wider text-sm font-medium text-white px-6 py-4 text-left">
+                                Nombre
                             </th>
                             <th scope="col"
                                 class="tracking-wider  text-sm font-medium text-white px-6 py-4 text-left">
@@ -68,18 +69,20 @@
                     </thead>
                     <tbody>
                         @foreach ($alerts as $alert)
-                            <tr class="bg-gray-200 border-b">
-                                <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    {{ $alert->id }}</td>
-                                <td class="text-sm text-gray-900 font-light px-6 py-2">
-                                    {{ $alert->nombre }}
-                                </td>
+                            <tr class="bg-green-50 border-b text-center">
+                                {{-- <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    {{ $alert->id }}</td> --}}
                                 <td class="text-sm text-black font-light px-6 py-4 whitespace-nowrap">
                                     {{ $alert->fecha }}
                                 </td>
                                 <td class="text-sm text-black font-light px-6 py-4 whitespace-nowrap">
                                     {{ $alert->hora }}
                                 </td>
+
+                                <td class="text-sm text-gray-900 font-light px-6 py-2">
+                                    {{ $alert->nombre }}
+                                </td>
+
                                 <td class="col-span-3 text-sm text-black font-light px-6 py-4">
                                     {{ \Illuminate\Support\Str::limit($alert->description, 80, '...') }}
                                 </td>
@@ -102,8 +105,8 @@
 
                                 <td class=" my-3 inline-flex justify-center py-4 whitespace-nowrap">
                                     <div class="whitespace-nowrap mx-5 flex">
-                                        <a class="font-bold ml-2 text-white rounded cursor-pointer bg-black hover:bg-opacity-50 py-2 px-2"
-                                            wire:click="open_edit({{$alert->id}})">
+                                        <a class="font-bold ml-2 text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-2"
+                                            wire:click="open_edit({{ $alert->id }})">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,7 +115,7 @@
                                             </svg>
                                         </a>
                                         <a class="font-bold ml-2 text-white rounded cursor-pointer bg-black hover:bg-opacity-50 py-2 px-2"
-                                            href="{{route('show_detail_alerta_gestion', $alert->id)}}">
+                                            href="{{ route('show_detail_alerta_gestion', $alert->id) }}">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 viewBox="0 0 24 24"
@@ -127,7 +130,7 @@
                                             </svg>
                                         </a>
                                         <a class="font-bold ml-2 text-white rounded cursor-pointer bg-black hover:bg-opacity-50 py-2 px-2"
-                                            wire:click="$emit('deleteAlerta', {{$alert->id}})">
+                                            wire:click="$emit('deleteAlerta', {{ $alert->id }})">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 viewBox="0 0 24 24"
@@ -193,11 +196,11 @@
                 <x-jet-label value='Estado' />
                 <select
                     class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                    wire:model.defer='estadoServicio'>
+                    wire:model.defer='estado'>
                     <option value="Abierta">Abierta</option>
                     <option value="Cerrada">Cerrada</option>
                 </select>
-                <x-jet-input-error for="estadoServicio" />
+                <x-jet-input-error for="estado" />
             </div>
 
             <div class="mb-4 w-full">
@@ -277,11 +280,11 @@
                 <x-jet-label value='Estado' />
                 <select
                     class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full"
-                    wire:model.defer='estadoServicio'>
+                    wire:model.defer='estado'>
                     <option value="Abierta">Abierta</option>
                     <option value="Cerrada">Cerrada</option>
                 </select>
-                <x-jet-input-error for="estadoServicio" />
+                <x-jet-input-error for="estado" />
             </div>
 
             <div class="mb-4 w-full">
@@ -341,6 +344,16 @@
                         }
                     })
                 });
+        </script>
+        <script>
+            Livewire.on('showMessageResult', () => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Tienes datos de otras tablas referenciados a esta alerta!',
+                    footer: '<a href="">¿Por qué tengo este error?</a>'
+                });
+            });
         </script>
     @endpush
 </div>
