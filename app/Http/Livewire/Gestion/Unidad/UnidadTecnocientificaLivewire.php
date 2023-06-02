@@ -4,11 +4,12 @@ namespace App\Http\Livewire\Gestion\Unidad;
 
 use App\Models\UnidadTecnicoCientifica;
 use Livewire\Component;
-
+use Livewire\WithPagination;
 
 class UnidadTecnocientificaLivewire extends Component
 {
-    
+    use WithPagination;
+    public $search;
     public $unidadtecnocientifica;
     public $nombre, $sigla,$telefono,$description,$url_web,$responsable, 
     $clasificacion,$tipo ,$direccion, $puntoX,$puntoY;
@@ -114,13 +115,26 @@ class UnidadTecnocientificaLivewire extends Component
         $unidadtecnocientifica = UnidadTecnicoCientifica::find($id);
         $unidadtecnocientifica->delete();
     }
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
 
 
     
     public function render()
     {
-        $unidadtecnocientificas = UnidadTecnicoCientifica::all();
+        //$unidadtecnocientificas = UnidadTecnicoCientifica::all();
+        $unidadtecnocientificas = UnidadTecnicoCientifica::where(function ($query) {
+            $query->where('id', 'like', '%' . $this->search . '%')
+                ->orWhere('nombre', 'like', '%' . $this->search . '%')
+                ->orWhere('sigla', 'like', '%' . $this->search . '%')
+                ->orWhere('description', 'like', '%' . $this->search . '%')
+                ->orWhere('responsable', 'like', '%' . $this->search . '%') 
+                ->orWhere('direccion', 'like', '%' . $this->search . '%')
+                ->orWhere('telefono', 'like', '%' . $this->search . '%');
+        })->paginate(5);
         return view('livewire.gestion.unidad.unidad-tecnocientifica-livewire',compact('unidadtecnocientificas'));
     }
 }

@@ -4,9 +4,12 @@ namespace App\Http\Livewire\Gestion\Estado;
 
 use App\Models\Estado as ModelsEstado;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Estado extends Component
 {
+    use WithPagination;
+    public $search;
     public $estado,$nombre, $color;
     public $modal_add = false;
     public $modal_edit = false;
@@ -63,10 +66,19 @@ class Estado extends Component
         $estado = ModelsEstado::find($id);
         $estado->delete();
     }
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
-        $estados = ModelsEstado::all();
+        //$estados = ModelsEstado::all();
+        $estados = ModelsEstado::where(function ($query) {
+            $query->where('id', 'like', '%' . $this->search . '%')
+                ->orWhere('nombre', 'like', '%' . $this->search . '%')
+                ->orWhere('color', 'like', '%' . $this->search . '%');               
+        })->paginate(5);
         return view('livewire.gestion.estado.estado',compact('estados'));
     }
 }

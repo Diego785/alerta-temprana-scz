@@ -4,12 +4,15 @@ namespace App\Http\Livewire\Gestion\Comite;
 
 use App\Models\EstructuraComite as ModelsEstructuraComite;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class EstructuraComite extends Component
 {
+    use WithPagination;
     public $estructura_comite, $cargo_comite, $descripcion;
     public $modal_add = false;
     public $modal_edit = false;
+    public $search;
 
     protected $listeners = ['render', 'delete'];
 
@@ -69,11 +72,20 @@ class EstructuraComite extends Component
         $estructura = ModelsEstructuraComite::find($id);
         $estructura->delete();
     }
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
 
     public function render()
     {
-        $estructuras = ModelsEstructuraComite::all();
+        //$estructuras = ModelsEstructuraComite::all();
+        $estructuras = ModelsEstructuraComite::where(function ($query) {
+            $query->where('id', 'like', '%' . $this->search . '%')
+                ->orWhere('cargo_comite', 'like', '%' . $this->search . '%')
+                ->orWhere('descripcion', 'like', '%' . $this->search . '%');                
+        })->paginate(5);
         return view('livewire.gestion.comite.estructura-comite', compact('estructuras'));
     }
 }

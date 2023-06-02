@@ -13,193 +13,88 @@
             wire:click="$toggle('modal_add')"> Crear
         </a>
     </div>
-    <!-- component -->
-    <!-- This is an example component -->
+    <div class="px-6 py-4">
+
+        <x-jet-input type="text" class="w-full" wire:model="search"
+            placeholder="Ingrese el nombre, sigla, descripcion, responsable, direccion, telefono " />
+    </div>
+
+    @if (count($unidadtecnocientificas))
+        <!-- This is an example component -->
     @foreach ($unidadtecnocientificas as $unidad)
-        <div class='flex items-center justify-center py-5'>
-            <div class="rounded-xl border p-5 border-black shadow-md w-9/12 bg-white">
-                <div class="flex w-full items-center justify-between border-b pb-3">
-                    <div class="flex items-center space-x-3">
+    <div class='flex items-center justify-center py-5'>
+        <div class="rounded-xl border p-5 border-black shadow-md w-9/12 bg-white">
+            <div class="flex w-full items-center justify-between border-b pb-3">
+                <div class="flex items-center space-x-3">
 
-                        <div class="text-lg font-bold text-slate-700">{{ $unidad->nombre }}</div>
-                    </div>
-                    <div class="flex items-center space-x-8">
-                        <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
-                            wire:click="open_edit({{ $unidad->id }})">
+                    <div class="text-lg font-bold text-slate-700">{{ $unidad->nombre }}</div>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
+                        wire:click="open_edit({{ $unidad->id }})">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                            </svg>
-                        </a>
-                        <a class="font-bold text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
-                            wire:click="$emit('deleteunidad', {{ $unidad->id }})">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                    </a>
+                    <a class="font-bold text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
+                        wire:click="$emit('deleteunidad', {{ $unidad->id }})">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
-                                <path
-                                    d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z">
-                                </path>
-                                <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
-                            </svg>
-                        </a>
-                    </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                            <path
+                                d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z">
+                            </path>
+                            <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-4 mb-6">
+                <div class="mb-3 text-base font-semibold">Telefono: {{ $unidad->telefono }}</div>
+                <div class="mb-3 text-base font-semibold">Responsable: {{ $unidad->responsable }}</div>
+                <div class="mb-3 text-base font-semibold">Clasificacion :{{ $unidad->clasificacion }} </div>
+                <div class="mb-3 text-base font-semibold">Tipo: {{ $unidad->tipo }}</div>
+                <div class="mb-3 text-base font-semibold">
+                    Web: <a href="{{ $unidad->url_web }}" target="_blank">{{ $unidad->url_web }}</a>
                 </div>
 
-                <div class="mt-4 mb-6">                    
-                    <div class="mb-3 text-base font-semibold">Telefono: {{$unidad->telefono}}</div>
-                    <div class="mb-3 text-base font-semibold">Responsable: {{$unidad->responsable}}</div>
-                    <div class="mb-3 text-base font-semibold">Clasificacion :{{$unidad->clasificacion}} </div>
-                    <div class="mb-3 text-base font-semibold">Tipo: {{$unidad->tipo}}</div>
-                    <div class="mb-3 text-base font-semibold">
-                        Web: <a href="{{$unidad->url_web}}" target="_blank">{{$unidad->url_web}}</a>
-                      </div>                    
-                    
-                  
-                    <div class="mb-3 text-base font-semibold">Direccion: {{$unidad->direccion}}</div>
-                    <div class="text-sm text-neutral-600">{{$unidad->description}} </div>
-                </div>
 
-                <div>
-                    <div class="flex items-center justify-between text-slate-500">
-                        <div class="flex space-x-4 md:space-x-8">
-                            <div class="flex cursor-pointer items-center transition hover:text-slate-600">
+                <div class="mb-3 text-base font-semibold">Direccion: {{ $unidad->direccion }}</div>
+                <div class="text-sm text-neutral-600">{{ $unidad->description }} </div>
+            </div>
 
-                                <span>Longitud: {{$unidad->puntoX}} </span>
-                            </div>
-                            <div class="flex cursor-pointer items-center transition hover:text-slate-600">
-                               
-                                <span>Latitud: {{$unidad->puntoY}} </span>
-                            </div>
+            <div>
+                <div class="flex items-center justify-between text-slate-500">
+                    <div class="flex space-x-4 md:space-x-8">
+                        <div class="flex cursor-pointer items-center transition hover:text-slate-600">
+
+                            <span>Longitud: {{ $unidad->puntoX }} </span>
+                        </div>
+                        <div class="flex cursor-pointer items-center transition hover:text-slate-600">
+
+                            <span>Latitud: {{ $unidad->puntoY }} </span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    @endforeach
-
-
-
+    </div>
+@endforeach
+    @else
+    <div class="px-6 py-4">
+        No hay ningun registro
+    </div> 
+    @endif
     <!-- component -->
-    {{-- <div class="flex flex-col">
-        <div class="sm:mx-0.5 lg:mx-0.5">
-            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <table class="table-auto divide-y divide-gray-900">
-                        <thead class="bg-green-800 border-b">
-                            <tr>
-                               
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Nombre
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Sigla
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Telefono
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Descripcion 
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Web
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Responsable
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Clasificacion
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Tipo 
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Direccion
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                   Longitud
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                   Latitud
-                                </th>
-                                <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-center">
-                                    Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($unidadtecnocientificas as $unidad)
-                            
-                                <tr class="bg-green-50 border-b text-center">                                  
-                                   
-                                    <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-normal">
-                                        {{ $unidad->nombre }}
-                                    </td>
-                                    
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        {{ $unidad->sigla }}
-                                    </td>
-                                    <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $unidad->telefono }}</td>
-                                     <td class="text-sm text-gray-900 font-light px-6 py-2 wwhitespace-normal">
-                                        {{ $unidad->description }}
-                                    </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-normal">
-                                        {{ $unidad->url_web }}
-                                    </td>
-                                    <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $unidad->responsable }}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-                                        {{ $unidad->clasificacion }}
-                                    </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        {{ $unidad->tipo }}
-                                    </td>
-                                    <td class="px-6 py-2 whitespace-normal text-sm font-medium text-gray-900">
-                                        {{ $unidad->direccion }}</td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-2 whitespace-nowrap">
-                                        {{ $unidad->puntoX }}
-                                    </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        {{ $unidad->puntoY }}
-                                    </td>
-                                                                      <td class=" my-3 inline-flex justify-center py-4 whitespace-nowrap flex">
-                                        <div class="whitespace-nowrap flex">
-                                            <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
-                                                wire:click="open_edit({{ $unidad->id }})">
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </a>
-                                            <a class="font-bold text-white rounded cursor-pointer bg-black hover:bg-red-500 py-2 px-4"
-                                                wire:click="$emit('deleteunidad', {{ $unidad->id }})">
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                    viewBox="0 0 24 24"
-                                                    style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
-                                                    <path
-                                                        d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z">
-                                                    </path>
-                                                    <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            @endforeach
-
-
-                        </tbody>
-                    </table>
-               
-            </div>
-        </div>
-    </div>  --}}
+    @if ($unidadtecnocientificas->hasPages())
+    <div class="px-10 py-4">
+        {{ $unidadtecnocientificas->links() }}
+    </div>
+@endif
 
 
     <x-jet-dialog-modal wire:model="modal_add">

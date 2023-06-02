@@ -4,9 +4,12 @@ namespace App\Http\Livewire\Gestion\Municipio;
 
 use App\Models\Municipio;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class MunicipioLivewire extends Component
 {
+    use WithPagination;
+    public $search;
     public $municipio,$nombre, $provincia;
     public $modal_add = false;
     public $modal_edit = false;
@@ -63,12 +66,20 @@ class MunicipioLivewire extends Component
         $municipio = Municipio::find($id);
         $municipio->delete();
     }
-
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
 
     public function render()
     {
-        $municipios = Municipio::all();
+        //$municipios = Municipio::all();
+        $municipios = Municipio::where(function ($query) {
+            $query->where('id', 'like', '%' . $this->search . '%')
+                ->orWhere('nombre', 'like', '%' . $this->search . '%')
+                ->orWhere('provincia', 'like', '%' . $this->search . '%');
+        })->paginate(5);
         return view('livewire..gestion.municipio.municipio-livewire',compact('municipios'));
     }
 }
