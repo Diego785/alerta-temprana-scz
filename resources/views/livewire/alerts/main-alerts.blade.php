@@ -4,7 +4,26 @@
     <aside
         style="position:fixed; width:100%; background: url({{ $event->foto }}); background-size:cover; background-repeat:no-repeat; background-position: center;"
         class="rounded-lg bg-center bg-slate-900/50">
+
+
+
         <div style="height:700px;" class="p-8 md:py-12 lg:px-4 overflow-auto bg-slate-900/50">
+            <div class="mb-2 text-base font-bold flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+                &nbsp<a>
+
+                    <a href="{{ route('show_alerts') }}" class="hover:underline text-white">Menú</a>&nbsp/&nbsp
+                    <a href="{{ route('main_alerts.index', $event->id) }}" class="hover:underline text-white">Alertas de
+                        {{ $event->tipoEvento }}</a>
+
+                </a>
+            </div>
+
+
             <!-- component -->
             <section class="container px-4 mx-auto">
                 <div class="sm:flex sm:items-center sm:justify-between">
@@ -12,6 +31,12 @@
                     <h2 class="text-2xl font-extrabold text-white sm:text-3xl md:text-5xl mb-2">
                         {{ $event->tipoEvento }}
                     </h2>
+
+
+
+
+
+
                     <div class="flex items-center mt-4 gap-x-3">
 
 
@@ -47,19 +72,19 @@
 
                         <x-jet-button wire:click="justLookAtCritics()"
                             class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                            Críticos
+                            Crítico
                         </x-jet-button>
                         <x-jet-button wire:click="justLookAtHigh()"
                             class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                            Muy altos
+                            Muy alto
                         </x-jet-button>
                         <x-jet-button wire:click="justLookAtModerado()"
                             class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                            Moderados
+                            Moderado
                         </x-jet-button>
                         <x-jet-button wire:click="justLookAtMonitored()"
                             class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                            Normals
+                            Normal
                         </x-jet-button>
                     </div>
                     <div class="relative flex items-center mt-4 md:mt-0">
@@ -90,6 +115,19 @@
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
+                        </select>
+                    </div>
+
+
+                    <div
+                        class="items-center inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+                        <select wire:model='municipio_id'
+                            class="px-7 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                            <span class="mr-2 font-bold ">Municipios</span>
+                            <option value="#" class="text-gray-500">Selecciona un municipio</option>
+                            @foreach ($municipios as $municipio)
+                                <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -139,16 +177,17 @@
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="h-6 w-6 inline" fill="none"
                                                                     viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        stroke-width="2"
+                                                                    <path stroke-linecap="round"
+                                                                        stroke-linejoin="round" stroke-width="2"
                                                                         d="M16 17l-4 4m0 0l-4-4m4 4V3" />
                                                                 </svg>
                                                             @else
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     class="h-6 w-6 inline" fill="none"
                                                                     viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        stroke-width="2" d="M8 7l4-4m0 0l4 4m-4-4v18" />
+                                                                    <path stroke-linecap="round"
+                                                                        stroke-linejoin="round" stroke-width="2"
+                                                                        d="M8 7l4-4m0 0l4 4m-4-4v18" />
                                                                 </svg>
                                                             @endif
                                                         @else

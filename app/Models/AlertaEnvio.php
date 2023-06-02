@@ -13,10 +13,8 @@ class AlertaEnvio extends Model
     public $timestamps = false;
 
     //Módulo Alertas
-    public function municipio_alertas(){
-        return $this->belongsToMany(Municipio::class, 'municipio_alertas', 'municipio_id', 'alerta_envio_id')
-                    ->as('municipio_alerta')
-                    ->withPivot('id', 'municipio_id', 'alerta_envio_id');
+    public function municipio_alerta(){
+        return $this->hasMany(MunicipioAlerta::class, 'alerta_envio_id');
     }
     public function comite_alerta_envios(){
         return $this->belongsToMany(ComitePersona::class, 'comite_alerta_envios', 'comite_persona_id', 'alerta_envio_id')

@@ -58,6 +58,8 @@ Route::middleware([
     //Diego
     Route::get('/gestion/comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite_gestion');
     Route::get('/gestion/alert', [AlertAlertController::class, 'show'])->name('show_alerta_gestion');
+    Route::get('/gestion/detail-alert/{id}', [AlertAlertController::class, 'show_detail_alert'])->name('show_detail_alerta_gestion');
+
     //------------------------------------------------------------------------------------------//  
 
     Route::get('/gestion/show-estado', [EstadoEstadoController::class, 'show'])->name('show_estado');

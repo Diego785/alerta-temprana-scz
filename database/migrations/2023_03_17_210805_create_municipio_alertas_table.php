@@ -17,8 +17,8 @@ class CreateMunicipioAlertasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('municipio_id');
             $table->unsignedBigInteger('alerta_envio_id');
-            $table->foreign('municipio_id')->references('id')->on('municipios');
-            $table->foreign('alerta_envio_id')->references('id')->on('alerta_envios');
+            $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('no action')->onUpdate('no action');
+            $table->foreign('alerta_envio_id')->references('id')->on('alerta_envios')->onDelete('no action')->onUpdate('no action');
         });
     }
 

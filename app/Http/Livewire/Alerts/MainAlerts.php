@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Alerts;
 use App\Models\Alerta;
 use App\Models\AlertaEnvio;
 use App\Models\Evento;
+use App\Models\Municipio;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -26,6 +27,7 @@ class MainAlerts extends Component
     public $perPage = 10;
     public $page = 1;
     public $show_alerts = false;
+    public $municipios, $municipio_id = 5;
 
     public function mount($id)
     {
@@ -85,6 +87,7 @@ class MainAlerts extends Component
 
     public function render()
     {
+        $this->municipios = Municipio::all();
         $this->show_alerts = false;
         $alertsPaginated = [];
         if ($this->alerts != null) {
@@ -100,6 +103,10 @@ class MainAlerts extends Component
                             ->orWhere('fecha', 'like', '%' . $this->search . '%')
                             ->orWhere('hora', 'like', '%' . $this->search . '%');
                     })
+                    // ->whereHas('alerta_envio.municipio_alerta',  function ($query) {
+                    //     $query->where('municipio_id', $this->municipio_id)
+                    //           ->orWhere('');
+                    // })
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->perPage);
             } else if ($this->justLook == 'Crítico') {
@@ -108,6 +115,9 @@ class MainAlerts extends Component
 
                     ->where('alertas.evento_id', $this->event->id)
                     ->where('alerta_envios.estado_id', 1)
+                    ->whereHas('alerta_envio.municipio_alerta',  function ($query) {
+                        $query->where('municipio_id', $this->municipio_id);
+                    })
                     ->where(function ($query) {
                         $query->Where('alertas.id', 'like', '%' . $this->search . '%')
                             ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
@@ -123,6 +133,9 @@ class MainAlerts extends Component
 
                     ->where('alertas.evento_id', $this->event->id)
                     ->where('alerta_envios.estado_id', 2)
+                    ->whereHas('alerta_envio.municipio_alerta',  function ($query) {
+                        $query->where('municipio_id', $this->municipio_id);
+                    })
                     ->where(function ($query) {
                         $query->Where('alertas.id', 'like', '%' . $this->search . '%')
                             ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
@@ -138,6 +151,9 @@ class MainAlerts extends Component
 
                     ->where('alertas.evento_id', $this->event->id)
                     ->where('alerta_envios.estado_id', 3)
+                    ->whereHas('alerta_envio.municipio_alerta',  function ($query) {
+                        $query->where('municipio_id', $this->municipio_id);
+                    })
                     ->where(function ($query) {
                         $query->Where('alertas.id', 'like', '%' . $this->search . '%')
                             ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
@@ -152,6 +168,9 @@ class MainAlerts extends Component
 
                     ->where('alertas.evento_id', $this->event->id)
                     ->where('alerta_envios.estado_id', 4)
+                    ->whereHas('alerta_envio.municipio_alerta',  function ($query) {
+                        $query->where('municipio_id', $this->municipio_id);
+                    })
                     ->where(function ($query) {
                         $query->Where('alertas.id', 'like', '%' . $this->search . '%')
                             ->orWhere('alertas.nombre', 'like', '%' . $this->search . '%')
@@ -175,12 +194,12 @@ class MainAlerts extends Component
             // }
         }
 
-    //    $this->show_alerts = true;
-       foreach ($alertsPaginated as $alert) {
-        if($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == $this->justLook || $this->justLook == 'Ver todo'){
-            $this->show_alerts = true;
+        //    $this->show_alerts = true;
+        foreach ($alertsPaginated as $alert) {
+            if ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == $this->justLook || $this->justLook == 'Ver todo') {
+                $this->show_alerts = true;
+            }
         }
-    }
 
         return view('livewire.alerts.main-alerts', ['alertsP' => $alertsPaginated]);
     }
