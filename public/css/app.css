@@ -2359,7 +2359,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-<<<<<<< HEAD
 .bg-zinc-700\/40 {
   background-color: rgb(63 63 70 / 0.4);
 }
@@ -2367,8 +2366,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
-=======
->>>>>>> ba58e19c6d6444e7ac64517e3d26b5205c38f976
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -2513,6 +2510,10 @@ select {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 .px-8 {
   padding-left: 2rem;

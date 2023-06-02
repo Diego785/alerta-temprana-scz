@@ -16,8 +16,9 @@
                 </svg>
                 &nbsp<a>
 
-                    <a href="{{route('show_alerts')}}" class="hover:underline text-white">Menú</a>&nbsp/&nbsp
-                    <a href="{{route('main_alerts.index', $event->id)}}" class="hover:underline text-white">Alertas de {{$event->tipoEvento}}</a>
+                    <a href="{{ route('show_alerts') }}" class="hover:underline text-white">Menú</a>&nbsp/&nbsp
+                    <a href="{{ route('main_alerts.index', $event->id) }}" class="hover:underline text-white">Alertas de
+                        {{ $event->tipoEvento }}</a>
 
                 </a>
             </div>
@@ -114,6 +115,19 @@
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
+                        </select>
+                    </div>
+
+
+                    <div
+                        class="items-center inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+                        <select wire:model='municipio_id'
+                            class="px-7 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                            <span class="mr-2 font-bold ">Municipios</span>
+                            <option value="#" class="text-gray-500">Selecciona un municipio</option>
+                            @foreach ($municipios as $municipio)
+                                <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

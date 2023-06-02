@@ -15,282 +15,265 @@ class MunicipioSeeder extends Seeder
     public function run()
     {
         Municipio::create([
-            'municipio' => 'Cotoca',
+            'nombre' => 'Cotoca',
             'provincia' => 'Andres Ibañez',
 
 
         ]);
 
         Municipio::create([
-            'municipio' => 'El Torno',
+            'nombre' => 'El Torno',
+            'provincia' => 'Andres Ibañez',
+        ]);
+
+        Municipio::create([
+            'nombre' => 'La Guardia',
             'provincia' => 'Andres Ibañez',
 
 
         ]);
 
         Municipio::create([
-            'municipio' => 'La Guardia',
+            'nombre' => 'Porongo',
             'provincia' => 'Andres Ibañez',
-
-
         ]);
 
         Municipio::create([
-            'municipio' => 'Porongo',
-            'provincia' => 'Andres Ibañez',
-
-
-        ]);
-
-        Municipio::create([
-            'municipio' => 'Santa Cruz de la Sierra',
+            'nombre' => 'Santa Cruz de la Sierra',
             'provincia' => 'Andres Ibañez',
 
 
         ]);
         Municipio::create([
-            'municipio' => 'San Matías',
+            'nombre' => 'San Matías',
             'provincia' => 'Angel Snadoval',
-
-
         ]);
+
+
         Municipio::create([
-            'municipio' => 'Comarapa',
+            'nombre' => 'Comarapa',
             'provincia' => 'Caballero',
         ]);
         Municipio::create([
-            'municipio' => 'Saipina',
+            'nombre' => 'Saipina',
             'provincia' => 'Caballero',
         ]);
+
+
         Municipio::create([
-            'municipio' => 'Pailón',
+            'nombre' => 'Pailón',
             'provincia' => 'Chiquitos',
         ]);
         Municipio::create([
-            'municipio' => 'Roboré',
+            'nombre' => 'Roboré',
             'provincia' => 'Chiquitos',
         ]);
         Municipio::create([
-            'municipio' => 'San José de Chiquitos',
+            'nombre' => 'San José de Chiquitos',
             'provincia' => 'Chiquitos',
         ]);
 
 
 
         Municipio::create([
-            'municipio' => 'Boyuibe',
+            'nombre' => 'Boyuibe',
             'provincia' => 'Cordillera',
         ]);
         Municipio::create([
-            'municipio' => 'Cabezas',
+            'nombre' => 'Cabezas',
             'provincia' => 'Cordillera',
         ]);
         Municipio::create([
-            'municipio' => 'Camiri',
+            'nombre' => 'Camiri',
             'provincia' => 'Cordillera',
         ]);
         Municipio::create([
-            'municipio' => 'Charagua',
+            'nombre' => 'Charagua',
             'provincia' => 'Cordillera',
         ]);
         Municipio::create([
-            'municipio' => 'Cuevo',
+            'nombre' => 'Cuevo',
             'provincia' => 'Cordillera',
         ]);
         Municipio::create([
-            'municipio' => 'Gutiérrez',
+            'nombre' => 'Gutiérrez',
             'provincia' => 'Cordillera',
         ]);
         Municipio::create([
-            'municipio' => 'Lagunillas',
+            'nombre' => 'Lagunillas',
             'provincia' => 'Cordillera',
         ]);
 
 
 
         Municipio::create([
-            'municipio' => 'Mairana',
+            'nombre' => 'Mairana',
             'provincia' => 'Florida',
         ]);
         Municipio::create([
-            'municipio' => 'Pampa Grande',
+            'nombre' => 'Pampa Grande',
             'provincia' => 'Florida',
         ]);
         Municipio::create([
-            'municipio' => 'Quirusillas',
+            'nombre' => 'Quirusillas',
             'provincia' => 'Florida',
         ]);
         Municipio::create([
-            'municipio' => 'Samaipata',
-            'provincia' => 'Florida',
-        ]);
-
-
-
-        Municipio::create([
-            'municipio' => 'Carmen Rivero Torrez',
-            'provincia' => 'Florida',
-        ]);
-        Municipio::create([
-            'municipio' => 'Puerto Quijarro',
-            'provincia' => 'Florida',
-        ]);
-        Municipio::create([
-            'municipio' => 'Puerto Suárez',
+            'nombre' => 'Samaipata',
             'provincia' => 'Florida',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Carmen Rivero Torrez',
+            'nombre' => 'Carmen Rivero Torrez',
             'provincia' => 'Germán Busch',
         ]);
         Municipio::create([
-            'municipio' => 'Puerto Quijarro',
+            'nombre' => 'Puerto Quijarro',
             'provincia' => 'Germán Busch',
         ]);
         Municipio::create([
-            'municipio' => 'Puerto Suárez',
+            'nombre' => 'Puerto Suárez',
             'provincia' => 'Germán Busch',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Asención de Guarayos',
+            'nombre' => 'Asención de Guarayos',
             'provincia' => 'Guarayos',
         ]);
         Municipio::create([
-            'municipio' => 'El Puente',
+            'nombre' => 'El Puente',
             'provincia' => 'Guarayos',
         ]);
         Municipio::create([
-            'municipio' => 'Urubichá',
+            'nombre' => 'Urubichá',
             'provincia' => 'Guarayos',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Buena Vista',
+            'nombre' => 'Buena Vista',
             'provincia' => 'Ichilo',
         ]);
         Municipio::create([
-            'municipio' => 'San Carlos',
+            'nombre' => 'San Carlos',
             'provincia' => 'Ichilo',
         ]);
         Municipio::create([
-            'municipio' => 'San Juan de Yapacaní',
+            'nombre' => 'San Juan de Yapacaní',
             'provincia' => 'Ichilo',
         ]);
         Municipio::create([
-            'municipio' => 'Yapacaní',
+            'nombre' => 'Yapacaní',
             'provincia' => 'Ichilo',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Concepción',
+            'nombre' => 'Concepción',
             'provincia' => 'Ñuflo de Chávez',
         ]);
         Municipio::create([
-            'municipio' => 'Cuatro Cañadas',
+            'nombre' => 'Cuatro Cañadas',
             'provincia' => 'Ñuflo de Chávez',
         ]);
         Municipio::create([
-            'municipio' => 'San Antonio de Lomerío',
+            'nombre' => 'San Antonio de Lomerío',
             'provincia' => 'Ñuflo de Chávez',
         ]);
         Municipio::create([
-            'municipio' => 'San Javier',
+            'nombre' => 'San Javier',
             'provincia' => 'Ñuflo de Chávez',
         ]);
         Municipio::create([
-            'municipio' => 'San Julián',
+            'nombre' => 'San Julián',
             'provincia' => 'Ñuflo de Chávez',
         ]);
         Municipio::create([
-            'municipio' => 'San Ramón',
+            'nombre' => 'San Ramón',
             'provincia' => 'Ñuflo de Chávez',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Fernández Alonso',
+            'nombre' => 'Fernández Alonso',
             'provincia' => 'Obispo Santistevan',
         ]);
         Municipio::create([
-            'municipio' => 'Minero',
+            'nombre' => 'Minero',
             'provincia' => 'Obispo Santistevan',
         ]);
         Municipio::create([
-            'municipio' => 'Montero',
+            'nombre' => 'Montero',
             'provincia' => 'Obispo Santistevan',
         ]);
         Municipio::create([
-            'municipio' => 'Saavedra',
+            'nombre' => 'Saavedra',
             'provincia' => 'Obispo Santistevan',
         ]);
         Municipio::create([
-            'municipio' => 'San Pedro',
+            'nombre' => 'San Pedro',
             'provincia' => 'Obispo Santistevan',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Colpa Bélgica',
+            'nombre' => 'Colpa Bélgica',
             'provincia' => 'Sara',
         ]);
         Municipio::create([
-            'municipio' => 'Portachuelo',
+            'nombre' => 'Portachuelo',
             'provincia' => 'Sara',
         ]);
         Municipio::create([
-            'municipio' => 'Santa Rosa del Sara',
+            'nombre' => 'Santa Rosa del Sara',
             'provincia' => 'Sara',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Moro Moro',
+            'nombre' => 'Moro Moro',
             'provincia' => 'Vallegrande',
         ]);
         Municipio::create([
-            'municipio' => 'Postrervalle',
+            'nombre' => 'Postrervalle',
             'provincia' => 'Vallegrande',
         ]);
         Municipio::create([
-            'municipio' => 'Pucará',
+            'nombre' => 'Pucará',
             'provincia' => 'Vallegrande',
         ]);
         Municipio::create([
-            'municipio' => 'Trigal',
+            'nombre' => 'Trigal',
             'provincia' => 'Vallegrande',
         ]);
         Municipio::create([
-            'municipio' => 'Vallegrande',
+            'nombre' => 'Vallegrande',
             'provincia' => 'Vallegrande',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'San Ignacio de Velasco',
+            'nombre' => 'San Ignacio de Velasco',
             'provincia' => 'Velasco',
         ]);
         Municipio::create([
-            'municipio' => 'San Miguel de Velasco',
+            'nombre' => 'San Miguel de Velasco',
             'provincia' => 'Velasco',
         ]);
         Municipio::create([
-            'municipio' => 'San Rafael',
+            'nombre' => 'San Rafael',
             'provincia' => 'Velasco',
         ]);
 
 
         Municipio::create([
-            'municipio' => 'Okinawa',
+            'nombre' => 'Okinawa',
             'provincia' => 'Warnes',
         ]);
         Municipio::create([
-            'municipio' => 'Warnes',
+            'nombre' => 'Warnes',
             'provincia' => 'Warnes',
         ]);
     }

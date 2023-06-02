@@ -12,6 +12,9 @@ class MunicipioAlerta extends Model
     protected $fillable = ['alerta_envio_id', 'municipio_id'];
     public $timestamps = false;
 
+
+    
+
     public function municipio(){
         return $this->belongsTo(Municipio::class, 'municipio_id');
     }

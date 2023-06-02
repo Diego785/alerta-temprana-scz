@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Municipio;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +23,8 @@ class DatabaseSeeder extends Seeder
             AlertaSeeder::class,
             AlertaEnvioSeeder::class,
             ConferenciaPrensaSeeder::class,
+            MunicipioSeeder::class,
+            MunicipioAlertaSeeder::class,
         ]);
     }
 }
