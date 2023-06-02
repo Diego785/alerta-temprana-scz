@@ -39,7 +39,7 @@ class UsuarioShowLivewire extends Component
             ->where(function ($query) {
                 $query->where('name', 'LIKE', '%' . $this->search . '%');
                 $query->orWhere('email', 'LIKE', '%' . $this->search . '%');
-            })->paginate(10);
+            })->paginate(5);
         return view('livewire..gestion.usuario.usuario-show-livewire', compact('users'));
     }
 }

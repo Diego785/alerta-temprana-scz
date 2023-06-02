@@ -8,14 +8,20 @@
             left: 60px;
         }
     </style>
-      <div class="mover">
+    <div class="mover">
         <a class="font-bold text-white rounded cursor-pointer bg-green-600 hover:bg-green-500 py-2 px-4"
             wire:click="$toggle('modal_add')"> Crear
         </a>
     </div>
 
+    <div class="px-6 py-4">
 
-    <!-- component -->
+        <x-jet-input type="text" class="w-full" wire:model="search"
+            placeholder="Ingrese el nombre, provincia" />
+    </div>
+
+    @if (count($municipios))
+          <!-- component -->
     <div class="flex flex-col ">
         <div class=" sm:mx-0.5 lg:mx-0.5">
             <div class="inline-block min-w-full sm:px-6 lg:px-32">              
@@ -89,6 +95,18 @@
             </div>
         </div>
     </div> 
+    @else
+    <div class="px-6 py-4">
+        No hay ningun registro
+    </div>
+    @endif
+    @if ($municipios->hasPages())
+    <div class="px-10 py-4">
+        {{ $municipios->links() }}
+    </div>
+@endif
+
+  
 
 
     <x-jet-dialog-modal wire:model="modal_add">

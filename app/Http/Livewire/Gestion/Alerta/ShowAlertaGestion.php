@@ -6,6 +6,7 @@ use App\Models\Alerta;
 use App\Models\Evento;
 use App\Models\UnidadTecnicoCientifica;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ShowAlertaGestion extends Component
 {
@@ -16,7 +17,8 @@ class ShowAlertaGestion extends Component
     public $modal_edit = false;
 
     protected $listeners = ['render', 'delete'];
-
+    use WithPagination;
+    public $search;
 
     //Validaciones del formulario
     protected $rules = [
@@ -102,6 +104,10 @@ class ShowAlertaGestion extends Component
             $this->emit('showMessageResult');
         }
     }
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
 
 
@@ -109,7 +115,15 @@ class ShowAlertaGestion extends Component
     {
         $unidades = UnidadTecnicoCientifica::all();
         $eventos = Evento::all();
-        $alerts = Alerta::all();
+        //$alerts = Alerta::all();
+        $alerts = Alerta::where(function ($query) {
+            $query->where('id', 'like', '%' . $this->search . '%')
+                ->orWhere('nombre', 'like', '%' . $this->search . '%')
+                ->orWhere('fecha', 'like', '%' . $this->search . '%')
+                ->orWhere('hora', 'like', '%' . $this->search . '%');
+        })->paginate(5);
+        
+       
         return view('livewire.gestion.alerta.show-alerta-gestion', compact('alerts', 'eventos', 'unidades'));
     }
 }

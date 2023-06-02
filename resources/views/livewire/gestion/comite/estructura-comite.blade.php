@@ -3,7 +3,7 @@
     <!-- component -->
     <style>
         .mover {
-            position: absolute;
+            position: fixed;
             top: 100px;
             left: 60px;
         }
@@ -15,8 +15,15 @@
             wire:click="$toggle('modal_add')"> Crear
         </a>
     </div>
+    <div class="px-6 py-4">
 
-    <!-- component -->
+        <x-jet-input type="text" class="w-full" wire:model="search"
+            placeholder="Ingrese el cargo, descripcion" />
+    </div>
+
+
+    @if (count($estructuras))
+       <!-- component -->
     <div class="flex flex-col ">
         <div class="sm:mx-0.5 lg:mx-0.5 ">
             <div class="py-2 sm:px-6 lg:px-8 ">
@@ -100,7 +107,20 @@
                 </table>
             </div>
         </div>
+    </div>  
+    @else
+    <div class="px-10 py-4">
+        No hay ningun registro 
     </div>
+    @endif
+
+    @if ($estructuras->hasPages())
+    <div class="px-6 py-4">
+        {{ $estructuras->links() }}
+    </div>
+@endif
+
+   
 
 
 
