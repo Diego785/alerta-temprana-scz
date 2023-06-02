@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AlertaSeeder::class,
             AlertaEnvioSeeder::class,
             ConferenciaPrensaSeeder::class,
+            MunicipioSeeder::class,
         ]);
     }
 }
