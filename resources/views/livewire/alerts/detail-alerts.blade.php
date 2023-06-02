@@ -121,16 +121,16 @@
 
                         @if ($sending_alert->estado->nombre == 'Crítico')
                             <a href="#{{ $sending_alert->id }}"
-                                class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertRed text-alertRed rounded-full mr-4 hover:bg-alertRed hover:text-white">{{ $sending_alert->fecha }}
+                                class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border rounded-full mr-4 bg-alertRed text-white">{{ $sending_alert->fecha }}
                             @elseif($sending_alert->estado->nombre == 'Muy alto')
                                 <a href="#{{ $sending_alert->id }}"
-                                    class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertOrange text-alertOrange rounded-full mr-4 hover:bg-alertOrange hover:text-white">{{ $sending_alert->fecha }}
+                                    class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border rounded-full mr-4 bg-alertOrange text-white">{{ $sending_alert->fecha }}
                                 @elseif($sending_alert->estado->nombre == 'Moderado')
                                     <a href="#{{ $sending_alert->id }}"
-                                        class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertYellow text-alertYellow rounded-full mr-4 hover:bg-alertYellow hover:text-white">{{ $sending_alert->fecha }}
+                                        class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border rounded-full mr-4 bg-alertYellow text-black">{{ $sending_alert->fecha }}
                                     @elseif($sending_alert->estado->nombre == 'Normal')
                                         <a href="#{{ $sending_alert->id }}"
-                                            class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertGreen text-alertGreen rounded-full mr-4 hover:bg-alertGreen hover:text-white">{{ $sending_alert->fecha }}
+                                            class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border rounded-full mr-4 bg-alertGreen text-white">{{ $sending_alert->fecha }}
                         @endif
 
 
@@ -170,6 +170,7 @@
                                 </defs>
                             </svg>
                         </a>
+                        
 
                     </div>
                 </div>

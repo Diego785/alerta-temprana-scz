@@ -124,7 +124,7 @@
                         <select wire:model='municipio_id'
                             class="px-7 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
                             <span class="mr-2 font-bold ">Municipios</span>
-                            <option value="#" class="text-gray-500">Selecciona un municipio</option>
+                            <option value="Todos" class="text-gray-500">Todos</option>
                             @foreach ($municipios as $municipio)
                                 <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
                             @endforeach

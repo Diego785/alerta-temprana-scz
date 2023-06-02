@@ -488,39 +488,40 @@ class AlertaEnvioSeeder extends Seeder
             'description' => 'Aquí vendrá su descripción de prueba.',
             'alerta_envio_id' => 11
         ]);
-         Imagen::create([
-             'path' => '/storage/eventos/inundaciones/imgs/1/normal/20.png',
-             'description' => 'Aquí vendrá su descripción de prueba.',
-             'alerta_envio_id' => 17
-         ]);
+        Imagen::create([
+            'path' => '/storage/eventos/inundaciones/imgs/1/normal/20.png',
+            'description' => 'Aquí vendrá su descripción de prueba.',
+            'alerta_envio_id' => 17
+        ]);
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/moderado/21.jfif',
             'description' => 'Aquí vendrá su descripción de prueba.',
             'alerta_envio_id' => 16
         ]);
-         Imagen::create([
-             'path' => '/storage/eventos/inundaciones/imgs/1/normal/22.png',
-             'description' => 'Aquí vendrá su descripción de prueba.',
-             'alerta_envio_id' => 17
-         ]);
+        Imagen::create([
+            'path' => '/storage/eventos/inundaciones/imgs/1/normal/22.png',
+            'description' => 'Aquí vendrá su descripción de prueba.',
+            'alerta_envio_id' => 17
+        ]);
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/moderado/23.png',
-            'description' => 'Aquí vendrá su descripción de prueba.',
+            'description' => 'Medidor',
             'alerta_envio_id' => 16
         ]);
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/normal/24.png',
-            'description' => 'Aquí vendrá su descripción de prueba.',
+            'description' => 'Entrega de  bolsas Big Bag rellena de tierra de 1 tonelada para realizar el trabajo con los comunarios y así poder reforzar los defensivos',
             'alerta_envio_id' => 17
         ]);
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/normal/25.png',
-            'description' => 'Aquí vendrá su descripción de prueba.',
+            'description' => 'Realiza  el mantenimiento de las estaciones hidrometeorológicas ubicadas en el sector de la Angostura en el municipio de ElTorno y en el sector de Bermejo en el Municipio de Samaipata.
+            Con estas estaciones se recolecta y recepciona datos como ser, nivel del río y registro de precipitación en la cuenca alta del río Piraí y así poder dar una alerta temprana ante una crecida.',
             'alerta_envio_id' => 17
         ]);
         Imagen::create([
             'path' => '/storage/eventos/inundaciones/imgs/1/normal/26.png',
-            'description' => 'Aquí vendrá su descripción de prueba.',
+            'description' => 'Capacitación en temas de Niveles de Alerta a los técnicos de la UGR',
             'alerta_envio_id' => 17
         ]);
     }
