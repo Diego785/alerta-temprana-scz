@@ -72,7 +72,7 @@
 
             <div class="mx-5  grid place-content-center">
                 <div
-                    class="relative bg-gradient-to-r from-green-400 to-green-900 rounded-2xl text-white p-8 text-center h-auto pb-28 w-auto mx-auto">
+                    class="relative bg-gradient-to-r from-[#007338] to-[#8CBF44] rounded-2xl text-white p-8 text-center h-auto pb-28 w-auto mx-auto">
                     <h2 class=" uppercase text-xl font-bold text-white sm:text-md md:text-lg mb-2">
                         {{ $alert->nombre }}
                     </h2>
@@ -105,46 +105,45 @@
 
             </div>
 
-            <header class="sticky top-0 bg-white shadow z-10">
-                <div class="block py-1 my-1 text-center rounded-lg">
-
+            <header class="sticky top-0 bg-[#8CBF44] shadow z-10">
+                <div class="block my-1 text-center rounded-lg ">
 
                     @foreach ($sending_alerts as $sending_alert)
-                        {{-- <a
-                            class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                            {{ $sending_alert->fecha }}
-                        </a> --}}
-                        <!-- component -->
-                        <!-- This is an example component -->
-
-
-
                         @if ($sending_alert->estado->nombre == 'Crítico')
                             <a href="#{{ $sending_alert->id }}"
-                                class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertRed text-alertRed rounded-full mr-4 hover:bg-alertRed hover:text-white">{{ $sending_alert->fecha }}
+                                class="group h-5 w-20 font-bold text-sm relative inline-block border border-green-900 rounded-full mr-4 bg-alertRed text-white">{{ $sending_alert->fecha }}
                             @elseif($sending_alert->estado->nombre == 'Muy alto')
                                 <a href="#{{ $sending_alert->id }}"
-                                    class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertOrange text-alertOrange rounded-full mr-4 hover:bg-alertOrange hover:text-white">{{ $sending_alert->fecha }}
+                                    class="group h-5 w-20 font-bold text-sm relative inline-block border border-green-900 rounded-full mr-4 bg-alertOrange text-white">{{ $sending_alert->fecha }}
                                 @elseif($sending_alert->estado->nombre == 'Moderado')
                                     <a href="#{{ $sending_alert->id }}"
-                                        class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertYellow text-alertYellow rounded-full mr-4 hover:bg-alertYellow hover:text-white">{{ $sending_alert->fecha }}
+                                        class="group h-5 w-20 font-bold text-sm relative inline-block border border-green-900 rounded-full mr-4 bg-alertYellow text-black">{{ $sending_alert->fecha }}
                                     @elseif($sending_alert->estado->nombre == 'Normal')
                                         <a href="#{{ $sending_alert->id }}"
-                                            class="group h-5 w-20 font-bold text-sm relative overflow-hidden inline-block border border-alertGreen text-alertGreen rounded-full mr-4 hover:bg-alertGreen hover:text-white">{{ $sending_alert->fecha }}
+                                            class="group h-5 w-20 font-bold text-sm relative inline-block border border-green-900 rounded-full mr-4 bg-alertGreen text-white">{{ $sending_alert->fecha }}
                         @endif
-
-
                         <div
                             class="absolute duration-300 inset-0 w-full h-full transition-all scale-0 group-hover:scale-100 group-hover:bg-white/30 rounded-2xl">
-
                         </div>
                         </a>
                     @endforeach
+                </div>
+            </header>
 
+            {{-- <header class="sticky top-5 bg-white shadow z-10">
+                <div class="block my-10 text-center rounded-lg ">
+
+                    @foreach ($municipios as $municipio)
+                        <a href="#{{ $municipio->nombre }}"
+                            class="group h-5 w-auto font-bold text-sm relative inline-block border border-green-900 rounded-full mr-4 bg-alertRed text-white">{{ $municipio->nombre }}
+                            <div
+                                class="absolute duration-300 inset-0 w-full h-full transition-all scale-0 group-hover:scale-100 group-hover:bg-white/30 rounded-2xl">
+                            </div>
+                        </a>
+                    @endforeach
 
                 </div>
-
-            </header>
+            </header> --}}
 
 
             <section class="container px-4 mx-auto">
@@ -152,7 +151,7 @@
                     <div class="flex items-center mt-4 gap-x-3">
 
 
-                        <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-green-400 to-green-900 border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
+                        <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
                             href="{{ route('detail_alerts_list.pdf', [$event->id, $alert->id]) }}">
 
 
@@ -170,6 +169,7 @@
                                 </defs>
                             </svg>
                         </a>
+
 
                     </div>
                 </div>

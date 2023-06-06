@@ -7,6 +7,8 @@ use App\Http\Controllers\Gestion\Comite\EstructuraComiteController;
 use App\Http\Livewire\Gestion\Comite\EstructuraComite;
 use App\Http\Controllers\Gestion\Estado\EstadoController as EstadoEstadoController;
 use App\Http\Controllers\Gestion\Municipio\MunicipioController;
+use App\Http\Controllers\Gestion\Notificacion\NotificacionController;
+use App\Http\Controllers\Gestion\Report\AlertGestionController;
 use App\Http\Controllers\Gestion\Unidad\UnidadTecnocientificaController;
 use App\Http\Controllers\Gestion\Usuario\UsuarioController;
 use Illuminate\Support\Facades\Route;
@@ -39,23 +41,15 @@ Route::get('/testing-pdfs', [AlertController::class, 'generatePdf'])->name('gene
 Route::get('/alertas/pdf/{myId}', [AlertController::class, 'generatePDF'])->name('alerts_list.pdf');
 Route::get('/details-alerts/pdf/{eventId}/{alertId}', [AlertController::class, 'generateDetailAlertPDF'])->name('detail_alerts_list.pdf');
 
+//----------------------------------------Sistema de Gestion --------------------------------------------
+//para el rol de Superadministrador
+Route::group(['middleware' => ['role:Superadministrador']], function () {
+    Route::get('/gestion/create-usuarios', [UsuarioController::class, 'crearusuario'])->name('crear_usuarios');
+    Route::get('/gestion/show-usuarios', [UsuarioController::class, 'show'])->name('show_usuarios');
+});
 
-
-//Sistema de Gestión
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-
-    // Route::get('/dashboard', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
-    //Sistema de Gestión
-
-    //Diego
+//para el rol de superadministrador y administrador
+Route::group(['middleware' => ['role:administrador|Superadministrador']], function () {
     Route::get('/gestion/comite', [EstructuraComiteController::class, 'show'])->name('show_estructura_comite_gestion');
     Route::get('/gestion/alert', [AlertAlertController::class, 'show'])->name('show_alerta_gestion');
     Route::get('/gestion/detail-alert/{id}', [AlertAlertController::class, 'show_detail_alert'])->name('show_detail_alerta_gestion');
@@ -65,21 +59,21 @@ Route::middleware([
     Route::get('/gestion/show-estado', [EstadoEstadoController::class, 'show'])->name('show_estado');
     Route::get('/gestion/show-municipio', [MunicipioController::class, 'show'])->name('show_municipio');
     Route::get('/gestion/show-unidad-tecnocientifica', [UnidadTecnocientificaController::class, 'show'])->name('show_unidad_tecnocientifica');
-    Route::get('/gestion/create-usuarios', [UsuarioController::class, 'crearusuario'])->name('crear_usuarios');
-    Route::get('/gestion/show-usuarios', [UsuarioController::class, 'show'])->name('show_usuarios');
-
 });
 
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {   
+    
+    Route::get('/gestion/show-notificacion', [NotificacionController::class, 'show'])->name('show_notificaciones');
+    Route::get('/gestion/create-notificacion', [NotificacionController::class, 'create'])->name('create_notificaciones'); 
 
+    //----------------------------------------------- REPORTES ------------------------------------//
+    Route::get('/gestion/alertas/pdf', [AlertGestionController::class, 'show'])->name('show_alert.gestion.report');
+    Route::get('/gestion/detail-alert/{id}/pdf', [AlertGestionController::class, 'show_details'])->name('show_detail_alert.gestion.report');
 
+});
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });

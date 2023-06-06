@@ -86,8 +86,8 @@ class AlertaSeeder extends Seeder
             'url_mapa' => '',
             'evento_id' => 3,
             'unidad_id' => 1,
-        ]);       
-        
+        ]);
+
         // EJEMPLO REAL 
         Alerta::create([
             'nombre' => 'Desborde del río Piraí',
@@ -98,10 +98,9 @@ class AlertaSeeder extends Seeder
             'geoX' => -40,
             'geoY' => -52,
             'url_mapa' => '',
+            'estado' => 'Cerrada',
             'evento_id' => 3,
             'unidad_id' => 1,
-        ]);     
-
-       
+        ]);
     }
 }

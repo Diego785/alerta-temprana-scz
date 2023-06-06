@@ -110,7 +110,7 @@
 <!-- https://github.com/neurolinker/popice -->
 
 <body class="body bg-white dark:bg-[#0F172A]">
-    <div class="fixed w-full flex bg-green-700 dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
+    <div class="fixed w-full flex bg-[#00733B] dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
         <div
             class="logo ml-12 font-mono text-white  transform ease-in-out duration-500 flex-none h-full flex items-center justify-center">
             Alertas Tempranas SCZ
@@ -166,19 +166,19 @@
                                     {{ __('API Tokens') }}
                                 </x-jet-dropdown-link>
                             @endif
-                            <div class="border-t border-gray-100"></div>                           
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
+                            <div class="border-t border-gray-100"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                         this.closest('form').submit();"
-                                        type="button">
-                                        <p class="text-gray-800">Log out</p>
+                                    type="button">
+                                    <p class="text-gray-800">Log out</p>
 
-                                    </a>
-                                </form>
-                                
-                         
+                                </a>
+                            </form>
+
+
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
@@ -222,7 +222,7 @@
             <div
                 class="flex items-center space-x-3 group bg-gradient-to-r dark:from-green-900 dark:to-green-500 from-green-700 via-green-400 to-white  pl-10 pr-2 py-1 rounded-full text-white  ">
                 <div class="transform ease-in-out duration-300 mr-12">
-                    SGAT
+                    SAT
                 </div>
             </div>
         </div>
@@ -247,6 +247,18 @@
                     Dashboard
                 </div>
             </div>
+            <a href="{{ route('show_notificaciones') }}">
+                <div
+                    class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><circle cx="18" cy="6" r="3"></circle><path d="M18 19H5V6h8c0-.712.153-1.387.422-2H5c-1.103 0-2 .897-2 2v13c0 1.103.897 2 2 2h13c1.103 0 2-.897 2-2v-8.422A4.962 4.962 0 0 1 18 11v8z"></path></svg>
+                    <div>
+                        Notificaciones
+                    </div>
+                </div>
+            </a>
+        
+            @role('Superadministrador|administrador')
+
             <a href="{{ route('show_alerta_gestion') }}">
                 <div
                     class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
@@ -262,6 +274,10 @@
                     </div>
                 </div>
             </a>
+          
+
+
+           
             <a href="{{ route('show_estructura_comite_gestion') }}">
                 <div
                     class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
@@ -280,9 +296,8 @@
                 </div>
             </a>
 
-
-            <div
-                class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                   {{-- estado --}}
+            <div class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
                     <circle cx="12" cy="12" r="2"></circle>
@@ -298,6 +313,7 @@
                     {{-- {{ __('Profile') }} --}}
                 </div>
             </div>
+            {{-- municipio --}}
             <div
                 class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -309,6 +325,7 @@
                     <a href="{{ route('show_municipio') }}"> Municipios </a>
                 </div>
             </div>
+
             <div
                 class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -322,15 +339,23 @@
                     <a href="{{ route('show_unidad_tecnocientifica') }}"> Unidades </a>
                 </div>
             </div>
+
+            @endrole
+            @role('Superadministrador')
             <div
-            class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z"></path></svg>
-            <div>
-                <a href="{{ route('show_usuarios') }}"> Usuarios </a>
-                {{-- {{ __('Profile') }} --}}
+                class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                    <path
+                        d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z">
+                    </path>
+                </svg>
+                <div>
+                    <a href="{{ route('show_usuarios') }}"> Usuarios </a>
+                    {{-- {{ __('Profile') }} --}}
+                </div>
             </div>
-        </div>
-            
+            @endrole
 
 
             <div
@@ -358,8 +383,18 @@
                         d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
             </div>
-            {{-- alerta --}}
-            <a href="{{ route('show_alerta_gestion') }}">
+           
+             {{-- Notificacion --}}
+             <a href="{{ route('show_notificaciones') }}">
+
+                <div
+                    class="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><circle cx="18" cy="6" r="3"></circle><path d="M18 19H5V6h8c0-.712.153-1.387.422-2H5c-1.103 0-2 .897-2 2v13c0 1.103.897 2 2 2h13c1.103 0 2-.897 2-2v-8.422A4.962 4.962 0 0 1 18 11v8z"></path></svg>
+                </div>
+            </a>
+            @role('Superadministrador|administrador')
+             {{-- alerta --}}
+             <a href="{{ route('show_alerta_gestion') }}">
 
                 <div
                     class="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
@@ -427,17 +462,21 @@
                     </svg>
                 </div>
             </a>
+            @endrole
             {{-- usuarios --}}
+            @role('Superadministrador')
             <a href="{{ route('show_usuarios') }}">
                 <div
                     class="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                    style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
-                        <path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                        <path
+                            d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z">
                         </path>
                     </svg>
                 </div>
             </a>
+            @endrole
             {{-- configuraciones --}}
             <a href="{{ route('profile.show') }}">
                 <div
@@ -466,7 +505,7 @@
 
             <div id="main-background" class="py-20 h-full " style="background-color: white" x-data="{ showPass: true }">
 
-                
+
                 @yield('content')
 
             </div>
