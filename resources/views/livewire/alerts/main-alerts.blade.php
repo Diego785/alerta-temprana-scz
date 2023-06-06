@@ -40,7 +40,7 @@
                     <div class="flex items-center mt-4 gap-x-3">
 
 
-                        <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-green-400 to-green-900 border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
+                        <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
                             href="{{ route('alerts_list.pdf', $myId) }}">
 
 
@@ -167,46 +167,12 @@
                                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                         <thead class="bg-green-100 dark:bg-gray-800">
                                             <tr>
-                                                <th wire:click="order('id')" scope="col"
-                                                    class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                    <button class="flex items-center gap-x-3 focus:outline-none">
-                                                        <span>Id y Nombre</span>
-
-                                                        @if ($sort == 'id')
-                                                            @if ($direction == 'asc')
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="h-6 w-6 inline" fill="none"
-                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path stroke-linecap="round"
-                                                                        stroke-linejoin="round" stroke-width="2"
-                                                                        d="M16 17l-4 4m0 0l-4-4m4 4V3" />
-                                                                </svg>
-                                                            @else
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="h-6 w-6 inline" fill="none"
-                                                                    viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path stroke-linecap="round"
-                                                                        stroke-linejoin="round" stroke-width="2"
-                                                                        d="M8 7l4-4m0 0l4 4m-4-4v18" />
-                                                                </svg>
-                                                            @endif
-                                                        @else
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="h-6 w-6 inline" fill="none"
-                                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2"
-                                                                    d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-                                                            </svg>
-                                                        @endif
-                                                    </button>
-                                                </th>
-
                                                 <th wire:click="order('fecha')" scope="col"
                                                     class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     <button class="flex items-center gap-x-3 focus:outline-none">
                                                         <span>Fecha y Hora</span>
 
+                                                        
                                                         @if ($sort == 'fecha')
                                                             @if ($direction == 'asc')
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -236,7 +202,10 @@
                                                         @endif
                                                     </button>
                                                 </th>
-
+                                                <th scope="col"
+                                                    class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                    Nombre
+                                                </th>
 
 
                                                 <th scope="col"
@@ -275,16 +244,7 @@
                                                     $justLook == $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre ||
                                                         $justLook == 'Ver todo')
                                                     <tr>
-                                                        <td class="px-4 py-4 text-sm font-medium">
-                                                            <div style="white-space:inherit; width:200px;">
-                                                                <h2 class="font-bold text-gray-800 dark:text-white">
-                                                                    {{ $alert->id }}
-                                                                </h2>
-                                                                <p
-                                                                    class="text-sm font-normal text-gray-600 dark:text-gray-400">
-                                                                    {{ $alert->nombre }}</p>
-                                                            </div>
-                                                        </td>
+
                                                         <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                             <div>
                                                                 <h4 class="text-gray-700 dark:text-gray-200">
@@ -292,6 +252,16 @@
                                                                 <h4 class="text-gray-700 dark:text-gray-200">
                                                                     {{ $alert->hora }}</h4>
 
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-4 py-4 text-sm font-medium">
+                                                            <div style="white-space:inherit; width:200px;">
+                                                                {{-- <h2 class="font-bold text-gray-800 dark:text-white">
+                                                                    {{ $alert->id }}
+                                                                </h2> --}}
+                                                                <p
+                                                                    class="text-sm font-normal text-gray-700 dark:text-gray-400">
+                                                                    {{ $alert->nombre }}</p>
                                                             </div>
                                                         </td>
 

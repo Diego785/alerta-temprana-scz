@@ -195,6 +195,9 @@ class MainAlerts extends Component
                         //     $query->where('municipio_id', $this->municipio_id);
                         // })
                         ->orderBy($this->sort, $this->direction)
+                        ->orderBy('hora', $this->direction)
+                        // ->orderByRaw($this->sort . ' ' . $this->direction)
+                        // ->orderBy($this->sort, $this->direction)
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Crítico') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')

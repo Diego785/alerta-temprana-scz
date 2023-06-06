@@ -16,7 +16,7 @@ class CreateImagensTable extends Migration
         Schema::create('imagens', function (Blueprint $table) {
             $table->id();
             $table->string('path');
-            $table->string('description');
+            $table->text('description');
             $table->unsignedBigInteger('alerta_envio_id');
             $table->foreign('alerta_envio_id')->references('id')->on('alerta_envios')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
