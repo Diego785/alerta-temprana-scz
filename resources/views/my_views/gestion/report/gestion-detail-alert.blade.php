@@ -114,17 +114,17 @@
         }
 
         .datagrid table thead {
-            border-bottom: solid 5px #0F362D;
+            border-bottom: solid 5px #8CBF44;
         }
 
         .datagrid table thead th {
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#36752D',
-                    endColorstr='#275420');
-            background-color: #246355;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00733B',
+                    endColorstr='#00733B');
+            background-color: #00733B;
             color: #000000;
             font-size: 13px;
             font-weight: bold;
-            border-left: 0px solid #36752D;
+            border-left: 0px solid #00733B;
             text-align: left;
         }
 
@@ -147,7 +147,7 @@
 
         .datagrid table tbody .alt td {
             background: #DFFFDE;
-            color: #22ff00;
+            color: #8CBF44;
         }
 
         .datagrid table tbody td:first-child {
@@ -190,7 +190,7 @@
             padding: 2px 8px;
             margin: 1px;
             color: #FFFFFF;
-            border: 1px solid #36752D;
+            border: 1px solid #00733B;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
             border-radius: 3px;

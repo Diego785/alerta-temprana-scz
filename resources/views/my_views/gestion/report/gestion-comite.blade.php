@@ -215,44 +215,33 @@
         </p>
 
         <h4>
-            <div> Historial de Alerta: </div> <br>{{ $alerts->last()->nombre }}<br>
+            <div> Comités: </div> <br>Sistema de Gestión<br>
         </h4>
 
         <div class="datagrid">
             <table>
                 <thead>
                     <tr>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Riesgo</th>
+                        <th>Cargo</th>
                         <th>Descripción</th>
-
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($alerts as $alert)
+                    {{-- @foreach ($alerts as $alert)
                         <tr>
+                            <td>
+                                {{ $alert->nombre }}</td>
                             <td style="white-space:nowrap;">{{ $alert->fecha }}</td>
                             <td>{{ $alert->hora }}
                             </td>
-                            @if ($alert->estado_id == 1)
-                                <td>Crítico</td>
-                            @else
-                                @if ($alert->estado_id == 2)
-                                    <td>Muy Alto</td>
-                                @else
-                                    @if ($alert->estado_id == 3)
-                                        <td>Moderado</td>
-                                    @else
-                                        <td>Normal</td>
-                                    @endif
-                                @endif
-                            @endif
                             <td>{{ $alert->description }}</td>
+                            <td>{{ $alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre }}
                             </td>
 
+                            <td>{{ $alert->evento->tipoEvento }}</td>
+                            <td>{{ $alert->unidad->sigla }}</td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>

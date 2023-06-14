@@ -118,7 +118,7 @@
     <div id="main-background" class="py-36 h-full"
         style="background-image: linear-gradient(to top, #007338 , #8CBF44 );">
         <div class=" place-items-center lg:mx-60 md:mx-30 sm:mx-20 xs:mx-10" x-data="{ showPass: true }">
-          
+
 
             @yield('content')
 
@@ -179,7 +179,7 @@
                 containerButtons.className =
                     "py-10 grid max-w-lg grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3";
                 backButton.className =
-                    "increase-btn button-down w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn button-down w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 alertButton.className =
                     "hidden";
                 guiaButton.className =
@@ -202,19 +202,19 @@
                     "pt-10 grid max-w-lg grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3";
 
                 alertButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 guiaButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 contingenciaButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 blogButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 emergencyButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 boletinButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
                 institutionButton.className =
-                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-green-900 to-green-400 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
+                    "increase-btn w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200";
 
             }
 
@@ -223,13 +223,13 @@
 
             var changeSize = document.getElementById("difussion-button")
             if (changeSize.className ==
-                "increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
+                "increase-btn grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
             ) {
                 changeSize.className =
                     "hidden"
             } else {
                 changeSize.className =
-                    "increase-btn grado border-2 bg-gradient-to-t from-green-900 to-green-100 border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
+                    "increase-btn grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-600 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-green-600 hover:text-green-200"
             }
 
         }

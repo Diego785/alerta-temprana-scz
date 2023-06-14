@@ -51,7 +51,7 @@
         </div>
 
 
-        <div class="content p-8 pt-10 md:py-12 lg:px-4 bg-slate-900/50">
+        <div class="content md:py-12 lg:py-40 bg-slate-900/50">
             <div class="mb-2 text-base font-bold flex items-center text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -154,7 +154,6 @@
                         <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-[#007338] to-[#8CBF44] border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
                             href="{{ route('detail_alerts_list.pdf', [$event->id, $alert->id]) }}">
 
-
                             <span>Reporte</span>
                             <svg class="ml-5" width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -168,6 +167,7 @@
                                     </clipPath>
                                 </defs>
                             </svg>
+
                         </a>
 
 

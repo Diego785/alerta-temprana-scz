@@ -22,7 +22,6 @@ class UsuarioShowLivewire extends Component
 
     public function delete($user)
     {
-
         $user = User::find($user);
         $user->delete();
     }

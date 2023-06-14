@@ -247,6 +247,18 @@
                     Dashboard
                 </div>
             </div>
+            <a href="{{ route('show_notificaciones') }}">
+                <div
+                    class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><circle cx="18" cy="6" r="3"></circle><path d="M18 19H5V6h8c0-.712.153-1.387.422-2H5c-1.103 0-2 .897-2 2v13c0 1.103.897 2 2 2h13c1.103 0 2-.897 2-2v-8.422A4.962 4.962 0 0 1 18 11v8z"></path></svg>
+                    <div>
+                        Notificaciones
+                    </div>
+                </div>
+            </a>
+        
+            @role('Superadministrador|administrador')
+
             <a href="{{ route('show_alerta_gestion') }}">
                 <div
                     class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
@@ -262,6 +274,10 @@
                     </div>
                 </div>
             </a>
+          
+
+
+           
             <a href="{{ route('show_estructura_comite_gestion') }}">
                 <div
                     class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
@@ -280,9 +296,8 @@
                 </div>
             </a>
 
-
-            <div
-                class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                   {{-- estado --}}
+            <div class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                     style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
                     <circle cx="12" cy="12" r="2"></circle>
@@ -298,6 +313,7 @@
                     {{-- {{ __('Profile') }} --}}
                 </div>
             </div>
+            {{-- municipio --}}
             <div
                 class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -309,6 +325,7 @@
                     <a href="{{ route('show_municipio') }}"> Municipios </a>
                 </div>
             </div>
+
             <div
                 class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -322,6 +339,9 @@
                     <a href="{{ route('show_unidad_tecnocientifica') }}"> Unidades </a>
                 </div>
             </div>
+
+            @endrole
+            @role('Superadministrador')
             <div
                 class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -335,7 +355,7 @@
                     {{-- {{ __('Profile') }} --}}
                 </div>
             </div>
-
+            @endrole
 
 
             <div
@@ -363,8 +383,18 @@
                         d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
             </div>
-            {{-- alerta --}}
-            <a href="{{ route('show_alerta_gestion') }}">
+           
+             {{-- Notificacion --}}
+             <a href="{{ route('show_notificaciones') }}">
+
+                <div
+                    class="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><circle cx="18" cy="6" r="3"></circle><path d="M18 19H5V6h8c0-.712.153-1.387.422-2H5c-1.103 0-2 .897-2 2v13c0 1.103.897 2 2 2h13c1.103 0 2-.897 2-2v-8.422A4.962 4.962 0 0 1 18 11v8z"></path></svg>
+                </div>
+            </a>
+            @role('Superadministrador|administrador')
+             {{-- alerta --}}
+             <a href="{{ route('show_alerta_gestion') }}">
 
                 <div
                     class="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
@@ -432,7 +462,9 @@
                     </svg>
                 </div>
             </a>
+            @endrole
             {{-- usuarios --}}
+            @role('Superadministrador')
             <a href="{{ route('show_usuarios') }}">
                 <div
                     class="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
@@ -444,6 +476,7 @@
                     </svg>
                 </div>
             </a>
+            @endrole
             {{-- configuraciones --}}
             <a href="{{ route('profile.show') }}">
                 <div

@@ -24,8 +24,8 @@
         <div class="flex items-center gap-x-3 px-10">
 
 
-            <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-green-400 to-green-900 border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
-                href="{{ route('show_detail_alert.gestion.report', $main_alert->id)}}">
+            <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-[#00733B] to-[#8CBF44] border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
+                href="{{ route('show_detail_alert.gestion.report', $main_alert->id) }}">
 
 
                 <span>Reporte</span>
@@ -41,7 +41,6 @@
                     </defs>
                 </svg>
             </a>
-
         </div>
     </div>
 
