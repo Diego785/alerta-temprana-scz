@@ -290,9 +290,14 @@ class MainAlerts extends Component
 
         //    $this->show_alerts = true;
         foreach ($alertsPaginated as $alert) {
-            if ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == $this->justLook || $this->justLook == 'Ver todo') {
-                $this->show_alerts = true;
+            try {
+                if ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == $this->justLook || $this->justLook == 'Ver todo') {
+                    $this->show_alerts = true;
+                }    
+            } catch (\Throwable $th) {
+                dd('No hay historial de alertas para algunas alertas');
             }
+            
         }
 
         return view('livewire.alerts.main-alerts', ['alertsP' => $alertsPaginated]);

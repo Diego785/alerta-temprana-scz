@@ -224,6 +224,7 @@
                     <tr>
                         <th>Fecha</th>
                         <th>Hora</th>
+                        <th>Fuente</th>
                         <th>Riesgo</th>
                         <th>Descripción</th>
 
@@ -233,8 +234,12 @@
                     @foreach ($alerts as $alert)
                         <tr>
                             <td style="white-space:nowrap;">{{ $alert->fecha }}</td>
-                            <td>{{ $alert->hora }}
-                            </td>
+                            <td>{{ $alert->hora }}</td>
+                            @if ($alert->unidad)
+                                <td>{{ $alert->unidad->sigla }}
+                                </td>
+                            @endif
+
                             @if ($alert->estado_id == 1)
                                 <td>Crítico</td>
                             @else

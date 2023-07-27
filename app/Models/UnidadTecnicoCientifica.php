@@ -17,4 +17,9 @@ class UnidadTecnicoCientifica extends Model
     {
         return $this->hasMany(Alerta::class, 'unidad_id', 'id');
     }
+
+    public function alerta_envio()
+    {
+        return $this->hasMany(AlertaEnvio::class, 'unidad_id', 'id');
+    }
 }

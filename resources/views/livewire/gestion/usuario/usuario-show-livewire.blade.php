@@ -23,7 +23,7 @@
             <div class="w-2/3 px-10">
 
                 <x-jet-input type="text" class="w-full" wire:model="search"
-                    placeholder="Ingrese el nombre, fecha, hora" />
+                    placeholder="Buscar..." />
 
             </div>
 

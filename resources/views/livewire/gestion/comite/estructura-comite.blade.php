@@ -21,7 +21,7 @@
 
         <div class="w-2/3 px-10">
 
-            <x-jet-input type="text" class="w-full" wire:model="search" placeholder="Ingrese el nombre, fecha, hora" />
+            <x-jet-input type="text" class="w-full" wire:model="search" placeholder="Buscar..." />
 
         </div>
 
@@ -30,7 +30,7 @@
 
 
             <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-[#00733B] to-[#8CBF44] border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
-                href="{{ route('show_detail_alert.gestion.report', $main_alert->id) }}">
+                href="#">
 
 
                 <span>Reporte</span>

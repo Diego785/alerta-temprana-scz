@@ -87,7 +87,7 @@ class AlertController extends Controller
         // Obtener datos necesarios
         $alerts = AlertaEnvio::join('alertas', 'alerta_envios.alerta_id', 'alertas.id')
             ->join('eventos', 'alertas.evento_id', 'eventos.id')
-            ->select('alertas.nombre as nombre', 'alerta_envios.fecha', 'alerta_envios.hora', 'alerta_envios.estado_id', 'alerta_envios.description')
+            ->select('alertas.nombre as nombre', 'alerta_envios.fecha', 'alerta_envios.hora', 'alerta_envios.estado_id', 'alerta_envios.description', 'alerta_envios.unidad_id')
             ->where('eventos.id', $eventId)
             ->where('alertas.id', $alertId)
             ->orderBy('fecha', 'desc')

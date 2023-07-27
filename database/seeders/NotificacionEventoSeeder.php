@@ -14,28 +14,28 @@ class NotificacionEventoSeeder extends Seeder
      */
     public function run()
     {
-        NotificacionEvento::create([
-            'id_Operador'=>'',
-            'id_Municipio'=>'',
-            'id_TipoEvento'=>'', 
-            'NotifFecha'=>'', 
-            'NotifHora'=>'', 
-            'NotifDescripcion'=>'', 
-            'NotifPuntoX'=>'',
-            'NotifPuntoY'=>'',
-            'NotifNombresApellidos'=>'',
-            'NotifTelefono'=>'',
-            'NotifFoto1'=>'',
-            'NotifFoto2'=>'',
-            'NotifFoto3'=>'',
-            'NotifFoto4'=>'',
-            'NotifFoto5'=>'',
-            'NotifVideo1'=>'',
-            'OperFechaLlamada'=>'',
-            'OperHoraLlamada'=>'',
-            'OperNombresApellidosNotificante'=>'',
-            'OperTelefonoNotificante'=>'',
-            'OperDescripcionNotificante'=>'',
-            ]);
+        // NotificacionEvento::create([
+        //     'id_Operador'=>1,
+        //     'id_Municipio'=>5,
+        //     'id_TipoEvento'=>3, 
+        //     'NotifFecha'=>'', 
+        //     'NotifHora'=>'', 
+        //     'NotifDescripcion'=>'', 
+        //     'NotifPuntoX'=>'',
+        //     'NotifPuntoY'=>'',
+        //     'NotifNombresApellidos'=>'',
+        //     'NotifTelefono'=>'',
+        //     'NotifFoto1'=>'',
+        //     'NotifFoto2'=>'',
+        //     'NotifFoto3'=>'',
+        //     'NotifFoto4'=>'',
+        //     'NotifFoto5'=>'',
+        //     'NotifVideo1'=>'',
+        //     'OperFechaLlamada'=>'',
+        //     'OperHoraLlamada'=>'',
+        //     'OperNombresApellidosNotificante'=>'',
+        //     'OperTelefonoNotificante'=>'',
+        //     'OperDescripcionNotificante'=>'',
+        //     ]);
     }
 }

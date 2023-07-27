@@ -19,6 +19,7 @@ class CreateAlertasTable extends Migration
             $table->date('fecha')->nullable();
             $table->time('hora')->nullable();
             $table->text('description');
+            $table->string('tipo')->nullable();
             $table->double('geoX')->nullable();
             $table->double('geoY')->nullable();
             $table->string('url_mapa')->nullable();

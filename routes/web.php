@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Alerts\AlertController;
+use App\Http\Controllers\Api\AlertaEnvioController;
 // use App\Http\Controllers\Api\EstadoController;
 use App\Http\Controllers\Gestion\Alert\AlertController as AlertAlertController;
 use App\Http\Controllers\Gestion\Comite\EstructuraComiteController;
@@ -29,6 +30,7 @@ Route::get('/',  [AlertController::class, 'index'])->name('show_alerts');
 Route::get('/alerts', [AlertController::class, 'index'])->name('show_alerts.index');
 Route::get('/alerts/{id}', [AlertController::class, 'showByCategory'])->name('main_alerts.index');
 Route::get('/sending-alerts/{alerta_id}/{evento_id}', [AlertController::class, 'sendingAlert'])->name('sending_alerts.index');
+Route::post('/alerts',[AlertaEnvioController::class,'addNotification'])->name('get.notification');
 
 //Testing uploading images locally
 Route::get('/upload-image', [AlertController::class, 'upload'])->name('uploading_imgs');

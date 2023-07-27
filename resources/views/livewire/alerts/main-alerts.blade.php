@@ -97,7 +97,7 @@
                             </svg>
                         </span>
 
-                        <x-jet-input wire:model="search" type="text" placeholder="ID, nombre, fecha, hora"
+                        <x-jet-input wire:model="search" type="text" placeholder="Buscar..."
                             class="block max-w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
                 </div>
@@ -172,7 +172,7 @@
                                                     <button class="flex items-center gap-x-3 focus:outline-none">
                                                         <span>Fecha y Hora</span>
 
-                                                        
+
                                                         @if ($sort == 'fecha')
                                                             @if ($direction == 'asc')
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -212,6 +212,9 @@
                                                     class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     Descripción
                                                 </th>
+                                                <th scope="col"
+                                                    class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                    Tipo</th>
                                                 <th scope="col"
                                                     class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     Estado Actual</th>
@@ -255,7 +258,7 @@
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-4 text-sm font-medium">
-                                                            <div style="white-space:inherit; width:200px;">
+                                                            <div style="white-space:inherit;">
                                                                 {{-- <h2 class="font-bold text-gray-800 dark:text-white">
                                                                     {{ $alert->id }}
                                                                 </h2> --}}
@@ -271,11 +274,15 @@
                                                                 style="display: block;
                                                                 overflow: hidden;
                                                                 text-overflow: ellipsis;
-                                                                white-space: normal;
-                                                                width: 200px;">
+                                                                white-space: normal;">
 
                                                                 {{ \Illuminate\Support\Str::limit($alert->description, 100, '...') }}
                                                             </p>
+                                                        </td>
+                                                        <td class="px-4 py-4 text-xs font-bold italic">
+
+                                                            <p class="text-gray-700 dark:text-gray-400">
+                                                                {{ $alert->tipo }}</p>
                                                         </td>
                                                         <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
                                                             @if ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->estado->nombre == 'Crítico')
@@ -302,7 +309,7 @@
 
                                                         </td>
 
-                                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                                        <td class="px-4 py-4 text-xs whitespace-nowrap">
                                                             <div class="flex items-center">
                                                                 @if (sizeOf($alert->alerta_envio->where('alerta_id', $alert->id)->last()->image) > 0)
                                                                     @foreach ($alert->alerta_envio->where('alerta_id', $alert->id)->last()->image as $img)
@@ -324,7 +331,7 @@
                                                     </div>
                                                 </td> --}}
                                                         <td class="px-4 py-4 text-sm font-medium">
-                                                            <div style="white-space:inherit; width:200px;"">
+                                                            <div style="white-space:inherit;">
 
                                                                 <p
                                                                     class="font-extralight text-gray-600 dark:text-gray-400">

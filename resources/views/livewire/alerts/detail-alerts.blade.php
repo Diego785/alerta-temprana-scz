@@ -236,9 +236,18 @@
                                                                 class="p-5 px-20 bg-alertGreen text-white pt-4 rounded-xl space-y-6 overflow-hidden transition-all duration-500 transform hover:-translate-y-6 hover:scale-10 shadow-xl hover:shadow-2xl cursor-pointer">
                                             @endif
                                             <div id="etiquetaDestino" class="px-8 flex justify-evenly items-center">
-                                                <h4 class="text-xl font-bold inline-block">
-                                                    {{ $sending_alert->estado->nombre }}
-                                                </h4>
+                                                <div class="flex flex-col items-center">
+                                                    <h4 class="text-xl font-bold inline-block">
+                                                        {{ $sending_alert->estado->nombre }}
+                                                    </h4>
+                                                    @if ($sending_alert->unidad != null)
+                                                        <h4 class="text-xs font-bold inline-block">
+                                                            Fuente: {{ $sending_alert->unidad->sigla }}
+                                                        </h4>
+                                                    @endif
+
+
+                                                </div>
                                                 <span class="inline-block mx-10"></span>
                                                 <div>
                                                     <h1 class="text-xs text-center font-extrabold whitespace-nowrap">
@@ -355,22 +364,26 @@
                                             </ul>
 
                                             <!-- component -->
-                                            <!-- post card -->
-                                            <div
-                                                class="bg-white rounded-2xl text-white p-5 text-center h-auto w-auto mx-auto">
-                                                <!--horizantil margin is just for display-->
-                                                <div class="flex items-start">
-                                                    <div>
-                                                        <p
-                                                            class="text-xs text-red-600 text-center font-extrabold mb-2">
-                                                            RECOMENDACIÓN:
-                                                        </p>
-                                                        <p class="text-black text-sm italic">
-                                                            {{ $sending_alert->recomendacion }}
-                                                        </p>
+
+                                            @if ($sending_alert->recomendacion)
+                                                <!-- post card -->
+                                                <div
+                                                    class="bg-white rounded-2xl text-white p-5 text-center h-auto w-auto mx-auto">
+                                                    <!--horizantil margin is just for display-->
+                                                    <div class="flex items-start">
+                                                        <div>
+                                                            <p
+                                                                class="text-xs text-red-600 text-center font-extrabold mb-2">
+                                                                RECOMENDACIÓN:
+                                                            </p>
+                                                            <p class="text-black text-sm italic">
+                                                                {{ $sending_alert->recomendacion }}
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif
+
                                         </div>
                                     </div>
                             </div>

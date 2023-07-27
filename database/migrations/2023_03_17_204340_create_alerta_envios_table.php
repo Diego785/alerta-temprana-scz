@@ -17,10 +17,12 @@ class CreateAlertaEnviosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('alerta_id');
             $table->unsignedBigInteger('estado_id');
+            $table->unsignedBigInteger('unidad_id')->nullable();
             $table->date('fecha');
             $table->time('hora');
             $table->text('description');
-            $table->text('recomendacion');
+            $table->text('recomendacion')->nullable();
+            $table->string('fuente')->nullable();
             $table->double('puntoX')->nullable();
             $table->double('puntoY')->nullable();
             $table->string('url_mapa')->nullable();
@@ -30,7 +32,7 @@ class CreateAlertaEnviosTable extends Migration
             $table->string('url_boletin')->nullable();
             $table->foreign('alerta_id')->references('id')->on('alertas');
             $table->foreign('estado_id')->references('id')->on('estados');
-
+            $table->foreign('unidad_id')->references('id')->on('unidad_tecnico_cientificas')->onUpdate('no action')->onDelete('no action');
         });
     }
 

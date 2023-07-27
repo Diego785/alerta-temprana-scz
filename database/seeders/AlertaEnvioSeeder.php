@@ -170,6 +170,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
+            'unidad_id' => 1,
             'fecha' => '2023-03-21',
             'hora' => '21:36:00',
             'puntoX' => -0,
@@ -205,6 +206,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
+            'unidad_id' => 3,
             'fecha' => '2023-03-22',
             'hora' => '8:19:00',
             'puntoX' => -0,
@@ -223,6 +225,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 1,
+            'unidad_id' => 3,
             'fecha' => '2023-03-22',
             'hora' => '13:03:00',
             'puntoX' => -0,
@@ -259,6 +262,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 1,
+            'unidad_id' => 1,
             'fecha' => '2023-03-22',
             'hora' => '14:01:00',
             'puntoX' => -0,
@@ -277,6 +281,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 2,
+            'unidad_id' => 1,
             'fecha' => '2023-03-23',
             'hora' => '07:05:00',
             'puntoX' => -0,
@@ -296,6 +301,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
+            'unidad_id' => 3,
             'fecha' => '2023-03-27',
             'hora' => '15:49:00',
             'puntoX' => -0,
@@ -310,6 +316,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
+            'unidad_id' => 3,
             'fecha' => '2023-03-24',
             'hora' => '06:06:00',
             'puntoX' => -0,
@@ -341,6 +348,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
+            'unidad_id' => 3,
             'fecha' => '2023-03-28',
             'hora' => '08:23:00',
             'puntoX' => -0,
@@ -356,6 +364,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 3,
+            'unidad_id' => 3,
             'fecha' => '2023-03-29',
             'hora' => '08:53:00',
             'puntoX' => -0,
@@ -370,6 +379,7 @@ class AlertaEnvioSeeder extends Seeder
         AlertaEnvio::create([
             'alerta_id' => 6,
             'estado_id' => 4,
+            'unidad_id' => 1,
             'fecha' => '2023-03-30',
             'hora' => '18:26:00',
             'puntoX' => -0,
@@ -524,5 +534,329 @@ class AlertaEnvioSeeder extends Seeder
             'description' => 'Capacitación en temas de Niveles de Alerta a los técnicos de la UGR',
             'alerta_envio_id' => 17
         ]);
+
+
+
+
+        //alerta seeder ejemplo completo incendio forestal en la chiquitanía para la alerta cabecera#7
+        AlertaEnvio::create([
+            'alerta_id' => 7,
+            'estado_id' => 4,
+            'unidad_id' => 1,
+            'fecha' => '2022-03-21',
+            'hora' => '21:36:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'Estado de Normalidad no se registra incendios  
+            Cuando aún no ha ocurrido el evento adverso se considera una situación normalidad
+            Ministerio e instancia encargada de ADE, los GAD y GAM cumplen actividades de mantenimiento, reparación de infraestructura y equipos; capacitación permanente al personal, campaña  de concientización e información  a la población.',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            // 'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
+        ]);
+        AlertaEnvio::create([
+            'alerta_id' => 7,
+            'estado_id' => 3,
+            'unidad_id' => 3,
+            'fecha' => '2022-07-05',
+            'hora' => '8:19:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.40 m . Se recomiendan tomar precaución ya que el río tiende a crecer si continúan las precipitaciones, atentos Municipios: Samaipata, Torno y La Guardia.
+            Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. 
+            Estos fenómenos meteorológicos con capacidad de daño y riesgo de interrupción momentánea de actividades cotidianas.
+            ',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
+        ]);
+
+        AlertaEnvio::create([
+            'alerta_id' => 7,
+            'estado_id' => 3,
+            'unidad_id' => 3,
+            'fecha' => '2022-07-10',
+            'hora' => '8:19:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'Se registra un incendio en el Km 13, hacienda Fenicia del propietario Edmundo Farah Paz, donde el fuego ingresó a su propiedad quemando 600 has. de los pastizales en sus potreros, atendido por el personal de la alcaldía, los bomberos voluntarios UUBR.
+            La Gobernación de Santa Cruz atiende con apoyo de imágenes satelitales  y logística al primer llamado, con equipo de primera respuesta de DIREENA -SATIF
+            Estos fenómenos meteorológicos con capacidad de daño y riesgo de interrupción momentánea de actividades cotidianas.
+            ',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            'recomendacion' => 'A los municipios realizar las reuniones de los Comités de Operaciones de Emergencias para evaluar posibles efectos de los incendios forestales en sus zonas. De igual manera, sugirió revisar los planes de emergencia y contingencias acorde a las competencias en el marco de la LEY de Gestión de Riesgos.',
+        ]);
+
+
+
+        AlertaEnvio::create([
+            'alerta_id' => 7,
+            'estado_id' => 2,
+            'unidad_id' => 3,
+            'fecha' => '2022-07-13',
+            'hora' => '07:03:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'El 13 de julio se quemó una casa en el barrio Las Asuntas provocado por la quema en un lote baldío aledaño a la casa, atendido por bomberos voluntarios UUBR-Unidad Urbana de Bomberos de Rescate y personal del municipio.
+            La Gobernación de Santa Cruz atiende con apoyo de imágenes satelitales  y logística continua, con equipo de primera respuesta de DIREENA –SATIF y personal de la DGR .
+            Existe un riesgo meteorológico  importante (Fenómenos meteorológicos no habituales  y con cierto grado de peligro para las actividades usuales)
+            Cuando se preveé  que el evento adverso ocurra y su desarrollo pueda afectar  a la población, medios de vidas, sistemas productivos, accesibilidad  a servicios básicos  y otros.
+            ',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            'recomendacion' => 'Se deben activar mecanismos  de comunicación  y difusión  a la poblaciones  susceptibles de ser afectadas por los riesgos potenciales o latentes y protocolos  a seguir en caso  de presentarse  situación de desastre y/o emergencia. Miembros del COED en los diferentes niveles deberán operativizar de manera inicial y previsoria los recursos y personal ´previsto en su planificación  operativa anual y presupuesto institucional, necesarios para la atención de acuerdo a procedimiento  regulares.',
+        ]);
+
+
+        AlertaEnvio::create([
+            'alerta_id' => 7,
+            'estado_id' => 1,
+            'unidad_id' => 3,
+            'fecha' => '2022-08-10',
+            'hora' => '14:01:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'El 10 de agosto de 2022 se registra un incendio en la comunidad de Taperita distante a 22 km de San José de Chiquitos donde ingresan 20 bomberos forestales (personal del municipio, UUBR,  y voluntarios de la zona),. el fuego arrasó con cultivos, cortinas, pastizales y vegetación. 
+            También desde julio hasta la fecha se registraron algunas quemas en terrenos y lotes baldíos en la ciudad afectando a algunas viviendas, como es el caso de una vivienda del Barrio Los Ebreos.. 
+            También en la comunidad la Victoria, Los Sotos, tajibo1  y Socori se tienen registrados focos de calor de aproximadamente hace tres días, necesitando poder desplazar bomberos a esa zona aproximadamente a 70 y 120 kms de la ciudad. Este fuego pone en riesgo las comunidades, Tajibo 1, Tajibo 2 y la colonia menonita Nueva Esperanza.
+            Se tiene conocimiento que en el municipio de Robore vecino del municipio de San José de Chiquitos, en la localidad de Aguas Caliente, Quitunuquiña y otras comunidades se está expandiendo un incendio
+            ',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            'recomendacion' => 'Se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
+        ]);
+
+        AlertaEnvio::create([
+            'alerta_id' => 7,
+            'estado_id' => 1,
+            'unidad_id' => 1,
+            'fecha' => '2023-03-22',
+            'hora' => '14:01:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 5.10 m. 
+            Debido a la presencia preocupante del evento adverso (incendio forestal), es que en fecha 8 de septiembre a convocatoria del Alcalde Municipal se conformó el COEM, Con la participación de diferentes autoridades y representantes de instituciones y comunidades.
+            ',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            'recomendacion' => 'Se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
+        ]);
+
+        AlertaEnvio::create([
+            'alerta_id' => 7,
+            'estado_id' => 4,
+            'unidad_id' => 1,
+            'fecha' => '2023-03-30',
+            'hora' => '18:26:00',
+            'puntoX' => -0,
+            'puntoY' => -0,
+            'url_mapa' => '',
+            'description' => 'No  existe ningún riesgo meteorológico ni hidrológico
+            Vuelve  a la normalidad aún no ha ocurrido el evento adverso se considera una situación normalidad
+            Se recomienda instancia encargada de ADE, los GAD y GAM cumplen actividades de mantenimiento, reparación de infraestructura y equipos; capacitación permanente al personal, campaña  de concientización e información  a la población',
+            'img_cabecera' => '',
+            'img_alerta' => '',
+            'url_boletin' => '',
+            // 'recomendacion' => 'Se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
+        ]);
+
+
+
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 3,
+        //     'fecha' => '2023-03-22',
+        //     'hora' => '8:19:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.40 m . Se recomiendan tomar precaución ya que el río tiende a crecer si continúan las precipitaciones, atentos Municipios: Samaipata, Torno y La Guardia.
+        //     Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. 
+        //     Estos fenómenos meteorológicos con capacidad de daño y riesgo de interrupción momentánea de actividades cotidianas.
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias.',
+        // ]);
+
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 1,
+        //     'fecha' => '2023-03-22',
+        //     'hora' => '13:03:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'video' => '/storage/eventos/inundaciones/videos/video3.mp4',
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 4.20.m Se recomiendan al Municipio actuar con su plan de contingencia 
+        //     “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
+        //     El río Piraí y sus afluentes secundarios ascensos con posibles desbordes en las poblaciones de y comunidades cercanas de los Municipios: Samaipata, Torno y la Guardia 
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
+        // ]);
+
+        // // AlertaEnvio::create([
+        // //     'alerta_id' => 6,
+        // //     'estado_id' => 1,
+        // //     'fecha' => '2023-03-22',
+        // //     'hora' => '13:03:00',
+        // //     'puntoX' => -0,
+        // //     'puntoY' => -0,
+        // //     'url_mapa' => '',
+        // //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 5.10 m. 
+        // //     “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
+        // //     El río Piraí y sus afluentes secundarios ascensos con posibles desbordes en las poblaciones de y comunidades cercanas de los Municipios: Samaipata, Torno y la Guardia 
+        // //     ',
+        // //     'img_cabecera' => '',
+        // //     'img_alerta' => '',
+        // //     'url_boletin' => '',
+        // //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
+        // // ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 1,
+        //     'fecha' => '2023-03-22',
+        //     'hora' => '14:01:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'video' => '/storage/eventos/inundaciones/videos/video2.mp4',
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 5.10 m. 
+        //     “El rojo quiere decir que hay un riesgo meteorológico e hidrológico, es extremo, es un fenómeno no habitual, de intensidad fuerte, excepcional y con un nivel de riesgo muy alto para la población”, 
+        //     El río Piraí y sus afluentes secundarios ascensos con posibles desbordes en las poblaciones de y comunidades cercanas de los Municipios: Samaipata, Torno y la Guardia 
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, se deben activar los COE en los diferentes niveles y ejecutar  los planes de contingencia y recomendar a las  diferentes instancias  responsables  de las declatorias de desastres y/o emergencia  de la declaratoria de la emergencia.',
+        // ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 2,
+        //     'fecha' => '2023-03-23',
+        //     'hora' => '07:05:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'video' => '/storage/eventos/inundaciones/videos/video1.mp4',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.66 m. 
+        //     Existe un riesgo meteorológico importante (Fenómenos meteorológicos no habituales  y con cierto grado de peligro para las actividades usuales)
+        //     Se preveé  que el evento adverso ocurra y su desarrollo pueda afectar  a la población, medos de vidas, sistemas productivos, accesibilidad  a servicios básicos  y otros.
+        //     El río Piraí y sus afluentes secundarios ascensos con posibles desbordes en las poblaciones de y comunidades cercanas de los Municipios: Samaipata, Torno y la Guardia .
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se  recomienda  que  se deben activar mecanismos  de comunicación  y difusión  a la poblaciones  susceptibles de ser afectadas por los riesgos potenciales o latentes y protocolos  a seguir en caso  en caso de presentarse  situación de desastre y/o emergencia. Mienbros del COED en los diferentes niveles deberán operativizar de manera inicial y previsoria los recursos y personal ´previsto en su planificación  operativa anual y presupuesto institucional, necesarios para la atención de acuerdo a procedimiento  regulares.',
+        // ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 3,
+        //     'fecha' => '2023-03-27',
+        //     'hora' => '15:49:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 1.33 m . Se recomiendan tomar precaución ya que continuamos con las precipitaciones  y los ríos se mantienen hasta esta hora , atentos Municipios: Samaipata, Torno y La Guardia.',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a estas horas de la mañana  a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. ',
+        // ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 3,
+        //     'fecha' => '2023-03-24',
+        //     'hora' => '06:06:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 2.27 m . Se recomiendan tomar precaución ya que el río tiende a crecer río si continúan las precipitaciones, atentos Municipios: Samaipata, Torno y La Guardia.
+        //     Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. 
+        //     Estos fenómenos meteorológicos con capacidad de daño y riesgo de interrupción momentánea de actividades cotidianas.
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda  a los  COED de cada nivel territorial debe reunirse para evaluar los posibles efectos. Ministerios e instancias encargadas de ADE , los GAD Y GAM deben revisar  y activar los planes de contingencia de acuerdo a metodología  y protocolos  establecidos, según sus competencias',
+        // ]);
+        // // AlertaEnvio::create([
+        // //     'alerta_id' => 6,
+        // //     'estado_id' => 3,
+        // //     'fecha' => '2023-03-22',
+        // //     'hora' => '13:03:00',
+        // //     'puntoX' => -0,
+        // //     'puntoY' => -0,
+        // //     'url_mapa' => '',
+        // //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 1.33 m . Se recomiendan tomar precaución ya que continuamos con las precipitaciones  y los ríos se mantienen hasta esta hora , atentos Municipios: Samaipata, Torno y La Guardia.',
+        // //     'img_cabecera' => '',
+        // //     'img_alerta' => '',
+        // //     'url_boletin' => '',
+        // //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a estas horas de la mañana  a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. ',
+        // // ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 3,
+        //     'fecha' => '2023-03-28',
+        //     'hora' => '08:23:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 1.14 m . Se recomiendan tomar precaución ya que continuamos con las precipitaciones  y los ríos se mantienen hasta esta hora , atentos Municipios: Samaipata, Torno y La Guardia.',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a estas horas de la mañana  a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. ',
+        // ]);
+
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 3,
+        //     'fecha' => '2023-03-29',
+        //     'hora' => '08:53:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua  de 0.97m . Se recomiendan tomar precaución ya que continuamos con las precipitaciones  y los ríos se mantienen hasta esta hora , atentos Municipios: Samaipata, Torno y La Guardia.',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda a los Municipios que puedan ser afectados, difundir la Alerta a estas horas de la mañana  a través de los medios de comunicación, redes sociales, radios, wasaps, teléfono y otros. ',
+        // ]);
+        // AlertaEnvio::create([
+        //     'alerta_id' => 6,
+        //     'estado_id' => 4,
+        //     'fecha' => '2023-03-30',
+        //     'hora' => '18:26:00',
+        //     'puntoX' => -0,
+        //     'puntoY' => -0,
+        //     'url_mapa' => '',
+        //     'description' => 'La cuenca Alta del Río Piraí encontrándose en la estación de la Angostura  con un nivel  de agua normal  de 0.84 m en la estación de la Angostura,  Municipios: Samaipata, Torno y La Guardia.
+
+        //     No  existe ningún riesgo meteorológico ni hidrológico
+        //     Vuelve  a la normalidad aún no ha ocurrido el evento adverso se considera una situación normalidad
+        //     ',
+        //     'img_cabecera' => '',
+        //     'img_alerta' => '',
+        //     'url_boletin' => '',
+        //     'recomendacion' => 'Se recomienda instancia encargada de ADE, los GAD y GAM cumplen actividades de mantenimiento, reparación de infraestructura y equipos; capacitación permanente al personal, campaña  de concientización e información  a la población',
+        // ]);
     }
 }

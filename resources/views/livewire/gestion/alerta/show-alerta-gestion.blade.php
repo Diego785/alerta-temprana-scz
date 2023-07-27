@@ -20,13 +20,30 @@
 
         <div class="w-2/3 px-10">
 
-            <x-jet-input type="text" class="w-full" wire:model="search" placeholder="Ingrese el nombre, fecha, hora" />
+            <x-jet-input type="text" class="w-full" wire:model="search" placeholder="Buscar..." />
 
         </div>
 
 
         <div class="flex items-center gap-x-3 px-10">
+            <form method="post" action="{{ route('get.notification') }}">
+                @csrf
 
+
+                <button
+                    class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-red-800 to-red-400 border-red-300 rounded-full px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
+                    type="submit">
+
+                    <span>Notificar</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-5" width="20" height="20"
+                        viewBox="0 0 20 20" fill="none">
+                        <path
+                            d="M12 22a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22zm7-7.414V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v4.586l-1.707 1.707A.996.996 0 0 0 3 17v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-1a.996.996 0 0 0-.293-.707L19 14.586z"
+                            stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                </button>
+            </form>
 
             <a class="flex items-center justify-center w-40 grado border-2 bg-gradient-to-t from-[#00733B] to-[#8CBF44] border-green-300 rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-blue-600 hover:text-black"
                 href="{{ route('show_alert.gestion.report') }}">
@@ -168,6 +185,35 @@
                                                     <path d="M9 10h2v8H9zm4 0h2v8h-2z"></path>
                                                 </svg>
                                             </a>
+                                            {{-- <a class="font-bold ml-2 text-white rounded cursor-pointer bg-[#00733B] hover:bg-green-500 py-2 px-2"
+                                                wire:click">
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                </svg>
+                                            </a> --}}
+                                            <form method="post" action="{{ route('get.notification') }}">
+                                                @csrf
+
+                                                <input type="hidden" name="alert" value="{{ $alert->nombre }}">
+                                                <button
+                                                    class="font-bold ml-2 text-white rounded cursor-pointer bg-[#00733B] hover:bg-green-500 py-2 px-2"
+                                                    type="submit">
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                                        height="20" fill="none" viewBox="0 0 24 24"
+                                                        stroke="currentColor">
+                                                        <path
+                                                            d="M12 22a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22zm7-7.414V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v4.586l-1.707 1.707A.996.996 0 0 0 3 17v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-1a.996.996 0 0 0-.293-.707L19 14.586z"
+                                                            stroke="currentColor" stroke-width="1.67"
+                                                            stroke-linecap="round" stroke-linejoin="round">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+                                            </form>
                                         </div>
                                     </td>
 
@@ -201,7 +247,8 @@
 
             <div class="mb-4">
                 <x-jet-label value="Nombre" />
-                <x-jet-input type="text" class="w-full" wire:model.defer="nombre" placeholder='Escriba el nombre' />
+                <x-jet-input type="text" class="w-full" wire:model.defer="nombre"
+                    placeholder='Escriba el nombre' />
                 <x-jet-input-error for="nombre" />
             </div>
 

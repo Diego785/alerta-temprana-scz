@@ -247,7 +247,7 @@
                     Dashboard
                 </div>
             </div>
-            <a href="{{ route('show_notificaciones') }}">
+            {{-- <a href="{{ route('show_notificaciones') }}">
                 <div
                     class="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><circle cx="18" cy="6" r="3"></circle><path d="M18 19H5V6h8c0-.712.153-1.387.422-2H5c-1.103 0-2 .897-2 2v13c0 1.103.897 2 2 2h13c1.103 0 2-.897 2-2v-8.422A4.962 4.962 0 0 1 18 11v8z"></path></svg>
@@ -255,7 +255,7 @@
                         Notificaciones
                     </div>
                 </div>
-            </a>
+            </a> --}}
         
             @role('Superadministrador|administrador')
 
@@ -385,13 +385,13 @@
             </div>
            
              {{-- Notificacion --}}
-             <a href="{{ route('show_notificaciones') }}">
+             {{-- <a href="{{ route('show_notificaciones') }}">
 
                 <div
                     class="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><circle cx="18" cy="6" r="3"></circle><path d="M18 19H5V6h8c0-.712.153-1.387.422-2H5c-1.103 0-2 .897-2 2v13c0 1.103.897 2 2 2h13c1.103 0 2-.897 2-2v-8.422A4.962 4.962 0 0 1 18 11v8z"></path></svg>
                 </div>
-            </a>
+            </a> --}}
             @role('Superadministrador|administrador')
              {{-- alerta --}}
              <a href="{{ route('show_alerta_gestion') }}">
