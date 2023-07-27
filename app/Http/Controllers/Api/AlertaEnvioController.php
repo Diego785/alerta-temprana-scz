@@ -57,14 +57,13 @@ class AlertaEnvioController extends Controller
         if($alert == ''){
             $alert = 'Revise las alertas más recientes y tome sus precauciones.';
         }
-        $qr = $request->qr;
         $url = 'https://fcm.googleapis.com/fcm/send';
         $body = [
             'notification' => [
                 'body' => $alert,
                 'title' => '¡Nueva Alerta!'
             ],
-            'to' => 'dmQI9mZvQ_KECEpwXbTeZo:APA91bEuZyDJ_Mi3tmHIdsyc0XDlPxlSQzzczqLQfvqcWhWT7ZpBjqnK57GzzVx5gMC_RcqKfjBqJij4M3-CT67j5zCEcReAKSUOmayG7a6H1LHvG7sPs87LUNUIeBCRdJNY8Fed_YN3'
+            'to' => 'eKPBsjG6QA2s838AbxkZ3V:APA91bFjnP78Y3xN1vHvxkgmXSFlprVOnbowbJFTUN6xEGRF2jhmc3a7mhlvDXR0l12DPKubGTlu93GAW-Hh_PlPbSWtLb0GsVWnpTc0uPmOExoJAceE6oMRjgEX6JB5vga4x4_0C1R4'
         ];
         $header = [
             'Authorization' => 'key=AAAA3OjvR2I:APA91bF9jchyddPTJgOL7dLFaOgT1PF0kS5sR8NDiRAie16ORofUOLQwmPqym3GWdDrLywR3iXWM5az6bEOToXGWSp-fq7EELHeEVLPGBzKPZD26R0bdSgNW5PM5TkJdcpodW39U77FL'

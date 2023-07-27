@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'name' => 'Diego Hurtado Vargas',
             'email' => 'Diego@gmail.com',
             'password' => bcrypt('12345678'),
-        ])->assignRole($administradorRole);
+        ])->assignRole($superadministradorRole);
 
         User::create([
             'name' => 'Melanie Daisy Yupanqui Larico',

@@ -70,7 +70,7 @@ Route::middleware([
     'verified'
 ])->group(function () {   
     
-    Route::get('/gestion/show-notificacion', [NotificacionController::class, 'show'])->name('show_notificaciones');
+    Route::get('/gestion/show-notificacion', [AlertAlertController::class, 'show'])->name('show_notificaciones');
     Route::get('/gestion/create-notificacion', [NotificacionController::class, 'create'])->name('create_notificaciones'); 
 
     //----------------------------------------------- REPORTES ------------------------------------//

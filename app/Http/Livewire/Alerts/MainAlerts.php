@@ -113,7 +113,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Crítico') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 1)
@@ -131,7 +131,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Muy alto') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 2)
@@ -149,7 +149,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Moderado') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo','alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 3)
@@ -166,7 +166,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Normal') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 4)
@@ -201,7 +201,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Crítico') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 1)
@@ -219,7 +219,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Muy alto') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo','alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 2)
@@ -237,7 +237,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Moderado') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 3)
@@ -254,7 +254,7 @@ class MainAlerts extends Component
                         ->paginate($this->perPage);
                 } else if ($this->justLook == 'Normal') {
                     $alertsPaginated = Alerta::join('alerta_envios', 'alerta_envios.alerta_id', 'alertas.id')
-                        ->select('alertas.id', 'alertas.nombre', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
+                        ->select('alertas.id', 'alertas.nombre', 'alertas.tipo', 'alertas.fecha', 'alertas.hora', 'alertas.evento_id', 'alertas.description', 'alertas.unidad_id')
 
                         ->where('alertas.evento_id', $this->event->id)
                         ->where('alerta_envios.estado_id', 4)
