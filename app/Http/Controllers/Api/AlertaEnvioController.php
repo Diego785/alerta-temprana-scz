@@ -63,7 +63,7 @@ class AlertaEnvioController extends Controller
                 'body' => $alert,
                 'title' => '¡Nueva Alerta!'
             ],
-            'to' => 'eKPBsjG6QA2s838AbxkZ3V:APA91bFjnP78Y3xN1vHvxkgmXSFlprVOnbowbJFTUN6xEGRF2jhmc3a7mhlvDXR0l12DPKubGTlu93GAW-Hh_PlPbSWtLb0GsVWnpTc0uPmOExoJAceE6oMRjgEX6JB5vga4x4_0C1R4'
+            'to' => 'f-J07sqESWOk_h903I5jUs:APA91bEASR7L3U2NYnNq0JiXlJS3idDHzSeQbCi5cK8gLvtnNB26jCBt5xKlQxg4r3T5ySXHweQCdRB13sR2NnyIVCr5zfEC7DQjriJXWNWi-44Pn7dn2_C2tC66KG8g6TArVHGQEfJz'
         ];
         $header = [
             'Authorization' => 'key=AAAA3OjvR2I:APA91bF9jchyddPTJgOL7dLFaOgT1PF0kS5sR8NDiRAie16ORofUOLQwmPqym3GWdDrLywR3iXWM5az6bEOToXGWSp-fq7EELHeEVLPGBzKPZD26R0bdSgNW5PM5TkJdcpodW39U77FL'
